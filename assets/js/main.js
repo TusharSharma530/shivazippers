@@ -319,26 +319,6 @@
 			prevEl: ".gallery-button-prev",
 		},
 		speed: 800,
-		breakpoints: {
-			'1400': {
-				slidesPerView: 5,
-			},
-			'1200': {
-				slidesPerView: 5,
-			},
-			'992': {
-				slidesPerView: 3,
-			},
-			'768': {
-				slidesPerView: 3,
-			},
-			'576': {
-				slidesPerView: 2,
-			},
-			'0': {
-				slidesPerView: 2,
-			},
-		},
 	});
 
 	// Testimonial Slider Js
