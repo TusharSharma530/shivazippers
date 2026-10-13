@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 define('BASE_PATH',"//localhost/shivazippers/");
-define('ADMIN_PATH', '//localhost/manager/');
+define('ADMIN_PATH', '//localhost/shivazippers/manager/');
 define('DB_HOST', 'localhost');
 define('DB_NAME','shivazip_database');
 define('DB_USER','root');
