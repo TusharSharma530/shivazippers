@@ -4,7 +4,7 @@ ini_set('display_errors', 0);
 define('BASE_PATH',"//localhost/shivazippers/");
 define('ADMIN_PATH', '//localhost/shivazippers/manager/');
 define('DB_HOST', 'localhost');
-define('DB_NAME','shivazip_database');
+define('DB_NAME','shivazippers');
 define('DB_USER','root');
 define('DB_PASSWORD','');
 
