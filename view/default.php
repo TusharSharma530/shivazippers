@@ -721,7 +721,7 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
 
             <div class="col-lg-5">
                 <div class="home-global__map">
-                    <img src="assets/img/world-map.png" alt="World map - exporting to 30+ countries" loading="lazy">
+                    <img src="map-bg.png" alt="World map - exporting to 30+ countries" loading="lazy">
                 </div>
             </div>
 
