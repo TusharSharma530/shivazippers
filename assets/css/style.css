@@ -1345,32 +1345,67 @@
     max-width: 650px;
 }
 
-.home-applications__nav {
+/* Slider navigation brought down to bottom alignment of header */
+.home-applications__aside {
     display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.home-applications .bd-gallery__navigatin,
+.home-applications .home-applications__nav {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    display: flex !important;
+    align-items: center;
     gap: 12px;
 }
 
-.home-applications__nav button {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1px solid var(--sz-teal-border);
-    background: #ffffff;
-    color: var(--sz-primary);
-    display: flex;
+.home-applications .home-applications__nav button,
+.home-applications .bd-gallery__navigatin button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50% !important;
+    border: 1.5px solid var(--sz-teal-border) !important;
+    background: #ffffff !important;
+    color: var(--sz-primary) !important;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
     font-size: 16px;
+    cursor: pointer;
     box-shadow: 0 4px 14px rgba(1, 78, 68, 0.08);
     transition: var(--sz-transition);
 }
 
-.home-applications__nav button:hover {
-    background: var(--sz-primary);
-    border-color: var(--sz-primary);
-    color: #ffffff;
+.home-applications .home-applications__nav button::after,
+.home-applications .bd-gallery__navigatin button::after {
+    display: none !important;
+}
+
+.home-applications .home-applications__nav button i,
+.home-applications .bd-gallery__navigatin button i {
+    color: var(--sz-primary) !important;
+    transition: var(--sz-transition);
+}
+
+.home-applications .home-applications__nav button:hover,
+.home-applications .bd-gallery__navigatin button:hover {
+    background: var(--sz-primary) !important;
+    border-color: var(--sz-primary) !important;
+    color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(1, 78, 68, 0.22);
+    box-shadow: 0 8px 20px rgba(1, 78, 68, 0.22);
+}
+
+.home-applications .home-applications__nav button:hover i,
+.home-applications .bd-gallery__navigatin button:hover i {
+    color: #ffffff !important;
 }
 
 /* Application Card */
@@ -1495,12 +1530,15 @@
     font-size: 18px;
 }
 
+.home-applications__note-txt p,
 .home-applications__note-txt h5 {
     font-size: 15.5px;
     line-height: 1.85;
-    font-weight: 500;
+    font-weight: 450;
+    text-transform: none !important;
     color: var(--sz-dark);
     margin: 0;
+    text-align: left;
 }
 
 
