@@ -81,10 +81,44 @@
     <img src="assets/img/banner-bottom.png" class="afterbnr-zip" alt="zipper decorative divider">
 </section>
 
+<section class="home-impact-strip">
+    <div class="container-fluid">
+        <div class="home-impact-grid">
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-business-time"></i></div>
+                <div class="home-impact-txt">
+                    <strong>40+</strong>
+                    <span>Years of Manufacturing Heritage</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-globe"></i></div>
+                <div class="home-impact-txt">
+                    <strong>30+</strong>
+                    <span>Countries Global Footprint</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <div class="home-impact-txt">
+                    <strong>200+</strong>
+                    <span>Satisfied Enterprise Clients</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="home-impact-txt">
+                    <strong>100%</strong>
+                    <span>Batch Inspection &amp; QA Compliance</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- ==========================================================================
      SECTION 2: TRUST & STRATEGIC ADVANTAGES (Outperforming Olympic Zipper)
      ========================================================================== -->
-<section class="home-trust">
+<!-- <section class="home-trust">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -119,14 +153,14 @@
             <?php } ?>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- ==========================================================================
      SECTION 3: HERITAGE & MANUFACTURING EXCELLENCE (Quality before Quantity)
      ========================================================================== -->
 <section class="widget-excellence">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-stretch">
             <div class="col-lg-5">
                 <div class="widget-excellence__head">
                     <span class="widget-excellence__eyebrow"><?=$aboutrow['subtitle'];?></span>
@@ -165,7 +199,16 @@
             
             <div class="col-lg-7">
                 <div class="widget-excellence__content">
-                    <?=$aboutrow['desc'];?>
+                    <?php $excDesc = trim($aboutrow['desc']); ?>
+                    <?php if($excDesc !== ''){ ?>
+                    <div class="excellence-desc" id="excellenceDesc">
+                        <?=$excDesc;?>
+                    </div>
+                    <button type="button" class="excellence-desc__toggle" id="excellenceDescToggle" aria-expanded="false" aria-controls="excellenceDesc">
+                        <span class="excellence-desc__toggle-txt">Read More</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <?php } ?>
                     
                     <!-- Asymmetrical Milestone Trio -->
                     <div class="excellence-stat-trio">
@@ -188,22 +231,57 @@
     </div>
 </section>
 
+<script>
+(function () {
+    var btn = document.getElementById('excellenceDescToggle');
+    var box = document.getElementById('excellenceDesc');
+    if (!btn || !box) return;
+
+    var label = btn.querySelector('.excellence-desc__toggle-txt');
+
+    btn.addEventListener('click', function () {
+        var isOpen = box.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (label) label.textContent = isOpen ? 'Read Less' : 'Read More';
+
+        /* Keep the max-height transition smooth in both directions */
+        if (isOpen) {
+            box.style.maxHeight = box.scrollHeight + 'px';
+            var afterOpen = function () {
+                box.style.maxHeight = 'none';
+                box.removeEventListener('transitionend', afterOpen);
+            };
+            box.addEventListener('transitionend', afterOpen);
+        } else {
+            box.style.maxHeight = box.scrollHeight + 'px';
+            void box.offsetHeight; /* force reflow so it animates closed */
+            box.style.maxHeight = '';
+        }
+    });
+})();
+</script>
+
 <!-- ==========================================================================
      SECTION 4: WHAT WE MANUFACTURE / PRODUCT SHOWCASE
      ========================================================================== -->
 <?php
-    $homeproductsql = mysqli_query($con, "SELECT p.*, c.url AS caturl, c.`order` AS catorder FROM `products` AS p INNER JOIN `category` AS c ON c.id = p.category WHERE p.status = 1 AND c.status = 1 ORDER BY c.`order` ASC, p.`order` ASC, p.id ASC LIMIT 7");
+    $homeproductsql = mysqli_query($con, "SELECT p.*, c.url AS caturl, c.`order` AS catorder FROM `products` AS p INNER JOIN `category` AS c ON c.id = p.category WHERE p.status = 1 AND c.status = 1 ORDER BY c.`order` ASC, p.`order` ASC, p.id ASC LIMIT 6");
     if($homeproductsql && mysqli_num_rows($homeproductsql) > 0){
 ?>
 <section class="home-products">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
                 <div class="home-products__head">
                     <span class="home-products__eyebrow">Precision Engineered Solutions</span>
                     <h2 class="home-products__title">Our Manufactured Range</h2>
-                    <p class="home-products__lead">A comprehensive spectrum of coil zippers, LFC &amp; CFC zippers, and specialized sliders &ndash; engineered to your exact dimension, tensile specification, color and finish.</p>
                 </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a class="home-products__btn" href="<?=$path;?>our-products" title="View All Products">
+                    <span>View All Products</span> <i class="far fa-long-arrow-right"></i>
+                </a>
             </div>
         </div>
         <div class="row home-products__grid">
@@ -212,30 +290,18 @@
                     $homeprochildurl = __getChildCategoryName($con, $homeproductsrow['childcategory']);
                     $homeproducturl = ($homeproductsrow['caturl'] && $homeprochildurl) ? $path.'our-products/'.$homeproductsrow['caturl'].'/'.$homeprochildurl : $path.'our-products';
             ?>
-            <div class="col-6 col-md-4 col-lg-3">
+            <div class="col-6 col-md-4 col-xl-2">
                 <a class="home-product__card" href="<?=$homeproducturl;?>" title="<?=$homeproductsrow['title'];?>">
                     <div class="home-product__img">
-                        <span class="home-product__badge">In-House QA</span>
                         <img src="<?=$path.$homeproductsrow['file'];?>" alt="<?=$homeproductsrow['title'];?>" loading="lazy">
                     </div>
                     <div class="home-product__body">
                         <h4><?=$homeproductsrow['title'];?></h4>
-                        <span class="home-product__link">View Details <i class="far fa-long-arrow-right"></i></span>
+                        <span class="home-product__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
                     </div>
-                    <span class="home-product__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
                 </a>
             </div>
             <?php } ?>
-            
-            <!-- 8th Feature Card: Explore Complete Range -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <a class="home-product__all" href="<?=$path;?>our-products" title="View All Products">
-                    <span class="home-product__all-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
-                    <h4>Explore Complete Range</h4>
-                    <p>Coil Zippers, Sliders &amp; Specialized Fasteners built to bespoke industrial standards.</p>
-                    <span class="home-product__all-btn">View All Products <i class="far fa-long-arrow-right"></i></span>
-                </a>
-            </div>
         </div>
     </div>
 </section>
@@ -244,7 +310,7 @@
 <!-- ==========================================================================
      SECTION 5: MODERN INFRASTRUCTURE & TECHNOLOGY BANNER
      ========================================================================== -->
-<section class="home-infra">
+<!-- <section class="home-infra">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-12">
@@ -272,80 +338,17 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- ==========================================================================
      SECTION 6: AUTHORITY IMPACT METRICS STRIP (Outclassing Competitors)
      ========================================================================== -->
-<section class="home-impact-strip">
-    <div class="container-fluid">
-        <div class="home-impact-grid">
-            <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-business-time"></i></div>
-                <div class="home-impact-txt">
-                    <strong>40+</strong>
-                    <span>Years of Manufacturing Heritage</span>
-                </div>
-            </div>
-            <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-globe"></i></div>
-                <div class="home-impact-txt">
-                    <strong>30+</strong>
-                    <span>Countries Global Footprint</span>
-                </div>
-            </div>
-            <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-                <div class="home-impact-txt">
-                    <strong>200+</strong>
-                    <span>Satisfied Enterprise Clients</span>
-                </div>
-            </div>
-            <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="home-impact-txt">
-                    <strong>100%</strong>
-                    <span>Batch Inspection &amp; QA Compliance</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- ==========================================================================
      SECTION 7: CLIENTELE / BRANDS WE CATER
      ========================================================================== -->
-<div class="clientsection">
-    <div class="container-fluid text-center">
-        <h5 class="animated fadeInUp">Who We Work With</h5>
-        <h3 class="animated fadeInUp"><span>Brands We Cater</span></h3>
-        <div class="home-brands__slider-wrap">
-            <button class="brand-button-prev brand-nav" type="button" aria-label="Previous brands">
-                <i class="far fa-long-arrow-left"></i>
-            </button>
-            <div class="swiper-container bd-brand-active home-brands__slider">
-                <div class="swiper-wrapper">
-                    <?php
-                        if($brandsql && mysqli_num_rows($brandsql) > 0){
-                            while($brandsrow = mysqli_fetch_array($brandsql)){
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="brand-logo">
-                            <img src="<?=$path.$brandsrow['file'];?>" alt="<?=$brandsrow['title'];?>" loading="lazy">
-                        </div>
-                    </div>
-                    <?php 
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-            <button class="brand-button-next brand-nav" type="button" aria-label="Next brands">
-                <i class="far fa-long-arrow-right"></i>
-            </button>
-        </div>
-    </div>
-</div>
+
 
 <!-- ==========================================================================
      SECTION 8: APPLICATIONS SHOWCASE (Where Our Zippers Perform)
@@ -358,7 +361,6 @@
                     <div class="home-applications__head-text">
                         <span class="home-applications__eyebrow">Versatility &amp; Performance</span>
                         <h2 class="home-applications__title">Applications Across Diverse Industries</h2>
-                        <p class="home-applications__lead">From fashion apparel and luxury footwear to heavy luggage, outdoor gear, and specialized industrial covers &ndash; our coil zippers and sliders deliver seamless operation in every demanding environment.</p>
                     </div>
                     <!-- Slider navigation -->
                     <div class="home-applications__aside">
@@ -439,7 +441,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="home-values__head">
-                    <span class="home-values__eyebrow">Our Core Principles</span>
+                    <!-- <span class="home-values__eyebrow">Our Core Principles</span> -->
                     <h2 class="home-values__title">The Standards That Guide Every Zipper We Make</h2>
                 </div>
             </div>
@@ -482,19 +484,27 @@
 <section class="home-philosophy">
     <div class="container-fluid">
         <div class="row align-items-center home-philosophy__grid">
-            <div class="col-md-12 col-lg-5">
+            <div class="col-md-12 col-lg-6">
                 <div class="home-philosophy__media">
                     <span class="home-philosophy__frame" aria-hidden="true"></span>
                     <img src="<?=$path.$philosophyrow['file'];?>" alt="<?=$philosophyrow['title'];?>" class="home-philosophy__img" loading="lazy">
                     <span class="home-philosophy__quote" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></span>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-7">
+            <div class="col-md-12 col-lg-6">
                 <div class="home-philosophy__content">
                     <span class="home-philosophy__eyebrow">Our Philosophy</span>
                     <h2 class="home-philosophy__title"><?=$philosophyrow['title'];?></h2>
+                    <?php
+                    // Home page ke liye description ka short excerpt (limited words)
+                    $philosophyText   = trim(strip_tags($philosophyrow['sdesc']));
+                    $philosophyWords  = preg_split('/\s+/u', $philosophyText, -1, PREG_SPLIT_NO_EMPTY);
+                    $philosophyLimit  = 80; // itne words homepage par dikhayenge
+                    $philosophyShort  = implode(' ', array_slice($philosophyWords, 0, $philosophyLimit));
+                    if(count($philosophyWords) > $philosophyLimit){ $philosophyShort .= '...'; }
+                    ?>
                     <div class="home-philosophy__text">
-                        <?=$philosophyrow['sdesc'];?>
+                        <p><?=$philosophyShort;?></p>
                     </div>
                     <a class="home-philosophy__btn" href="<?=$path;?>company-information/<?=$philosophyrow['url'];?>" title="<?=$philosophyrow['title'];?>">
                         <span>Read More</span> <i class="far fa-long-arrow-right"></i>
@@ -511,19 +521,27 @@
 <section class="home-syndicate">
     <div class="container-fluid">
         <div class="row align-items-center home-syndicate__grid">
-            <div class="col-lg-6 col-xl-7">
+            <div class="col-lg-6 col-xl-6">
                 <div class="home-syndicate__content">
                     <span class="home-syndicate__eyebrow">Global Footprint</span>
                     <h2 class="home-syndicate__title"><?=$sindicaterow['title'];?></h2>
+                    <?php
+                    // Home page ke liye description ka short excerpt (limited words)
+                    $syndicateText   = trim(strip_tags(str_replace('text-white', '', $sindicaterow['sdesc'])));
+                    $syndicateWords  = preg_split('/\s+/u', $syndicateText, -1, PREG_SPLIT_NO_EMPTY);
+                    $syndicateLimit  = 80; // itne words homepage par dikhayenge
+                    $syndicateShort  = implode(' ', array_slice($syndicateWords, 0, $syndicateLimit));
+                    if(count($syndicateWords) > $syndicateLimit){ $syndicateShort .= '...'; }
+                    ?>
                     <div class="home-syndicate__text">
-                        <?=str_replace('text-white', '', $sindicaterow['sdesc']);?>
+                        <p><?=$syndicateShort;?></p>
                     </div>
                     <a class="home-syndicate__btn" href="<?=$path;?>company-information/<?=$sindicaterow['url'];?>" title="<?=$sindicaterow['title'];?>">
                         <span>Explore Global Network</span> <i class="far fa-long-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-5">
+            <div class="col-lg-6 col-xl-6">
                 <div class="home-syndicate__media">
                     <span class="home-syndicate__ring" aria-hidden="true"></span>
                     <span class="home-syndicate__sheet" aria-hidden="true"></span>
@@ -562,8 +580,16 @@
                 <div class="home-india__content">
                     <span class="home-india__eyebrow">Made In India</span>
                     <h2 class="home-india__title"><?=$gtbindiarow['title'];?></h2>
+                    <?php
+                    // Home page ke liye description ka short excerpt (limited words)
+                    $indiaText   = trim(strip_tags($gtbindiarow['sdesc']));
+                    $indiaWords  = preg_split('/\s+/u', $indiaText, -1, PREG_SPLIT_NO_EMPTY);
+                    $indiaLimit  = 80; // itne words homepage par dikhayenge
+                    $indiaShort  = implode(' ', array_slice($indiaWords, 0, $indiaLimit));
+                    if(count($indiaWords) > $indiaLimit){ $indiaShort .= '...'; }
+                    ?>
                     <div class="home-india__text">
-                        <?=$gtbindiarow['sdesc'];?>
+                        <p><?=$indiaShort;?></p>
                     </div>
                     <a class="home-india__btn" href="<?=$path;?>company-information/<?=$gtbindiarow['url'];?>" title="<?=$gtbindiarow['title'];?>">
                         <span>Know More</span> <i class="far fa-long-arrow-right"></i>
@@ -575,8 +601,9 @@
 </section>
 <?php } ?>
 
+<?php /*
 <!-- ==========================================================================
-     SECTION 11: TESTEX CERTIFICATION & INDUSTRY ACCREDITATIONS
+     SECTION 11: TESTEX CERTIFICATION & INDUSTRY ACCREDITATIONS (COMMENTED OUT)
      ========================================================================== -->
 <section class="home-certified">
     <div class="container">
@@ -666,9 +693,127 @@
         </div>
     </div>
 </section>
+*/ ?>
 
 <!-- ==========================================================================
-     SECTION 12: HIGH-CONVERSION ENQUIRY & SAMPLING CONSULTATION
+     SECTION 11B: GLOBAL PRESENCE & CERTIFICATIONS (WORLD MAP + BACKEND CERTS)
+     ========================================================================== -->
+<?php
+// Global Presence button URL (Global Footprint page, na mile to contact page)
+$globalPresenceUrl = !empty($sindicaterow['url']) ? $path.'company-information/'.$sindicaterow['url'] : $path.'contact-us';
+
+// Certification images backend (admin) se
+$homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WHERE status=1 LIMIT 6") : false;
+?>
+<section class="home-global">
+    <div class="container-fluid">
+        <div class="row align-items-center home-global__grid">
+            <div class="col-lg-4">
+                <div class="home-global__info">
+                    <span class="home-global__eyebrow"><i class="home-global__eyebrow-line"></i>Global Presence</span>
+                    <h2 class="home-global__title">Exporting to 30+ Countries Across the World</h2>
+                    <p class="home-global__text">The GTB Group&rsquo;s extensive global network enables us to serve customers across key markets with reliable products and timely delivery.</p>
+                    <a class="home-global__btn" href="<?=$globalPresenceUrl;?>">
+                        <span>Our Global Presence</span> <i class="far fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="home-global__map">
+                    <img src="assets/img/world-map.png" alt="World map - exporting to 30+ countries" loading="lazy">
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="home-global__certs">
+                    <span class="home-global__eyebrow home-global__eyebrow--end">Our Certifications<i class="home-global__eyebrow-line"></i></span>
+                    <p class="home-global__certs-text">Our commitment to quality is validated by international certifications and rigorous testing standards.</p>
+                    <div class="home-global__cert-grid">
+                        <?php if($homeCertSql){ while($homeCertRow = mysqli_fetch_array($homeCertSql)){ ?>
+                        <div class="home-global__cert-tile">
+                            <a href="<?=$path.$homeCertRow['file'];?>" class="popup-image" title="<?=$homeCertRow['title'];?>">
+                                <img src="<?=$path.$homeCertRow['file'];?>" alt="<?=$homeCertRow['title'];?>" loading="lazy">
+                            </a>
+                        </div>
+                        <?php } } ?>
+                        <?php
+                        // Pehle section se aane wali saari certification images (static)
+                        // $homeStaticCerts = array(
+                        //     'assets/img/testex-logo.png'      => 'TESTEX Swiss laboratory accreditation',
+                        //     'assets/img/certificate-img.png'  => 'TESTEX certification compliance',
+                        //     'assets/img/certificate-img2.png' => 'ISO quality assurance certification',
+                        // );
+                        foreach($homeStaticCerts as $homeCertImg => $homeCertAlt){
+                        ?>
+                        <div class="home-global__cert-tile">
+                            <a href="<?=$homeCertImg;?>" class="popup-image" title="<?=$homeCertAlt;?>">
+                                <img src="<?=$homeCertImg;?>" alt="<?=$homeCertAlt;?>" loading="lazy">
+                            </a>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pehle wali saari images: Industry Memberships + Trusted Worldwide -->
+        <div class="home-global__members">
+            <h3 class="home-global__heading animated fadeInUp"><span>Industry Memberships</span></h3>
+            <div class="row home-certified__members">
+                <div class="col-6 col-md-3">
+                    <div class="home-certified__tile">
+                        <script type="text/javascript">
+                            var memberfieo2009token = 'xUR6nkOJqD_106957', fieo2009img = 'horz';
+                        </script>
+                        <script src="https://fieo.org/fieome2009mberlogo.js"></script>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="home-certified__tile">
+                        <img src="assets/img/member-logos.png" alt="Federation of Indian Export Organisations member" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="home-certified__tile">
+                        <img src="assets/img/member-logos2.png" alt="Indian Industry Association accreditation" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="home-certified__tile">
+                        <img src="assets/img/member-logos3.png" alt="Chamber of Commerce member" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="home-global__heading home-global__heading--spaced animated fadeInUp"><span>Trusted Worldwide</span></h3>
+
+            <div class="row home-certified__trusted-row">
+                <?php
+                    $homeTrustedLogos = array(
+                        'assets/img/trusted-logo1.png',
+                        'assets/img/trusted-logo2.png',
+                        'assets/img/trusted-logo3.png',
+                        'assets/img/trusted-logo4.png',
+                        'assets/img/trusted-logo5.png',
+                        'assets/img/trusted-logo6.png',
+                    );
+                    foreach($homeTrustedLogos as $homeTrustedLogo){
+                ?>
+                <div class="col-4 col-sm-4 col-md-2">
+                    <div class="home-certified__trusted">
+                        <img src="<?=$homeTrustedLogo;?>" alt="trusted partner badge" loading="lazy">
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php /*
+<!-- ==========================================================================
+     SECTION 12: HIGH-CONVERSION ENQUIRY & SAMPLING CONSULTATION (COMMENTED OUT)
      ========================================================================== -->
 <section class="home-enquiry">
     <div class="container-fluid">
@@ -751,6 +896,58 @@
                     <div class="msgbox"></div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+*/ ?>
+
+<!-- ==========================================================================
+     SECTION 12: CTA BANNER - GET THE RIGHT ZIPPER SOLUTION
+     ========================================================================== -->
+
+
+<div class="clientsection">
+    <div class="container-fluid text-center">
+        <h5 class="animated fadeInUp">Who We Work With</h5>
+        <h3 class="animated fadeInUp"><span>BRANDS WE CATER </span></h3>
+        <div class="home-brands__slider-wrap">
+            <button class="brand-button-prev brand-nav" type="button" aria-label="Previous brands">
+                <i class="far fa-long-arrow-left"></i>
+            </button>
+            <div class="swiper-container bd-brand-active home-brands__slider">
+                <div class="swiper-wrapper">
+                    <?php
+                        if($brandsql && mysqli_num_rows($brandsql) > 0){
+                            while($brandsrow = mysqli_fetch_array($brandsql)){
+                    ?>
+                    <div class="swiper-slide">
+                        <div class="brand-logo">
+                            <img src="<?=$path.$brandsrow['file'];?>" alt="<?=$brandsrow['title'];?>" loading="lazy">
+                        </div>
+                    </div>
+                    <?php 
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+            <button class="brand-button-next brand-nav" type="button" aria-label="Next brands">
+                <i class="far fa-long-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<section class="home-cta">
+    <div class="container-fluid">
+        <div class="home-cta__inner">
+            <div class="home-cta__content">
+                <span class="home-cta__eyebrow">Let&rsquo;s Work Together</span>
+                <h2 class="home-cta__title">Get the Right Zipper Solution for Your Business</h2>
+                <p class="home-cta__text">Connect with our team for product details, custom requirements or bulk inquiries.</p>
+            </div>
+            <a class="home-cta__btn" href="<?=$path;?>contact-us">
+                <span>Get in Touch</span> <i class="far fa-long-arrow-right"></i>
+            </a>
         </div>
     </div>
 </section>

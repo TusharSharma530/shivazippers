@@ -37,7 +37,7 @@
   <div class="row">
     <div class="col-md-12 col-lg-5 text-center <?=$geturl3=='gtb-philosophy' ? 'order-1' : 'order-2'; ?>">
     	<?php if($geturl3=='gtb-syndicate'){ ?>
-    		<div style="background: #004f44; padding: 15px;">
+    		<div style="background: var(--clr-theme); padding: 15px;">
     	<?php } ?>
       <img src="<?=$path.$file;?>" alt="<?=$pagename;?>" class="img-fluid" style="border-radius: 20px; ">
     	<?php if($geturl3=='gtb-syndicate'){ ?>

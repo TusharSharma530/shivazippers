@@ -29,7 +29,7 @@
       text-align: center;
       line-height: 46px;
       font-size: 20px;
-      color: #014e44;
+      color: var(--clr-theme);
       left: 0;
       top: 0;
       height: 46px;
@@ -55,7 +55,7 @@
   .progress-wrap svg.progress-circle { position: absolute; z-index:2 }
 
   .progress-wrap svg.progress-circle path {
-    stroke: #048372;
+    stroke: var(--clr-theme);
     stroke-width: 4;
     box-sizing:border-box;
     -webkit-transition: all 200ms linear;
