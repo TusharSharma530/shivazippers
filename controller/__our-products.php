@@ -14,6 +14,11 @@
         $breadcrumblist = "<li><a href='{$path}{$caturl}'>$cattitle</a> <i class='fa fa-caret-right'></i></li><li>$breadcrumbtitle</li>";
 
         $productimagessql = mysqli_query($con, "SELECT * FROM `productimages` WHERE proid='$productsid'");
+
+        // Parent category (hero lead line ke liye)
+        $parentcatid = $productdetailsrow['category'];
+        $parentsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id='$parentcatid'");
+        $productscatrow = mysqli_fetch_assoc($parentsql);
     }
     else{
         $productscatsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND url='$geturl2'");

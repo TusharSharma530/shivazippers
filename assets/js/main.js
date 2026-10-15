@@ -444,6 +444,84 @@
 		},
 	});
 
+	// Applications Slider Js (Home - Serving Diverse Industries)
+	if (jQuery(".home-applications__slider").length > 0) {
+		new Swiper(".home-applications__slider", {
+			slidesPerView: 2,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 3500,
+				disableOnInteraction: false,
+			},
+			navigation: {
+				nextEl: ".home-applications__next",
+				prevEl: ".home-applications__prev",
+			},
+			breakpoints: {
+				'992': {
+					slidesPerView: 4,
+					spaceBetween: 24,
+				},
+				'768': {
+					slidesPerView: 3,
+					spaceBetween: 24,
+				},
+				'576': {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				'0': {
+					slidesPerView: 1,
+					spaceBetween: 16,
+				},
+			},
+		});
+	}
+
+	// Products Slider Js (Home - Zippers & Sliders Range)
+	if (jQuery(".home-products__slider").length > 0) {
+		new Swiper(".home-products__slider", {
+			slidesPerView: 2,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			navigation: {
+				nextEl: ".home-products__next",
+				prevEl: ".home-products__prev",
+			},
+			breakpoints: {
+				'1400': {
+					slidesPerView: 6,
+					spaceBetween: 20,
+				},
+				'1200': {
+					slidesPerView: 5,
+					spaceBetween: 20,
+				},
+				'992': {
+					slidesPerView: 4,
+					spaceBetween: 20,
+				},
+				'768': {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				'576': {
+					slidesPerView: 2,
+					spaceBetween: 16,
+				},
+				'0': {
+					slidesPerView: 1,
+					spaceBetween: 16,
+				},
+			},
+		});
+	}
+
 	// Cart Quantity Js
 	$(".cart-minus").click(function () {
 		var $input = $(this).parent().find("input");

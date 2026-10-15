@@ -1,5 +1,4 @@
-<!-- Home page stylesheet (Theme-consistent, premium layouts) -->
-<link rel="stylesheet" href="<?=$path;?>assets/css/style.css">
+<!-- Home page stylesheet is loaded globally in branch/include/head.php -->
 
 <!-- ==========================================================================
      SECTION 1: HERO BANNER CAROUSEL
@@ -81,35 +80,101 @@
     <img src="assets/img/banner-bottom.png" class="afterbnr-zip" alt="zipper decorative divider">
 </section>
 
+<!-- ==========================================================================
+     SECTION 2: PRODUCT RANGE (Zippers & Sliders Range)
+     ========================================================================== -->
+<?php
+    $homeproductsql = mysqli_query($con, "SELECT p.*, c.url AS caturl, c.`order` AS catorder FROM `products` AS p INNER JOIN `category` AS c ON c.id = p.category WHERE p.status = 1 AND c.status = 1 ORDER BY c.`order` ASC, p.`order` ASC, p.id ASC LIMIT 12");
+    if($homeproductsql && mysqli_num_rows($homeproductsql) > 0){
+?>
+<section class="home-products">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="home-products__head">
+                    <span class="home-products__eyebrow">Our Products</span>
+                    <h2 class="home-products__title">Zippers &amp; Sliders Range</h2>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="home-products__aside">
+                    <p class="home-products__lead">A comprehensive range of high-performance zippers and sliders designed to meet diverse industry needs. Available in various materials, sizes and finishes.</p>
+                    <a class="home-products__btn" href="<?=$path;?>our-products" title="View All Products">
+                        <span>View All Products</span> <i class="far fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="home-products__sliderwrap">
+            <div class="home-products__slider swiper-container">
+                <div class="swiper-wrapper home-products__grid">
+                    <?php
+                        while($homeproductsrow = mysqli_fetch_array($homeproductsql)){
+                            $homeprochildurl = __getChildCategoryName($con, $homeproductsrow['childcategory']);
+                            $homeproducturl = ($homeproductsrow['caturl'] && $homeprochildurl) ? $path.'our-products/'.$homeproductsrow['caturl'].'/'.$homeprochildurl : $path.'our-products';
+                    ?>
+                    <div class="swiper-slide home-products__slide">
+                        <a class="home-product__card" href="<?=$homeproducturl;?>" title="<?=$homeproductsrow['title'];?>">
+                            <div class="home-product__img">
+                                <img src="<?=$path.$homeproductsrow['file'];?>" alt="<?=$homeproductsrow['title'];?>" loading="lazy">
+                            </div>
+                            <div class="home-product__body">
+                                <h4><?=$homeproductsrow['title'];?></h4>
+                                <span class="home-product__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <!-- Slider navigation arrows -->
+            <div class="home-products__nav home-products__prev" aria-label="Previous products"><i class="far fa-long-arrow-left"></i></div>
+            <div class="home-products__nav home-products__next" aria-label="Next products"><i class="far fa-long-arrow-right"></i></div>
+        </div>
+    </div>
+</section>
+<?php } ?>
+
 <section class="home-impact-strip">
     <div class="container-fluid">
         <div class="home-impact-grid">
             <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-business-time"></i></div>
+                <div class="home-impact-icon"><i class="fa-solid fa-building"></i></div>
                 <div class="home-impact-txt">
-                    <strong>40+</strong>
-                    <span>Years of Manufacturing Heritage</span>
+                    <strong><?=!empty($experience) ? $experience : '35+';?></strong>
+                    <span>Years in Industry<br>Since 1989</span>
                 </div>
             </div>
             <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-globe"></i></div>
-                <div class="home-impact-txt">
-                    <strong>30+</strong>
-                    <span>Countries Global Footprint</span>
-                </div>
-            </div>
-            <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <div class="home-impact-icon"><i class="fa-solid fa-users"></i></div>
                 <div class="home-impact-txt">
                     <strong>200+</strong>
-                    <span>Satisfied Enterprise Clients</span>
+                    <span>Global Clients</span>
                 </div>
             </div>
             <div class="home-impact-item">
-                <div class="home-impact-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="home-impact-icon"><i class="fa-solid fa-ship"></i></div>
                 <div class="home-impact-txt">
-                    <strong>100%</strong>
-                    <span>Batch Inspection &amp; QA Compliance</span>
+                    <strong>30+</strong>
+                    <span>Countries<br>Exported To</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-gears"></i></div>
+                <div class="home-impact-txt home-impact-txt--plain">
+                    <span>Advanced<br>Manufacturing Setup</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-award"></i></div>
+                <div class="home-impact-txt home-impact-txt--plain">
+                    <span>Consistent<br>Quality Standards</span>
+                </div>
+            </div>
+            <div class="home-impact-item">
+                <div class="home-impact-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="home-impact-txt home-impact-txt--plain">
+                    <span>Custom Solutions<br>for Every Need</span>
                 </div>
             </div>
         </div>
@@ -159,71 +224,53 @@
      SECTION 3: HERITAGE & MANUFACTURING EXCELLENCE (Quality before Quantity)
      ========================================================================== -->
 <section class="widget-excellence">
-    <div class="container">
-        <div class="row align-items-stretch">
-            <div class="col-lg-5">
-                <div class="widget-excellence__head">
-                    <span class="widget-excellence__eyebrow"><?=$aboutrow['subtitle'];?></span>
-                    <h2 class="widget-excellence__title"><?=$aboutrow['title'];?></h2>
-
-                    <div class="widget-excellence__card">
-                        <span class="widget-excellence__card-icon"><i class="fa-solid fa-medal"></i></span>
-                        <div class="widget-excellence__card-txt">
-                            <strong>Quality before Quantity</strong>
-                            <p>Our founding motto &ndash; every zipper &amp; slider is rigorously tested at every manufacturing stage before dispatch.</p>
-                        </div>
-                    </div>
-
-                    <ul class="widget-excellence__facts">
-                        <li>
-                            <span class="widget-excellence__fact-icon"><i class="fa-solid fa-industry"></i></span>
-                            <span class="widget-excellence__fact-txt">
-                                <strong>Meerut, India</strong>Zipper manufacturing capital of the country
-                            </span>
-                        </li>
-                        <li>
-                            <span class="widget-excellence__fact-icon"><i class="fa-solid fa-gears"></i></span>
-                            <span class="widget-excellence__fact-txt">
-                                <strong>In-house Manufacturing</strong>End-to-end production of coil zippers, LFC, CFC &amp; sliders
-                            </span>
-                        </li>
-                        <li>
-                            <span class="widget-excellence__fact-icon"><i class="fa-solid fa-earth-asia"></i></span>
-                            <span class="widget-excellence__fact-txt">
-                                <strong>Trusted Worldwide</strong>Reliable supply partner across 30+ countries
-                            </span>
-                        </li>
-                    </ul>
+    <div class="container-fluid">
+        <div class="row align-items-center widget-excellence__grid">
+            <div class="col-lg-4">
+                <div class="widget-excellence__media">
+                    <?php $excImg = !empty($gtbindiarow['file']) ? $path.$gtbindiarow['file'] : $path.'assets/img/company-img.jpg'; ?>
+                    <img src="<?=$excImg;?>" alt="<?=$aboutrow['title'];?>" class="widget-excellence__img" loading="lazy">
                 </div>
             </div>
-            
-            <div class="col-lg-7">
+
+            <div class="col-lg-5">
                 <div class="widget-excellence__content">
+                    <span class="widget-excellence__eyebrow"><?=$aboutrow['subtitle'];?></span>
+                    <h2 class="widget-excellence__title"><?=$aboutrow['title'];?></h2>
                     <?php $excDesc = trim($aboutrow['desc']); ?>
                     <?php if($excDesc !== ''){ ?>
-                    <div class="excellence-desc" id="excellenceDesc">
+                    <div class="excellence-desc is-open" id="excellenceDesc">
                         <?=$excDesc;?>
                     </div>
-                    <button type="button" class="excellence-desc__toggle" id="excellenceDescToggle" aria-expanded="false" aria-controls="excellenceDesc">
-                        <span class="excellence-desc__toggle-txt">Read More</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
                     <?php } ?>
-                    
-                    <!-- Asymmetrical Milestone Trio -->
-                    <div class="excellence-stat-trio">
-                        <div class="excellence-stat-card">
-                            <span class="excellence-stat-num">1989</span>
-                            <span class="excellence-stat-label">Founding Legacy</span>
-                        </div>
-                        <div class="excellence-stat-card">
-                            <span class="excellence-stat-num">100%</span>
-                            <span class="excellence-stat-label">In-House Quality Control</span>
-                        </div>
-                        <div class="excellence-stat-card">
-                            <span class="excellence-stat-num">30+</span>
-                            <span class="excellence-stat-label">Export Nations</span>
-                        </div>
+
+                    <a class="widget-excellence__btn" href="<?=$path;?>more-about-us/about-us" title="About Us">
+                        <span>About Us</span> <i class="far fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="widget-excellence__features">
+                    <div class="widget-excellence__feature">
+                        <span class="widget-excellence__feature-icon"><i class="fa-solid fa-industry"></i></span>
+                        <span class="widget-excellence__feature-txt">Quality Manufacturing</span>
+                    </div>
+                    <div class="widget-excellence__feature">
+                        <span class="widget-excellence__feature-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                        <span class="widget-excellence__feature-txt">Innovative Designs</span>
+                    </div>
+                    <div class="widget-excellence__feature">
+                        <span class="widget-excellence__feature-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                        <span class="widget-excellence__feature-txt">Global Export Network</span>
+                    </div>
+                    <div class="widget-excellence__feature">
+                        <span class="widget-excellence__feature-icon"><i class="fa-solid fa-headset"></i></span>
+                        <span class="widget-excellence__feature-txt">Customer Focus</span>
+                    </div>
+                    <div class="widget-excellence__feature">
+                        <span class="widget-excellence__feature-icon"><i class="fa-solid fa-leaf"></i></span>
+                        <span class="widget-excellence__feature-txt">Sustainable Practices</span>
                     </div>
                 </div>
             </div>
@@ -233,79 +280,50 @@
 
 <script>
 (function () {
-    var btn = document.getElementById('excellenceDescToggle');
-    var box = document.getElementById('excellenceDesc');
-    if (!btn || !box) return;
+    var sec = document.querySelector('.widget-excellence');
+    if (!sec) return;
+    var img = sec.querySelector('.widget-excellence__img');
+    var box = sec.querySelector('.excellence-desc');
+    var content = sec.querySelector('.widget-excellence__content');
+    if (!img || !box || !content) return;
 
-    var label = btn.querySelector('.excellence-desc__toggle-txt');
+    function clampToImage() {
+        /* Below the lg breakpoint the image sits above the text, so keep the
+           full description visible (matches the original mobile behaviour). */
+        if (window.innerWidth < 992) {
+            box.classList.add('is-open');
+            box.style.maxHeight = '';
+            return;
+        }
 
-    btn.addEventListener('click', function () {
-        var isOpen = box.classList.toggle('is-open');
-        btn.classList.toggle('is-open', isOpen);
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        if (label) label.textContent = isOpen ? 'Read Less' : 'Read More';
+        var imgH = img.getBoundingClientRect().height;
+        if (!imgH) return;
 
-        /* Keep the max-height transition smooth in both directions */
-        if (isOpen) {
-            box.style.maxHeight = box.scrollHeight + 'px';
-            var afterOpen = function () {
-                box.style.maxHeight = 'none';
-                box.removeEventListener('transitionend', afterOpen);
-            };
-            box.addEventListener('transitionend', afterOpen);
+        /* Everything in the content column except the description itself */
+        var otherH = content.getBoundingClientRect().height - box.getBoundingClientRect().height;
+        var avail = Math.round(imgH - otherH);
+
+        if (avail > 60) {
+            box.classList.remove('is-open');   /* re-enables overflow:hidden + fade scrim */
+            box.style.maxHeight = avail + 'px';
         } else {
-            box.style.maxHeight = box.scrollHeight + 'px';
-            void box.offsetHeight; /* force reflow so it animates closed */
+            box.classList.add('is-open');
             box.style.maxHeight = '';
         }
-    });
+    }
+
+    function schedule() { window.requestAnimationFrame(clampToImage); }
+
+    if (img.complete) { schedule(); } else { img.addEventListener('load', schedule); }
+    img.addEventListener('error', schedule);
+    window.addEventListener('load', schedule);
+    window.addEventListener('resize', schedule);
 })();
 </script>
 
 <!-- ==========================================================================
      SECTION 4: WHAT WE MANUFACTURE / PRODUCT SHOWCASE
      ========================================================================== -->
-<?php
-    $homeproductsql = mysqli_query($con, "SELECT p.*, c.url AS caturl, c.`order` AS catorder FROM `products` AS p INNER JOIN `category` AS c ON c.id = p.category WHERE p.status = 1 AND c.status = 1 ORDER BY c.`order` ASC, p.`order` ASC, p.id ASC LIMIT 6");
-    if($homeproductsql && mysqli_num_rows($homeproductsql) > 0){
-?>
-<section class="home-products">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="home-products__head">
-                    <span class="home-products__eyebrow">Precision Engineered Solutions</span>
-                    <h2 class="home-products__title">Our Manufactured Range</h2>
-                </div>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-                <a class="home-products__btn" href="<?=$path;?>our-products" title="View All Products">
-                    <span>View All Products</span> <i class="far fa-long-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-        <div class="row home-products__grid">
-            <?php
-                while($homeproductsrow = mysqli_fetch_array($homeproductsql)){
-                    $homeprochildurl = __getChildCategoryName($con, $homeproductsrow['childcategory']);
-                    $homeproducturl = ($homeproductsrow['caturl'] && $homeprochildurl) ? $path.'our-products/'.$homeproductsrow['caturl'].'/'.$homeprochildurl : $path.'our-products';
-            ?>
-            <div class="col-6 col-md-4 col-xl-2">
-                <a class="home-product__card" href="<?=$homeproducturl;?>" title="<?=$homeproductsrow['title'];?>">
-                    <div class="home-product__img">
-                        <img src="<?=$path.$homeproductsrow['file'];?>" alt="<?=$homeproductsrow['title'];?>" loading="lazy">
-                    </div>
-                    <div class="home-product__body">
-                        <h4><?=$homeproductsrow['title'];?></h4>
-                        <span class="home-product__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
-            <?php } ?>
-        </div>
-    </div>
-</section>
-<?php } ?>
 
 <!-- ==========================================================================
      SECTION 5: MODERN INFRASTRUCTURE & TECHNOLOGY BANNER
@@ -345,9 +363,7 @@
      ========================================================================== -->
 
 
-<!-- ==========================================================================
-     SECTION 7: CLIENTELE / BRANDS WE CATER
-     ========================================================================== -->
+
 
 
 <!-- ==========================================================================
@@ -355,81 +371,62 @@
      ========================================================================== -->
 <section class="home-applications">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
                 <div class="home-applications__head">
-                    <div class="home-applications__head-text">
-                        <span class="home-applications__eyebrow">Versatility &amp; Performance</span>
-                        <h2 class="home-applications__title">Applications Across Diverse Industries</h2>
-                    </div>
-                    <!-- Slider navigation -->
-                    <div class="home-applications__aside">
-                        <div class="bd-gallery__navigatin home-applications__nav">
-                            <button class="gallery-button-prev" type="button" aria-label="Previous applications">
-                                <i class="far fa-long-arrow-left"></i>
-                            </button>
-                            <button class="gallery-button-next" type="button" aria-label="Next applications">
-                                <i class="far fa-long-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <span class="home-applications__eyebrow">Applications</span>
+                    <h2 class="home-applications__title">Serving Diverse Industries</h2>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="home-applications__aside">
+                    <p class="home-applications__lead">Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.</p>
+                    <a class="home-applications__btn" href="<?=$path;?>our-aplications" title="View All Applications">
+                        <span>View All Applications</span> <i class="far fa-long-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-12">
-                <div class="home-applications__slider">
-                    <div class="bd-gallery-active home-applications__track swiper-container">
-                        <div class="swiper-wrapper">
-                            <?php
-                                if($applicationsql && mysqli_num_rows($applicationsql) > 0){
-                                    while($applicationsrow = mysqli_fetch_array($applicationsql)){
-                                        $subcatid = $applicationsrow['subcat_id'];
-                                        $catid = $applicationsrow['cat_id'];
-                                        $applicationsubcatsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id='$subcatid'");
-                                        $applicationsubcatrow = mysqli_fetch_assoc($applicationsubcatsql);
-                                        $applicationsubcaturl = $applicationsubcatrow['url'];
-                                        $applicationcatsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id='$catid'");
-                                        $applicationcatrow = mysqli_fetch_assoc($applicationcatsql);
-                                        $applicationcaturl = $applicationcatrow['url'];
+        <div class="home-applications__sliderwrap">
+            <div class="home-applications__slider swiper-container">
+                <div class="swiper-wrapper home-applications__grid">
+                    <?php
+                        if($applicationsql && mysqli_num_rows($applicationsql) > 0){
+                            while($applicationsrow = mysqli_fetch_array($applicationsql)){
+                                $subcatid = $applicationsrow['subcat_id'];
+                                $catid = $applicationsrow['cat_id'];
+                                $applicationsubcatsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id='$subcatid'");
+                                $applicationsubcatrow = mysqli_fetch_assoc($applicationsubcatsql);
+                                $applicationsubcaturl = $applicationsubcatrow['url'];
+                                $applicationcatsql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id='$catid'");
+                                $applicationcatrow = mysqli_fetch_assoc($applicationcatsql);
+                                $applicationcaturl = $applicationcatrow['url'];
 
-                                        $finalurl = $path.$applicationcaturl.'/'.$applicationsubcaturl.'/'.$applicationsrow['url'];
-                            ?>
-                            <div class="swiper-slide">
-                                <div class="bd-gallery__item home-app__card">
-                                    <div class="bd-gallery__image w-img home-app__image">
-                                        <a href="<?=$finalurl;?>" title="<?=$applicationsrow['title'];?>">
-                                            <img src="<?=$path.$applicationsrow['file'];?>" alt="<?=$applicationsrow['title'];?>" loading="lazy">
-                                        </a>
-                                        <span class="home-app__arrow"><i class="far fa-long-arrow-right"></i></span>
-                                        <div class="bd-gallery__content home-app__content">
-                                            <h3><a href="<?=$finalurl;?>"><?=$applicationsrow['title'];?></a></h3>
-                                            <span class="home-app__link">View Details <i class="far fa-long-arrow-right"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php 
-                                    }
-                                }
-                            ?>
+                                $finalurl = $path.$applicationcaturl.'/'.$applicationsubcaturl.'/'.$applicationsrow['url'];
+                    ?>
+                <div class="swiper-slide home-applications__slide">
+                    <a class="home-app__card" href="<?=$finalurl;?>" title="<?=$applicationsrow['title'];?>">
+                        <div class="home-app__image">
+                            <img src="<?=$path.$applicationsrow['file'];?>" alt="<?=$applicationsrow['title'];?>" loading="lazy">
                         </div>
-                    </div>
+                        <div class="home-app__content">
+                            <h3><?=$applicationsrow['title'];?></h3>
+                            <span class="home-app__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <?php
+                        }
+                    }
+                ?>
                 </div>
             </div>
+            <!-- Slider navigation arrows -->
+            <div class="home-applications__nav home-applications__prev" aria-label="Previous applications"><i class="far fa-long-arrow-left"></i></div>
+            <div class="home-applications__nav home-applications__next" aria-label="Next applications"><i class="far fa-long-arrow-right"></i></div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="home-applications__note">
-                    <span class="home-applications__note-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></span>
-                    <div class="home-applications__note-txt">
-                        <p>Across these diverse industries, our coil zippers are trusted for their quality, versatility, and dependability, making them the top choice for manufacturers seeking excellence in their products. As a leading zipper manufacturing company in India, we are dedicated to providing top-quality zippers that meet the highest standards.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -465,7 +462,7 @@
             </div>
             <div class="col-md-4">
                 <div class="home-values__item">
-                    <div class="home-values__icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="home-values__icon"><i class="fa-solid fa-shield-alt"></i></div>
                     <span class="home-values__bar"></span>
                     <h3>Guaranteed Quality</h3>
                     <p>There is a reason Shiva Zippers is the choice for the largest brands in the world &ndash; each of our products goes through meticulous testing to ensure peak performance before reaching our customers.</p>
@@ -483,7 +480,7 @@
 <?php if(!empty($philosophyrow)){ ?>
 <section class="home-philosophy">
     <div class="container-fluid">
-        <div class="row align-items-center home-philosophy__grid">
+        <div class="row home-philosophy__grid">
             <div class="col-md-12 col-lg-6">
                 <div class="home-philosophy__media">
                     <span class="home-philosophy__frame" aria-hidden="true"></span>
@@ -520,7 +517,7 @@
 <?php if(!empty($sindicaterow)){ ?>
 <section class="home-syndicate">
     <div class="container-fluid">
-        <div class="row align-items-center home-syndicate__grid">
+        <div class="row home-syndicate__grid">
             <div class="col-lg-6 col-xl-6">
                 <div class="home-syndicate__content">
                     <span class="home-syndicate__eyebrow">Global Footprint</span>
@@ -563,7 +560,7 @@
 <?php if(!empty($gtbindiarow)){ ?>
 <section class="home-india">
     <div class="container-fluid">
-        <div class="row align-items-center home-india__grid">
+        <div class="row home-india__grid">
             <div class="col-lg-6">
                 <div class="home-india__media">
                     <span class="home-india__sheet" aria-hidden="true"></span>
@@ -725,88 +722,98 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
                 </div>
             </div>
 
-            <div class="col-lg-3">
-                <div class="home-global__certs">
-                    <span class="home-global__eyebrow home-global__eyebrow--end">Our Certifications<i class="home-global__eyebrow-line"></i></span>
-                    <p class="home-global__certs-text">Our commitment to quality is validated by international certifications and rigorous testing standards.</p>
-                    <div class="home-global__cert-grid">
-                        <?php if($homeCertSql){ while($homeCertRow = mysqli_fetch_array($homeCertSql)){ ?>
-                        <div class="home-global__cert-tile">
-                            <a href="<?=$path.$homeCertRow['file'];?>" class="popup-image" title="<?=$homeCertRow['title'];?>">
-                                <img src="<?=$path.$homeCertRow['file'];?>" alt="<?=$homeCertRow['title'];?>" loading="lazy">
-                            </a>
-                        </div>
-                        <?php } } ?>
-                        <?php
-                        // Pehle section se aane wali saari certification images (static)
-                        // $homeStaticCerts = array(
-                        //     'assets/img/testex-logo.png'      => 'TESTEX Swiss laboratory accreditation',
-                        //     'assets/img/certificate-img.png'  => 'TESTEX certification compliance',
-                        //     'assets/img/certificate-img2.png' => 'ISO quality assurance certification',
-                        // );
-                        foreach($homeStaticCerts as $homeCertImg => $homeCertAlt){
-                        ?>
-                        <div class="home-global__cert-tile">
-                            <a href="<?=$homeCertImg;?>" class="popup-image" title="<?=$homeCertAlt;?>">
-                                <img src="<?=$homeCertImg;?>" alt="<?=$homeCertAlt;?>" loading="lazy">
-                            </a>
-                        </div>
-                        <?php } ?>
+           
+        </div>
+
+        <!-- Pehle wali saari images: Industry Memberships + Trusted Worldwide -->
+        
+    </div>
+</section>
+<section class="home-certified">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="home-certified__head">
+                    <span class="home-certified__eyebrow">Quality &amp; Compliance</span>
+                    <h2 class="home-certified__title">Yearly Tested at TESTEX &amp; Globally Certified</h2>
+                    <p class="home-certified__lead">Independently tested, globally recognized &mdash; our zipper products and manufacturing processes adhere to stringent international safety and performance standards.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row align-items-center home-certified__grid">
+            <div class="col-md-6 col-lg-3 order-md-1 order-lg-0">
+                <div class="home-certified__cert">
+                    <img src="assets/img/certificate-img.png" alt="TESTEX certification compliance" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="col-md-12 col-lg-6">
+                <div class="home-certified__center">
+                    <div class="home-certified__testex">
+                        <img src="assets/img/testex-logo.png" alt="TESTEX Swiss laboratory accreditation" loading="lazy">
                     </div>
+                    
+                    <h3 class="home-certified__subtitle">Industry Memberships</h3>
+                    
+                    <div class="row home-certified__members">
+                        <div class="col-6 col-md-3">
+                            <div class="home-certified__tile">
+                                <script type="text/javascript">
+                                    var memberfieo2009token = 'xUR6nkOJqD_106957', fieo2009img = 'horz';
+                                </script>
+                                <script src="https://fieo.org/fieome2009mberlogo.js"></script>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="home-certified__tile">
+                                <img src="assets/img/member-logos.png" alt="Federation of Indian Export Organisations member" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="home-certified__tile">
+                                <img src="assets/img/member-logos2.png" alt="Indian Industry Association accreditation" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="home-certified__tile">
+                                <img src="assets/img/member-logos3.png" alt="Chamber of Commerce member" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 order-md-0 order-lg-1">
+                <div class="home-certified__cert">
+                    <img src="assets/img/certificate-img2.png" alt="ISO Quality assurance certification" loading="lazy">
                 </div>
             </div>
         </div>
 
-        <!-- Pehle wali saari images: Industry Memberships + Trusted Worldwide -->
-        <div class="home-global__members">
-            <h3 class="home-global__heading animated fadeInUp"><span>Industry Memberships</span></h3>
-            <div class="row home-certified__members">
-                <div class="col-6 col-md-3">
-                    <div class="home-certified__tile">
-                        <script type="text/javascript">
-                            var memberfieo2009token = 'xUR6nkOJqD_106957', fieo2009img = 'horz';
-                        </script>
-                        <script src="https://fieo.org/fieome2009mberlogo.js"></script>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="home-certified__tile">
-                        <img src="assets/img/member-logos.png" alt="Federation of Indian Export Organisations member" loading="lazy">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="home-certified__tile">
-                        <img src="assets/img/member-logos2.png" alt="Indian Industry Association accreditation" loading="lazy">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="home-certified__tile">
-                        <img src="assets/img/member-logos3.png" alt="Chamber of Commerce member" loading="lazy">
-                    </div>
+        <div class="home-certified__divider">
+            <span>Trusted Worldwide</span>
+        </div>
+
+        <div class="row home-certified__trusted-row">
+            <?php
+                $trustedlogos = array(
+                    'assets/img/trusted-logo1.png',
+                    'assets/img/trusted-logo2.png',
+                    'assets/img/trusted-logo3.png',
+                    'assets/img/trusted-logo4.png',
+                    'assets/img/trusted-logo5.png',
+                    'assets/img/trusted-logo6.png',
+                );
+
+                foreach($trustedlogos as $trustedlogo){
+            ?>
+            <div class="col-4 col-sm-4 col-md-2">
+                <div class="home-certified__trusted">
+                    <img src="<?=$trustedlogo;?>" alt="trusted partner badge" loading="lazy">
                 </div>
             </div>
-
-            <h3 class="home-global__heading home-global__heading--spaced animated fadeInUp"><span>Trusted Worldwide</span></h3>
-
-            <div class="row home-certified__trusted-row">
-                <?php
-                    $homeTrustedLogos = array(
-                        'assets/img/trusted-logo1.png',
-                        'assets/img/trusted-logo2.png',
-                        'assets/img/trusted-logo3.png',
-                        'assets/img/trusted-logo4.png',
-                        'assets/img/trusted-logo5.png',
-                        'assets/img/trusted-logo6.png',
-                    );
-                    foreach($homeTrustedLogos as $homeTrustedLogo){
-                ?>
-                <div class="col-4 col-sm-4 col-md-2">
-                    <div class="home-certified__trusted">
-                        <img src="<?=$homeTrustedLogo;?>" alt="trusted partner badge" loading="lazy">
-                    </div>
-                </div>
-                <?php } ?>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -902,41 +909,57 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
 */ ?>
 
 <!-- ==========================================================================
-     SECTION 12: CTA BANNER - GET THE RIGHT ZIPPER SOLUTION
+     SECTION 9: BRANDS WE CATER (Clientele strip)
      ========================================================================== -->
-
-
-<div class="clientsection">
-    <div class="container-fluid text-center">
-        <h5 class="animated fadeInUp">Who We Work With</h5>
-        <h3 class="animated fadeInUp"><span>BRANDS WE CATER </span></h3>
-        <div class="home-brands__slider-wrap">
-            <button class="brand-button-prev brand-nav" type="button" aria-label="Previous brands">
+<section class="home-brands">
+    <div class="container-fluid">
+        <div class="home-brands__head">
+            <h2 class="home-brands__label">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                <span>Brands We Cater</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+        <div class="home-brands__wrap">
+            <button class="home-brands__nav home-brands__prev" type="button" aria-label="Previous brands">
                 <i class="far fa-long-arrow-left"></i>
             </button>
-            <div class="swiper-container bd-brand-active home-brands__slider">
-                <div class="swiper-wrapper">
-                    <?php
-                        if($brandsql && mysqli_num_rows($brandsql) > 0){
-                            while($brandsrow = mysqli_fetch_array($brandsql)){
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="brand-logo">
-                            <img src="<?=$path.$brandsrow['file'];?>" alt="<?=$brandsrow['title'];?>" loading="lazy">
-                        </div>
-                    </div>
-                    <?php 
-                            }
-                        }
-                    ?>
+            <div class="home-brands__track">
+                <?php
+                    if($brandsql && mysqli_num_rows($brandsql) > 0){
+                        while($brandsrow = mysqli_fetch_array($brandsql)){
+                ?>
+                <div class="home-brands__tile">
+                    <img src="<?=$path.$brandsrow['file'];?>" alt="<?=$brandsrow['title'];?>" loading="lazy">
                 </div>
+                <?php
+                        }
+                    }
+                ?>
             </div>
-            <button class="brand-button-next brand-nav" type="button" aria-label="Next brands">
+            <button class="home-brands__nav home-brands__next" type="button" aria-label="Next brands">
                 <i class="far fa-long-arrow-right"></i>
             </button>
         </div>
     </div>
-</div>
+</section>
+
+<script>
+(function () {
+    var track = document.querySelector('.home-brands__track');
+    var prev = document.querySelector('.home-brands__prev');
+    var next = document.querySelector('.home-brands__next');
+    if (!track) return;
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -340, behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: 340, behavior: 'smooth' }); });
+})();
+</script>
+
+<!-- ==========================================================================
+     SECTION 12: CTA BANNER - GET THE RIGHT ZIPPER SOLUTION
+     ========================================================================== -->
+
+
 <section class="home-cta">
     <div class="container-fluid">
         <div class="home-cta__inner">

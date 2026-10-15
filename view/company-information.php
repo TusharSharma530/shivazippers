@@ -1,31 +1,64 @@
 <?php
   if($geturl2 == 'factory-tour'){
+    $factoryRows = [];
+    while($factorydatarow = mysqli_fetch_array($factorytoursqlsc)){ $factoryRows[] = $factorydatarow; }
 ?>
 
-  <section class='widget-event'>
-      <div class='container'>
-          <div class='row'>
-            <div class="col-md-12">
-                <div class="title head">
-                    <h3>Factory Tour</h3>
+<!-- Factory Tour - Home page theme (Header + Image card grid) -->
+<section class="home-philosophy gtb-detail factory-tour">
+    <div class="container-fluid">
+        <div class="factory-tour__head">
+            <span class="home-philosophy__eyebrow">Take A Look</span>
+            <h1 class="home-philosophy__title"><?=$pagename;?></h1>
+        </div>
+
+        <div class="row factory-tour__grid">
+            <?php foreach($factoryRows as $frow){ ?>
+            <div class="col-md-6 col-lg-4">
+                <div class="factory-tour__card">
+                    <div class="factory-tour__media">
+                        <img src="<?=$path.$frow['file'];?>" alt="<?=$frow['title'];?>" loading="lazy">
+                    </div>
+                    <div class="factory-tour__caption"><?=$frow['title'];?></div>
                 </div>
             </div>
-            <?php
-              while($factorydatarow = mysqli_fetch_array($factorytoursqlsc)){
-            ?>
-              <div class='col-md-6 head mb-4'>
-              <h4><?=$factorydatarow['title'];?></h4>
-                  <div class='eventbox'>
-                      <img src="<?=$path.$factorydatarow['file'];?>" alt=''  />
-                  </div>
-              </div>
-            <?php
-              }
-            ?>
-          </div>
-      </div>
-  </section>
+            <?php } ?>
+        </div>
+    </div>
+</section>
 
+<?php }elseif($geturl2=='gtb-philosophy' || $geturl2=='gtb-syndicate' || $geturl2=='gtb-india'){
+    $gtbEyebrow = ($geturl2=='gtb-syndicate') ? 'Global Presence' : (($geturl2=='gtb-india') ? 'Our Journey' : 'Our Philosophy');
+?>
+<!-- GTB Philosophy / Syndicate / India - Home page theme (Image Left / Content Right + full story below) -->
+<section class="home-philosophy gtb-detail">
+    <div class="container-fluid">
+        <div class="row home-philosophy__grid">
+            <div class="col-md-12 col-lg-5">
+                <div class="home-philosophy__media">
+                    <img src="<?=$path.$file;?>" alt="<?=$pagename;?>" class="home-philosophy__img" loading="lazy">
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-7">
+                <div class="home-philosophy__content">
+                    <span class="home-philosophy__eyebrow"><?=$gtbEyebrow;?></span>
+                    <h1 class="home-philosophy__title"><?=$pagename;?></h1>
+                    <div class="home-philosophy__text gtb-detail__intro">
+                        <?=$sdesc;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gtb-detail__body">
+            <div class="col-lg-12">
+                <div class="gtb-detail__story">
+                    <?=$data;?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <?php }else {?>
 <section class="philosophy-cont pt-50 pb-50">
 <!-- <div class="box">
