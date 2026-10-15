@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 13, 2026 at 10:45 AM
--- Server version: 5.7.23-23
--- PHP Version: 8.1.34
+-- Host: 127.0.0.1
+-- Generation Time: Oct 16, 2026 at 01:43 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shivazip_database`
+-- Database: `shivazippers`
 --
 
 -- --------------------------------------------------------
@@ -33,8 +33,8 @@ CREATE TABLE `about` (
   `subtitle` varchar(255) NOT NULL,
   `desc` longtext NOT NULL,
   `url` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `about`
@@ -51,9 +51,9 @@ INSERT INTO `about` (`id`, `title`, `subtitle`, `desc`, `url`, `status`) VALUES
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `dump_pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `dump_pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `appointments` (
   `appointdate` varchar(255) NOT NULL,
   `appointtime` varchar(255) NOT NULL,
   `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointments`
@@ -100,14 +100,14 @@ CREATE TABLE `banners` (
   `sdesc` longtext NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `banners`
 --
 
 INSERT INTO `banners` (`id`, `file`, `title`, `sdesc`, `order`, `status`) VALUES
-(28, 'branch/assets/banner/img1756383332.webp', 'Shiva Fasteners Pvt Ltd', '<p>At Shiva Fasteners Pvt. Ltd., we take pride in being a premier manufacturer and exporter of high-quality coil zippers and sliders, catering to the global market. Our expertise lies in crafting customized zippers and sliders that blend functionality, durability, and aesthetics seamlessly. As the best zipper manufacturing company in India, we ensure that our products meet the highest standards to satisfy our customers worldwide.</p>', 1, 1);
+(28, 'branch/assets/banner/img1792039601.png', 'Shiva Fasteners Pvt Ltd', '<p>At Shiva Fasteners Pvt. Ltd., we take pride in being a premier manufacturer and exporter of high-quality coil zippers and sliders, catering to the global market. Our expertise lies in crafting customized zippers and sliders that blend functionality, durability, and aesthetics seamlessly. As the best zipper manufacturing company in India, we ensure that our products meet the highest standards to satisfy our customers worldwide.</p>', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `blogs` (
   `order` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `brands` (
   `file` varchar(255) NOT NULL,
   `order` varchar(255) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `brands`
@@ -178,10 +178,10 @@ CREATE TABLE `category` (
   `meta_title` varchar(255) NOT NULL,
   `meta_keywords` varchar(255) NOT NULL,
   `meta_desc` text NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT 1,
   `order` int(11) NOT NULL,
   `place` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -203,7 +203,8 @@ INSERT INTO `category` (`id`, `title`, `type`, `url`, `desc`, `sdesc`, `file`, `
 (90, 'Our Applications', 87, 'our-applications', '', '', '', '', '', '', 1, 1, 0),
 (91, 'Upcoming Events', 87, 'upcoming-events', '<section class=\"mb-50\">\n<div class=\"container-fluid\">\n<div class=\"row\">\n<div class=\"col-md-12 eventouter\">\n<h4 class=\"newshd\">India &ndash; Sri Lanka Business Delegation 2026</h4>\n<p class=\"date\"><i class=\"fa fa-calendar\"></i>8th &ndash; 10th July 2026</p>\n<p class=\"date\">Sri Lanka</p>\n<p>Dear Valued Business Partners,</p>\n<p>Shiva Fasteners Pvt. Ltd. is delighted to announce its participation in the India&ndash;Sri Lanka Business Delegation 2026, organized with the support of the High Commission of India in Sri Lanka.</p>\n<p>This prestigious delegation aims to strengthen bilateral trade relations and create new opportunities for collaboration between Indian and Sri Lankan businesses. During this visit, our team will meet manufacturers, importers, exporters, distributors, and business leaders to explore strategic partnerships.</p>\n<h2>Why Connect with GTB?</h2>\n<p>As one of India\'s leading manufacturers of premium-quality coil zippers, sliders, zipper rolls, and fastening solutions, GTB is committed to delivering innovative products that meet international quality standards.</p>\n<h2>What We Look Forward To</h2>\n<ul>\n<li>Business networking with leading industry professionals</li>\n<li>Exploring import and export opportunities</li>\n<li>Meeting distributors and sourcing partners</li>\n<li>Showcasing GTB\'s latest zipper and fastening solutions</li>\n<li>Building long-term business relationships in Sri Lanka</li>\n<li>Product Showcase</li>\n</ul>\n<p><strong>Visitors will have the opportunity to learn more about our extensive range of:</strong></p>\n<ul>\n<li>Coil Zippers</li>\n<li>Sliders</li>\n<li>Zipper Rolls</li>\n<li>Customized Fastening Solutions</li>\n<li>Event Details</li>\n</ul>\n<p>Event: India &ndash; Sri Lanka Business Delegation 2026<br />Date: 8th &ndash; 10th July 2026<br />Location: Sri Lanka</p>\n<h2>Let\'s Connect</h2>\n<p>If you are looking for a reliable manufacturing partner for premium zipper and fastening products, we invite you to connect with our team during the delegation.</p>\n<p>We look forward to meeting you and exploring new opportunities together.</p>\n<p>Warm Regards,<br />Jaspreet Singh<br />Director &ndash; Exports<br />Shiva Fasteners Pvt. Ltd.</p>\n</div>\n</div>\n</div>\n</section>', '', '', '', '', '', 1, 2, 0),
 (92, 'Customization Request', 87, 'customization-request', '', '', '', '', '', '', 1, 3, 0),
-(93, 'Substantially Vision 2030', 87, 'substantially-vision-2030', '<section class=\"pt-50 pb-20 mb-50\">\n<div class=\"container-fluid\">\n<div class=\"row\">\n<div class=\"col-lg-6 col-xl-6\">\n<div class=\"ourknowledge\">\n<h2 class=\"text-black\">Substantially Vision 2030</h2>\n<p>Zippers crafted from more than 50% recycled materials, such as repurposed PET bottles, represent a significant leap forward in sustainable manufacturing and product design. This innovative approach not only conserves valuable resources but also addresses environmental concerns by diverting plastic waste from landfills and oceans.</p>\n<p>The process of creating these eco- friendly zippers involves collecting, cleaning, and processing discarded PET bottles into a form suitable for zipper production. This initiative contributes to reducing the carbon footprint associated with the manufacturing of traditional zippers that rely solely on virgin materials.</p>\n<p>By incorporating recycled materials into zipper production, we not only demonstrate a commitment to environmental responsibility but also set an example for the industry. These zippers offer a tangible and eco-conscious choice for consumers who seek sustainable options in their everyday products, further promoting the concept of a circular economy where materials are reused, reducing the strain on natural resources and contributing to a greener, more sustainable future.</p>\n<p>Together with an increased use of sustainable materials, we are also addressing climate change, managing water resources, and chemicals as integral components of our Sustainable Vision 2030</p>\n</div>\n</div>\n<div class=\"col-lg-6 col-xl-6 text-center\">\n<div><img src=\"http://localhost/shivazippers/assets/img/2030-img.jpg\" alt=\"\" class=\"globeimg img-fluid\" /></div>\n</div>\n</div>\n</div>\n</section>', '', '', '', '', '', 1, 4, 0);
+(93, 'Substantially Vision 2030', 87, 'substantially-vision-2030', '<section class=\"pt-50 pb-20 mb-50\">\n<div class=\"container-fluid\">\n<div class=\"row\">\n<div class=\"col-lg-6 col-xl-6\">\n<div class=\"ourknowledge\">\n<h2 class=\"text-black\">Substantially Vision 2030</h2>\n<p>Zippers crafted from more than 50% recycled materials, such as repurposed PET bottles, represent a significant leap forward in sustainable manufacturing and product design. This innovative approach not only conserves valuable resources but also addresses environmental concerns by diverting plastic waste from landfills and oceans.</p>\n<p>The process of creating these eco- friendly zippers involves collecting, cleaning, and processing discarded PET bottles into a form suitable for zipper production. This initiative contributes to reducing the carbon footprint associated with the manufacturing of traditional zippers that rely solely on virgin materials.</p>\n<p>By incorporating recycled materials into zipper production, we not only demonstrate a commitment to environmental responsibility but also set an example for the industry. These zippers offer a tangible and eco-conscious choice for consumers who seek sustainable options in their everyday products, further promoting the concept of a circular economy where materials are reused, reducing the strain on natural resources and contributing to a greener, more sustainable future.</p>\n<p>Together with an increased use of sustainable materials, we are also addressing climate change, managing water resources, and chemicals as integral components of our Sustainable Vision 2030</p>\n</div>\n</div>\n<div class=\"col-lg-6 col-xl-6 text-center\">\n<div><img src=\"http://localhost/shivazippers/assets/img/2030-img.jpg\" alt=\"\" class=\"globeimg img-fluid\" /></div>\n</div>\n</div>\n</div>\n</section>', '', '', '', '', '', 1, 4, 0),
+(94, 'About Us', 87, 'about-us', '<p>Best Zipper and Slider Manufacturing Company in India Shiva Fasteners Pvt. Ltd. stands as a leading name in the zipper and slider manufacturing industry in India, known for outstanding quality, innovation, and precision engineering. Established in India, we are recognized as the best zipper and slider manufacturing company in India, offering a comprehensive range of high-performance zippers and sliders designed to meet diverse market needs. At Shiva Fasteners, we specialize in manufacturing a wide array of zippers and sliders that cater to industries including fashion, sportswear, luggage, upholstery, and industrial applications. Our zippers are crafted to ensure durability, smooth functionality, and aesthetic excellence. We also produce all types of high-quality sliders, including non-lock and auto-lock varieties, with customized solutions tailored to specific client requirements. Our slider range includes zinc and plastic pullers, and we take pride in using only pure Z5 zinc in our manufacturing&mdash;with no mixing&mdash;to ensure superior strength, finish, and longevity. Our reputation as an export-quality zipper and slider manufacturer in India is well-earned. We adhere to strict international quality standards, and all our products undergo rigorous testing to ensure they meet the demands of global markets. As a prominent zipper and slider exporter from India, our extensive global network reflects our ability to deliver exceptional products on time, every time. Whether you need zippers and sliders for high-fashion garments or heavy-duty industrial applications, our advanced manufacturing capabilities and commitment to quality ensure you receive the best solutions available. In summary, Shiva Fasteners Pvt. Ltd. is not only the best zipper and slider manufacturer in India but also a trusted global exporter. Our dedication to quality, innovation, and customer satisfaction makes us the preferred partner for clients around the world.</p>', '', 'branch/assets/category/img1792066693.webp', '', '', '', 1, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -213,10 +214,10 @@ INSERT INTO `category` (`id`, `title`, `type`, `url`, `desc`, `sdesc`, `file`, `
 
 CREATE TABLE `certificates` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `url` text COLLATE utf8_unicode_ci NOT NULL,
-  `desc` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `file` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `url` text NOT NULL,
+  `desc` longtext NOT NULL,
+  `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -250,7 +251,7 @@ CREATE TABLE `childcategory` (
   `order` int(11) NOT NULL,
   `file` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `childcategory`
@@ -288,7 +289,7 @@ CREATE TABLE `chooseus` (
   `desc` text NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -303,7 +304,7 @@ CREATE TABLE `contact` (
   `email` varchar(255) NOT NULL,
   `contactno` varchar(255) NOT NULL,
   `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -323,7 +324,7 @@ CREATE TABLE `customizationproductenquiry` (
   `contrast` varchar(255) NOT NULL,
   `message` longtext NOT NULL,
   `date` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -339,7 +340,7 @@ CREATE TABLE `enquiry` (
   `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `date` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `enquiry`
@@ -398,7 +399,7 @@ CREATE TABLE `faculty` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -415,7 +416,7 @@ CREATE TABLE `faqs` (
   `file` varchar(255) NOT NULL,
   `order` varchar(255) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -430,8 +431,8 @@ CREATE TABLE `gallery` (
   `desc` text NOT NULL,
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `gallery`
@@ -453,8 +454,8 @@ CREATE TABLE `gallery_imgs` (
   `galid` int(11) NOT NULL,
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `gallery_imgs`
@@ -490,7 +491,7 @@ CREATE TABLE `infrastructure` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -506,7 +507,7 @@ CREATE TABLE `machine` (
   `order` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -525,7 +526,7 @@ CREATE TABLE `messages` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -542,7 +543,7 @@ CREATE TABLE `predict` (
   `dob` varchar(255) NOT NULL,
   `quota` int(11) NOT NULL,
   `female` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `predict`
@@ -564,7 +565,7 @@ CREATE TABLE `productimages` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `productimages`
@@ -625,7 +626,7 @@ CREATE TABLE `products` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -656,7 +657,7 @@ CREATE TABLE `programs` (
   `file` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `programs`
@@ -673,12 +674,12 @@ INSERT INTO `programs` (`id`, `category`, `title`, `url`, `short_desc`, `long_de
 
 CREATE TABLE `query` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `emailid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `message` text COLLATE utf8_unicode_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(255) NOT NULL,
+  `emailid` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -848,14 +849,14 @@ INSERT INTO `query` (`id`, `name`, `emailid`, `phone`, `subject`, `message`, `da
 
 CREATE TABLE `registration` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `contactno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `graduation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `passingyear` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entranceexam` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `aadharno` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contactno` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `graduation` varchar(255) NOT NULL,
+  `passingyear` varchar(255) NOT NULL,
+  `entranceexam` varchar(255) NOT NULL,
+  `aadharno` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -898,7 +899,7 @@ CREATE TABLE `settings` (
   `googletag` text NOT NULL,
   `headercenterline` varchar(255) NOT NULL,
   `experience` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `settings`
@@ -920,7 +921,7 @@ CREATE TABLE `special_offers` (
   `order` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `link` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -943,7 +944,7 @@ CREATE TABLE `sub_cat` (
   `meta_desc` text NOT NULL,
   `status` int(11) NOT NULL,
   `order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -962,7 +963,7 @@ CREATE TABLE `team` (
   `phoneno` varchar(255) NOT NULL,
   `otherphoneno` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `team`
@@ -987,7 +988,7 @@ CREATE TABLE `testimonials` (
   `file` varchar(255) NOT NULL,
   `order` varchar(255) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1007,7 +1008,7 @@ CREATE TABLE `topics` (
   `products_no` varchar(255) NOT NULL,
   `clients_no` varchar(255) NOT NULL,
   `branches_no` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1024,7 +1025,7 @@ CREATE TABLE `tour` (
   `file` varchar(255) NOT NULL,
   `order` varchar(255) NOT NULL,
   `status` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tour`
@@ -1048,7 +1049,7 @@ CREATE TABLE `youtube` (
   `code` varchar(255) NOT NULL,
   `order` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -1302,7 +1303,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `certificates`

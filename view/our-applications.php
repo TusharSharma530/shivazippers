@@ -7,7 +7,7 @@
             <h1 class="home-philosophy__title"><?=$pagename;?></h1>
         </div>
 
-        <div class="row g-4 align-items-start apps__grid">
+        <div class="row g-4 apps__grid">
             <!-- Image -->
             <div class="col-lg-5">
                 <div class="apps__media">
