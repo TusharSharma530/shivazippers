@@ -180,6 +180,50 @@
         </div>
     </div>
 </section>
+<script>
+(function () {
+    var strip = document.querySelector('.home-impact-strip');
+    if (!strip) return;
+    var nums = strip.querySelectorAll('.home-impact-txt strong');
+    if (!nums.length) return;
+    var started = false;
+
+    function run() {
+        if (started) return;
+        started = true;
+        nums.forEach(function (el) {
+            var raw = el.textContent.trim();
+            /* split into leading non-digits / the number / trailing suffix (e.g. "35+" -> "" / 35 / "+") */
+            var m = raw.match(/^([^\d]*)(\d+)([\s\S]*)$/);
+            if (!m) return;
+            var prefix = m[1], target = parseInt(m[2], 10), suffix = m[3];
+            if (isNaN(target)) return;
+
+            var dur = 1500, t0 = null;
+            function tick(ts) {
+                if (t0 === null) t0 = ts;
+                var p = Math.min((ts - t0) / dur, 1);
+                var eased = 1 - Math.pow(1 - p, 3); /* easeOutCubic */
+                el.textContent = prefix + Math.round(target * eased) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            el.textContent = prefix + '0' + suffix;
+            requestAnimationFrame(tick);
+        });
+    }
+
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { run(); io.disconnect(); }
+            });
+        }, { threshold: 0.4 });
+        io.observe(strip);
+    } else {
+        run();
+    }
+})();
+</script>
 <!-- ==========================================================================
      SECTION 2: TRUST & STRATEGIC ADVANTAGES (Outperforming Olympic Zipper)
      ========================================================================== -->
