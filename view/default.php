@@ -1,8 +1,4 @@
-<!-- Home page stylesheet is loaded globally in branch/include/head.php -->
 
-<!-- ==========================================================================
-     SECTION 1: HERO BANNER CAROUSEL
-     ========================================================================== -->
 <section class="bd-hero__area">
     <div class="hero-slider-wrap">
         <div class="hero__active swiper-container">

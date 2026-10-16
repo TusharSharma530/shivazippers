@@ -1,9 +1,4 @@
-﻿/* ==========================================================================
-   SHIVA ZIPPERS - HOME PAGE ULTRA-PREMIUM STYLESHEET
-   Theme: Original Forest Teal & Spring Mint Industrial Luxury
-   Competitor Benchmark: Outperforming Olympic Zipper with Distinct Layouts
-   ========================================================================== */
-
+﻿
 :root {
     /* Derived from --clr-theme (defined in assets/css/main.css) */
     --sz-primary: var(--clr-theme);
@@ -45,9 +40,6 @@
     --sz-transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ==========================================================================
-   0. HERO SECTION - CINEMATIC CAROUSEL
-   ========================================================================== */
 .bd-hero__area {
     position: relative;
     background: var(--clr-theme-dark);
@@ -95,7 +87,7 @@
     transform: scale(1.06);
 }
 
-/* Luxury Dual-tone Gradient Overlay */
+
 .hero__overlay::before {
     content: '';
     position: absolute;
@@ -233,7 +225,7 @@
     transform: translateY(-3px);
 }
 
-/* Glassmorphism Key Metrics Strip inside Hero */
+
 .hero-pills-bar {
     display: inline-flex;
     flex-wrap: wrap;
@@ -333,10 +325,6 @@
     box-shadow: 0 0 10px rgba(229, 240, 213, 0.8);
 }
 
-
-/* ==========================================================================
-   1. TRUST & ADVANTAGES STRIP (Directly Outclassing Olympic Zipper)
-   ========================================================================== */
 .home-trust {
     position: relative;
     padding: 45px 0 45px 0;
@@ -451,10 +439,6 @@
     margin: 0;
 }
 
-
-/* ==========================================================================
-   2. HERITAGE & EXCELLENCE SECTION (Quality before Quantity)
-   ========================================================================== */
 .widget-excellence {
     position: relative;
     padding: 65px 0;
@@ -631,7 +615,6 @@
     color: #3d4a60;
 }
 
-/* Clamped story text + Read More toggle */
 .excellence-desc {
     position: relative;
     max-height: 210px;
@@ -644,7 +627,7 @@
     overflow: visible;
 }
 
-/* Fade-out scrim shown only while collapsed */
+
 .excellence-desc::after {
     content: '';
     position: absolute;
@@ -746,9 +729,6 @@
 }
 
 
-/* ==========================================================================
-   3. PRODUCTS SHOWCASE SECTION (Home Products)
-   ========================================================================== */
 .home-products {
     position: relative;
     padding: 55px 0 50px 0;
@@ -803,7 +783,7 @@
     margin: 0;
 }
 
-/* Header "View All Products" pill */
+
 .home-products__btn {
     display: inline-flex;
     align-items: center;
@@ -872,7 +852,7 @@
     height: 100%;
 }
 
-/* Products slider navigation arrows */
+
 .home-products__nav {
     position: absolute;
     top: 50%;
@@ -999,9 +979,6 @@
     color: #ffffff;
 }
 
-/* ==========================================================================
-   4. MODERN INFRASTRUCTURE & TECH SECTION (Home Infra)
-   ========================================================================== */
 .home-infra {
     position: relative;
     padding: 65px 0;
@@ -1104,10 +1081,6 @@
     transform: translateX(4px);
 }
 
-
-/* ==========================================================================
-   5. AUTHORITY IMPACT METRICS COUNTER STRIP (Beats Olympic Zipper)
-   ========================================================================== */
 .home-impact-strip {
     position: relative;
     padding: 24px 0;
@@ -1191,10 +1164,6 @@
     line-height: 1.5;
 }
 
-
-/* ==========================================================================
-   6. BRANDS & CLIENTELE SECTION (Clientsection)
-   ========================================================================== */
 .clientsection {
     padding: 50px 0 50px 0;
     background: #ffffff;
@@ -1307,10 +1276,6 @@
     transform: scale(1.06);
 }
 
-
-/* ==========================================================================
-   7. APPLICATIONS / GALLERY SECTION (Home Applications)
-   ========================================================================== */
 .home-applications {
     position: relative;
     padding: 60px 0 65px 0;
@@ -1561,9 +1526,6 @@
     border-color: var(--sz-orange);
 }
 
-/* ==========================================================================
-   8. CORE FOUNDATIONAL PILLARS (Home Values)
-   ========================================================================== */
 .home-values {
     position: relative;
     padding: 60px 0 60px 0;
@@ -1683,12 +1645,6 @@
     margin: 0;
 }
 
-
-/* ==========================================================================
-   9. CORPORATE HERITAGE TRILOGY (3 DISTINCT SECTION LAYOUTS)
-   ========================================================================== */
-
-/* 9A. OUR PHILOSOPHY (Split Layout - Image Left, Story Right) */
 .home-philosophy {
     position: relative;
     padding: 50px 0 50px 0;
@@ -1833,10 +1789,6 @@
     transform: translateX(4px);
 }
 
-
-/* ==========================================================================
-   GTB DETAIL (Inner page) - Home theme split + full story below
-   ========================================================================== */
 .gtb-detail {
     border-top: none;
 }
@@ -1845,13 +1797,12 @@
     margin-top: 4px;
 }
 
-/* Purane dark design se aaya text-white ko neutralize karo (light theme par invisible tha) */
 .gtb-detail__intro .text-white,
 .gtb-detail__story .text-white {
     color: var(--sz-text) !important;
 }
 
-/* Syndicate ke andar ka heading (Export In More Than 13 Countries) */
+
 .gtb-detail__intro .exporthd,
 .gtb-detail__story .exporthd {
     font-family: 'carmen_sanssemibold', sans-serif;
@@ -1861,7 +1812,7 @@
     margin: 22px 0 12px;
 }
 
-/* Neeche poora description (story) - home theme jaisa clean block */
+
 .gtb-detail__body {
     margin-top: 45px;
 }
@@ -1885,7 +1836,7 @@
     margin-bottom: 0;
 }
 
-/* Sirf desktop par: image ki height limited + content stretch (home jaisa) */
+
 @media (min-width: 992px) {
     .gtb-detail .home-philosophy__media {
         display: flex;
@@ -1921,10 +1872,6 @@
     }
 }
 
-
-/* ==========================================================================
-   FACTORY TOUR (Home theme) - Header + Image card grid
-   ========================================================================== */
 .factory-tour__head {
     max-width: 720px;
     margin: 0 0 34px;
@@ -2010,10 +1957,6 @@
     }
 }
 
-
-/* ==========================================================================
-   PRODUCT LISTING (Home theme) - coil-zippers / sliders + sub categories
-   ========================================================================== */
 .productcont {
     height: 100%;
     display: flex;
@@ -2127,9 +2070,6 @@
 }
 
 
-/* ==========================================================================
-   COIL ZIPPERS DESCRIPTION (Home theme) - header + two column card
-   ========================================================================== */
 .coil-seo__head {
     margin-bottom: 22px;
 }
@@ -2154,7 +2094,7 @@
     color: var(--sz-text);
 }
 
-/* Two column: label left / content right */
+
 .coil-seo__grid {
     --bs-gutter-x: 30px;
     --bs-gutter-y: 24px;
@@ -2202,10 +2142,6 @@
 }
 
 
-/* ==========================================================================
-   PRODUCT DETAIL (Home theme) - COMPLETE REDESIGN
-   Hero band + framed gallery / editorial info + segmented tabs
-   ========================================================================== */
 .pdp {
     padding: 10px 0 50px;
 }
@@ -2244,7 +2180,7 @@
     text-transform: none;
 }
 
-/* Theme-color accent - sliders listing title jaisa orange underline */
+
 .pdp__title::after {
     content: '';
     position: absolute;
@@ -2353,7 +2289,7 @@
     color: var(--sz-orange);
 }
 
-/* Description headings - theme color (tab content jaisa) */
+
 .pdp__desc h1,
 .pdp__desc h2,
 .pdp__desc h3,
@@ -2417,6 +2353,12 @@
     padding: 7px;
     border-radius: var(--sz-radius-full);
     margin-bottom: 10px;
+}
+
+@media (max-width: 767.98px) {
+    .pdp__tabs .enquirytabbing {
+        margin-top: 0;
+    }
 }
 
 .enquirytabbing .nav-link {
@@ -2549,10 +2491,6 @@
 }
 
 
-/* ==========================================================================
-   CERTIFICATIONS (Home theme) - PREMIUM
-   Page header + alternating certificate cards + members strip
-   ========================================================================== */
 .certs {
     padding: 8px 0 50px;
 }
@@ -2944,6 +2882,16 @@
     margin-bottom: 0;
 }
 
+.apps.aboutpg .apps__head {
+    margin-bottom: 18px;
+    padding-bottom: 0;
+}
+
+
+.apps.aboutpg__body {
+    padding-top: 26px;
+}
+
 .apps__grid {
     --bs-gutter-x: 34px;
     --bs-gutter-y: 30px;
@@ -3072,14 +3020,6 @@
     }
 }
 
-
-/* ==========================================================================
-   CONTENT / EVENT / CONTACT PAGES (Home theme)
-   upcoming-events, substantially-vision-2030, events, contact-us,
-   customization-request
-   ========================================================================== */
-
-/* Shared page header */
 .cpage {
     padding: 8px 0 40px;
 }
@@ -3115,9 +3055,6 @@
     overflow: hidden;
 }
 
-/* Layout change: title band (full-bleed gradient header) instead of plain heading
-   NOTE: selector uses .eventouter .newshd (0,3,0) to beat .eventouter h4 (0,2,1) which would
-   otherwise override the white text / size / margins and add an orange ::before bar. */
 .cpage--news .eventouter .newshd {
     position: relative;
     font-family: 'carmen_sanssemibold', sans-serif;
@@ -3130,7 +3067,7 @@
     background: #0c4986;
 }
 
-/* hide the subheading ::before bar on the hero title */
+
 .cpage--news .eventouter .newshd::before {
     display: none;
 }
@@ -3165,8 +3102,7 @@
     color: var(--sz-orange);
 }
 
-/* --- Substantially Vision 2030 --- */
-/* Layout change: image LEFT / text RIGHT (original was text left / image right) */
+
 @media (min-width: 992px) {
     .cpage--vision .row > div:first-child {
         order: 2;
@@ -3187,7 +3123,7 @@
 }
 
 .cpage--vision .ourknowledge h2 {
-    display: none;   /* page header me title already hai */
+    display: none;  
 }
 
 .cpage--vision .ourknowledge p {
@@ -3206,7 +3142,7 @@
     box-shadow: 0 18px 40px rgba(22, 41, 63, 0.14);
 }
 
-/* Themed headings/paragraphs inside these raw content blocks */
+
 .cpage--news .eventouter h2,
 .cpage--news .eventouter h3,
 .cpage--news .eventouter h4,
@@ -3514,7 +3450,7 @@
     color: var(--sz-orange);
 }
 
-/* Location - full width band (layout change: was a grid card before) */
+
 .contactpg__locband {
     padding: 6px 0 4px;
 }
@@ -3622,9 +3558,6 @@
     box-shadow: 0 8px 18px rgba(244, 123, 22, 0.32);
 }
 
-/* ==========================================================================
-   CONTACT US v2 - hero + balanced info/form split
-   ========================================================================== */
 .contactpg2 {
     padding: 0;
 }
@@ -3932,7 +3865,7 @@
     color: var(--sz-text);
 }
 
-/* Form card (keeps map-bg from .queryform-bottomsectn2 — only set background-COLOR so the map image survives) */
+
 .cform {
     height: 100%;
     display: flex;
@@ -3990,7 +3923,7 @@
 }
 
 
-/* --- Customization Request: info panel + form card (two-column layout) --- */
+
 .cpage--form {
     padding: 8px 0 50px;
 }
@@ -4206,10 +4139,6 @@
     background: linear-gradient(135deg, var(--sz-orange) 0%, var(--sz-orange-light) 100%);
 }
 
-/* ==========================================================================
-   GET IN TOUCH FORM (Home theme) - SIRF DESKTOP (>=992px)
-   Note: background image (map-bg.png) is intentionally kept unchanged.
-   ========================================================================== */
 @media (min-width: 992px) {
     .queryform-bottomsectn2 h4 {
         font-family: 'carmen_sanssemibold', sans-serif;
@@ -4294,7 +4223,7 @@
 }
 
 
-/* 9B. GTB SYNDICATE / GLOBAL FOOTPRINT (Text Left, Graphic Right) */
+/* 9B. GTB SYNDICATE 
 .home-syndicate {
     position: relative;
     padding: 80px 0 75px 0;
@@ -4661,11 +4590,6 @@
     box-shadow: 0 14px 28px rgba(244, 123, 22, 0.38);
 }
 
-/* ==========================================================================
-   9D. DESKTOP ONLY (>=992px): Heritage trilogy - image ki height control
-       + content image ki height tak stretch hoke bich me center hoga
-       (mobile / tablet ke liye koi change nahi)
-   ========================================================================== */
 @media (min-width: 992px) {
     .home-philosophy__grid,
     .home-syndicate__grid,
@@ -4673,7 +4597,6 @@
         align-items: stretch !important;
     }
 
-    /* Image aur right side content ke beech ka space kam (sirf Philosophy) */
     .home-philosophy__grid {
         --bs-gutter-x: 24px;
     }
@@ -4686,7 +4609,7 @@
         padding-left: 20px;
     }
 
-    /* Image ke peeche ka box/frame/ring hatao - sirf image dikhe */
+ 
     .home-philosophy__frame,
     .home-syndicate__sheet,
     .home-syndicate__ring,
@@ -4694,7 +4617,7 @@
         display: none !important;
     }
 
-    /* Media box: image ko chhota dikhao bina crop kiye, center me rakho */
+
     .home-philosophy__media,
     .home-syndicate__media,
     .home-india__media {
@@ -4705,7 +4628,7 @@
         height: 100%;
     }
 
-    /* Image chhoti + poori dikhe (koi crop nahi), natural aspect ratio me */
+
     .home-philosophy__img,
     .home-syndicate__img,
     .home-india__img {
@@ -4717,8 +4640,6 @@
         object-fit: contain;
     }
 
-    /* Content column poori row (image) ki height tak stretch ho,
-       aur content vertically image ki height ke barabar dikhe */
     .home-philosophy__content,
     .home-syndicate__content,
     .home-india__content {
@@ -4729,7 +4650,6 @@
         align-items: flex-start;
     }
 
-    /* Buttons apni natural width me rahein (full width stretch nahi honge) */
     .home-philosophy__btn,
     .home-syndicate__btn,
     .home-india__btn {
@@ -4737,10 +4657,6 @@
     }
 }
 
-
-/* ==========================================================================
-   10. QUALITY CERTIFICATIONS & TESTEX (Home Certified)
-   ========================================================================== */
 .home-certified {
     position: relative;
     padding: 75px 0 70px 0;
@@ -5168,9 +5084,6 @@
     transform: translateX(4px);
 }
 
-/* ==========================================================================
-   11B. GLOBAL PRESENCE & CERTIFICATIONS (World Map + Backend Certificates)
-   ========================================================================== */
 .home-global {
     position: relative;
     /* padding: 60px 0; */
@@ -5265,7 +5178,7 @@
     display: block;
     width: 100%;
     height: auto;
-    /* black landmass ko light gray banata hai (transparent ocean rehta hai) */
+  
     filter: brightness(0) invert(0.87);
 }
 
@@ -5313,12 +5226,12 @@
     object-fit: contain;
 }
 
-/* Industry Memberships + Trusted Worldwide (pehle wali saari images) */
+
 .home-global__members {
     margin-top: 45px;
 }
 
-/* "Brands We Cater" heading jaisa style (line + white bg span) */
+
 .home-global__heading {
     position: relative;
     font-family: 'carmen_sanssemibold', sans-serif;
@@ -5362,9 +5275,6 @@
     }
 }
 
-/* ==========================================================================
-   12. CTA BANNER - GET THE RIGHT ZIPPER SOLUTION
-   ========================================================================== */
 .home-cta {
     position: relative;
     padding: 55px 0;
@@ -5457,9 +5367,6 @@
     }
 }
 
-/* ==========================================================================
-   13. BRANDS WE CATER (Clientele strip)
-   ========================================================================== */
 .home-brands {
     position: relative;
     padding: 42px 0 46px 0;
@@ -5586,9 +5493,6 @@
     }
 }
 
-/* ==========================================================================
-   14. FINISHING: title-case section headings (as per reference layout)
-   ========================================================================== */
 .home-products__title,
 .home-applications__title,
 .widget-excellence__title,
@@ -5605,4 +5509,80 @@
 
 .home-values__item h3 {
     color: var(--sz-navy);
+}
+
+@media (max-width: 991px) {
+    .home-philosophy__frame,
+    .home-syndicate__sheet,
+    .home-syndicate__ring,
+    .home-india__sheet,
+    .widget-excellence__media::before {
+        display: none !important;
+    }
+
+    .home-philosophy__media,
+    .home-syndicate__media,
+    .home-india__media {
+        padding: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-product__img {
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .home-product__img img {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-app__image {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background: #0a1626;
+    }
+
+    .home-app__image img {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .pdp__tabs {
+        padding: 18px 16px 22px;
+    }
+
+    .pdp__tabs .enquirytabbing {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 0;
+        gap: 6px;
+        padding: 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .pdp__tabs .enquirytabbing::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pdp__tabs .enquirytabbing .nav-item {
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    .pdp__tabs .enquirytabbing .nav-link {
+        padding: 10px 6px;
+        font-size: 10.5px;
+        letter-spacing: 0.3px;
+        text-align: center;
+    }
 }
