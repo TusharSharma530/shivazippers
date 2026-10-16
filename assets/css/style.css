@@ -1988,7 +1988,7 @@
 
 .factory-tour__caption::before {
     content: '';
-    position: absolute;
+    /* position: absolute; */
     left: 20px;
     top: 0;
     width: 42px;
@@ -2416,7 +2416,7 @@
     background: color-mix(in srgb, var(--clr-theme) 4%, #fff);
     padding: 7px;
     border-radius: var(--sz-radius-full);
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .enquirytabbing .nav-link {
@@ -3127,9 +3127,7 @@
     text-transform: none;
     margin: -34px -34px 22px;
     padding: 28px 34px;
-    background: linear-gradient(135deg,
-        var(--sz-navy) 0%,
-        color-mix(in srgb, var(--sz-navy) 82%, var(--sz-orange)) 100%);
+    background: #0c4986;
 }
 
 /* hide the subheading ::before bar on the hero title */
@@ -3635,10 +3633,7 @@
 .chero {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg,
-        color-mix(in srgb, var(--sz-navy) 92%, #000) 0%,
-        var(--sz-navy) 55%,
-        color-mix(in srgb, var(--sz-navy) 80%, var(--sz-orange)) 100%);
+    background: #0c4986;
     padding: 34px 0 38px;
     margin-bottom: 34px;
 }
@@ -3769,10 +3764,7 @@
 
 .cinfo__top {
     position: relative;
-    background: linear-gradient(135deg,
-        color-mix(in srgb, var(--sz-navy) 94%, #000) 0%,
-        var(--sz-navy) 70%,
-        color-mix(in srgb, var(--sz-navy) 86%, var(--sz-orange)) 100%);
+    background: #0c4986;
     padding: 28px 30px 30px;
 }
 
@@ -4006,10 +3998,7 @@
 .forminfo {
     position: sticky;
     top: 110px;
-    background: linear-gradient(160deg,
-        color-mix(in srgb, var(--sz-navy) 97%, #000) 0%,
-        var(--sz-navy) 60%,
-        color-mix(in srgb, var(--sz-navy) 90%, var(--sz-orange)) 100%);
+    background: #0c4986;
     border-radius: var(--sz-radius-lg);
     padding: 34px 32px;
     box-shadow: 0 18px 40px rgba(22, 41, 63, 0.2);

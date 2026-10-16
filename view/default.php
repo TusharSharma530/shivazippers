@@ -99,7 +99,7 @@
             <div class="col-lg-5">
                 <div class="home-products__aside">
                     <p class="home-products__lead">A comprehensive range of high-performance zippers and sliders designed to meet diverse industry needs. Available in various materials, sizes and finishes.</p>
-                    <a class="home-products__btn" href="<?=$path;?>our-products" title="View All Products">
+                    <a class="home-products__btn" href="<?=$path;?>our-products/coil-zippers" title="View All Products">
                         <span>View All Products</span> <i class="far fa-long-arrow-right"></i>
                     </a>
                 </div>
@@ -425,7 +425,7 @@
             <div class="col-lg-5">
                 <div class="home-applications__aside">
                     <p class="home-applications__lead">Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.</p>
-                    <a class="home-applications__btn" href="<?=$path;?>our-aplications" title="View All Applications">
+                    <a class="home-applications__btn" href="<?=$path;?>more-about-us/our-applications/bag-manufacturers" title="View All Applications">
                         <span>View All Applications</span> <i class="far fa-long-arrow-right"></i>
                     </a>
                 </div>
