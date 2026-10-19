@@ -76,9 +76,7 @@
     <img src="assets/img/banner-bottom.png" class="afterbnr-zip" alt="zipper decorative divider">
 </section>
 
-<!-- ==========================================================================
-     SECTION 2: PRODUCT RANGE (Zippers & Sliders Range)
-     ========================================================================== -->
+
 <?php
     $homeproductsql = mysqli_query($con, "SELECT p.*, c.url AS caturl, c.`order` AS catorder FROM `products` AS p INNER JOIN `category` AS c ON c.id = p.category WHERE p.status = 1 AND c.status = 1 ORDER BY c.`order` ASC, p.`order` ASC, p.id ASC LIMIT 12");
     if($homeproductsql && mysqli_num_rows($homeproductsql) > 0){
@@ -473,12 +471,12 @@
 <!-- ==========================================================================
      SECTION 9: FOUNDATIONAL PILLARS (Home Values)
      ========================================================================== -->
-<section class="home-values">
+<!-- <section class="home-values">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="home-values__head">
-                    <!-- <span class="home-values__eyebrow">Our Core Principles</span> -->
+                 
                     <h2 class="home-values__title">The Standards That Guide Every Zipper We Make</h2>
                 </div>
             </div>
@@ -510,7 +508,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- ==========================================================================
      SECTION 10: CORPORATE HERITAGE & PRESENCE TRILOGY (3 DISTINCT LAYOUTS)
@@ -756,9 +754,9 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
                 </div>
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 ms-lg-auto">
                 <div class="home-global__map">
-                    <img src="map-bg.png" alt="World map - exporting to 30+ countries" loading="lazy">
+                    <img src="global.jfif" alt="World map - exporting to 30+ countries" loading="lazy">
                 </div>
             </div>
 
@@ -797,14 +795,14 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
                     <h3 class="home-certified__subtitle">Industry Memberships</h3>
                     
                     <div class="row home-certified__members">
-                        <div class="col-6 col-md-3">
+                        <!-- <div class="col-6 col-md-3">
                             <div class="home-certified__tile">
                                 <script type="text/javascript">
                                     var memberfieo2009token = 'xUR6nkOJqD_106957', fieo2009img = 'horz';
                                 </script>
                                 <script src="https://fieo.org/fieome2009mberlogo.js"></script>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-6 col-md-3">
                             <div class="home-certified__tile">
                                 <img src="assets/img/member-logos.png" alt="Federation of Indian Export Organisations member" loading="lazy">

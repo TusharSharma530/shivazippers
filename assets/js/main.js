@@ -472,8 +472,8 @@
 					spaceBetween: 20,
 				},
 				'0': {
-					slidesPerView: 1,
-					spaceBetween: 16,
+					slidesPerView: 2,
+					spaceBetween: 12,
 				},
 			},
 		});
@@ -515,8 +515,8 @@
 					spaceBetween: 16,
 				},
 				'0': {
-					slidesPerView: 1,
-					spaceBetween: 16,
+					slidesPerView: 2,
+					spaceBetween: 12,
 				},
 			},
 		});

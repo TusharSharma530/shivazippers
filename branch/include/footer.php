@@ -130,7 +130,7 @@
 <script src="<?=$path;?>assets/js/isotope-pkgd.js"></script>
 <script src="<?=$path;?>assets/js/imagesloaded-pkgd.js"></script>
 <script src="<?=$path;?>assets/js/ajax-form.js"></script>
-<script src="<?=$path;?>assets/js/main.js"></script>
+<script src="<?=$path;?>assets/js/main.js?v=20261019a"></script>
 <script src="https://malsup.github.io/jquery.form.js"></script> 
 
   

@@ -11883,6 +11883,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
 only screen and (min-width: 768px) and (max-width: 991px) {
   .bd-footer__title h4 {
     margin-bottom: 25px;
+    margin-top: 20px;
   }
 }
 
@@ -13209,7 +13210,7 @@ min-height: auto !important;
 
   .sincebtn a {
     font-size: 12px;
-    margin-top: -31%;
+    margin-top: -22%;
     padding: 2px 25px;
   }
 
