@@ -782,7 +782,7 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
         <div class="row align-items-center home-certified__grid">
             <div class="col-md-6 col-lg-3 order-md-1 order-lg-0">
                 <div class="home-certified__cert">
-                    <img src="assets/img/certificate-img.png" alt="TESTEX certification compliance" loading="lazy">
+                    <img src="<?=!empty($comcertfiles[0]) ? $path.$comcertfiles[0] : $path.'assets/img/certificate-img.png';?>" alt="TESTEX certification compliance" loading="lazy">
                 </div>
             </div>
             
@@ -805,17 +805,17 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
                         </div> -->
                         <div class="col-6 col-md-3">
                             <div class="home-certified__tile">
-                                <img src="assets/img/member-logos.png" alt="Federation of Indian Export Organisations member" loading="lazy">
+                                <img src="<?=!empty($commemberfiles[0]) ? $path.$commemberfiles[0] : $path.'assets/img/member-logos.png';?>" alt="Federation of Indian Export Organisations member" loading="lazy">
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
                             <div class="home-certified__tile">
-                                <img src="assets/img/member-logos2.png" alt="Indian Industry Association accreditation" loading="lazy">
+                                <img src="<?=!empty($commemberfiles[1]) ? $path.$commemberfiles[1] : $path.'assets/img/member-logos2.png';?>" alt="Indian Industry Association accreditation" loading="lazy">
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
                             <div class="home-certified__tile">
-                                <img src="assets/img/member-logos3.png" alt="Chamber of Commerce member" loading="lazy">
+                                <img src="<?=!empty($commemberfiles[2]) ? $path.$commemberfiles[2] : $path.'assets/img/member-logos3.png';?>" alt="Chamber of Commerce member" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -824,7 +824,7 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
             
             <div class="col-md-6 col-lg-3 order-md-0 order-lg-1">
                 <div class="home-certified__cert">
-                    <img src="assets/img/certificate-img2.png" alt="ISO Quality assurance certification" loading="lazy">
+                    <img src="<?=!empty($comcertfiles[1]) ? $path.$comcertfiles[1] : $path.'assets/img/certificate-img2.png';?>" alt="ISO Quality assurance certification" loading="lazy">
                 </div>
             </div>
         </div>
@@ -835,7 +835,7 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
 
         <div class="row home-certified__trusted-row">
             <?php
-                $trustedlogos = array(
+                $defaulttrustedlogos = array(
                     'assets/img/trusted-logo1.png',
                     'assets/img/trusted-logo2.png',
                     'assets/img/trusted-logo3.png',
@@ -844,11 +844,15 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
                     'assets/img/trusted-logo6.png',
                 );
 
+                // DB se aaye trusted logos, warna default images
+                $trustedlogos = !empty($comtrustedfiles) ? $comtrustedfiles : $defaulttrustedlogos;
+
                 foreach($trustedlogos as $trustedlogo){
+                    $trustedlogoFull = (strpos($trustedlogo, 'assets/img/') === 0) ? $trustedlogo : $path.$trustedlogo;
             ?>
             <div class="col-4 col-sm-4 col-md-2">
                 <div class="home-certified__trusted">
-                    <img src="<?=$trustedlogo;?>" alt="trusted partner badge" loading="lazy">
+                    <img src="<?=$trustedlogoFull;?>" alt="trusted partner badge" loading="lazy">
                 </div>
             </div>
             <?php } ?>

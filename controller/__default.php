@@ -25,6 +25,20 @@
     $gtbindiasql = mysqli_query($con, "SELECT * FROM `category` WHERE status=1 AND id=81");
     $gtbindiarow = mysqli_fetch_assoc($gtbindiasql);
 
+    // for certificate & membership (home-certified section) start
+    $comcertsql = mysqli_query($con, "SELECT * FROM `certificateormembership` WHERE `status` = '1' AND `type` = 'Certificate' ORDER BY `order` ASC, `id` ASC");
+    $commembersql = mysqli_query($con, "SELECT * FROM `certificateormembership` WHERE `status` = '1' AND `type` = 'Membership' ORDER BY `order` ASC, `id` ASC");
+    $comtrustedsql = mysqli_query($con, "SELECT * FROM `certificateormembership` WHERE `status` = '1' AND `type` = 'Trusted Worldwide' ORDER BY `order` ASC, `id` ASC");
+
+    // collect files into arrays (fallback empty, view handles default images)
+    $comcertfiles = array();
+    if($comcertsql){ while($comcertrow = mysqli_fetch_assoc($comcertsql)){ if(!empty($comcertrow['file'])) $comcertfiles[] = $comcertrow['file']; } }
+    $commemberfiles = array();
+    if($commembersql){ while($commemberrow = mysqli_fetch_assoc($commembersql)){ if(!empty($commemberrow['file'])) $commemberfiles[] = $commemberrow['file']; } }
+    $comtrustedfiles = array();
+    if($comtrustedsql){ while($comtrustedrow = mysqli_fetch_assoc($comtrustedsql)){ if(!empty($comtrustedrow['file'])) $comtrustedfiles[] = $comtrustedrow['file']; } }
+    // for certificate & membership (home-certified section) end
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = trim(mysqli_real_escape_string($con, $_POST['name']));

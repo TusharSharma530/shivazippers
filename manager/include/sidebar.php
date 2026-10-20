@@ -93,6 +93,9 @@
 <li class="smlist">
 	<a href="<?=$adminpath;?>youtube" class="smlink">Youtube Video</a>
 </li>
+<li class="smlist">
+	<a href="<?=$adminpath;?>certificateormembership" class="smlink">Certificate &amp; Membership</a>
+</li>
 </ul>
 </div>
 <!-- ------- submenu ------- -->
