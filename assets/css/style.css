@@ -5376,6 +5376,10 @@
 @media (max-width: 991px) {
     .home-global {
         /* padding: 45px 0px; */
+        /* Mobile: Global Presence ke upar/neeche ki space kam
+           (upar .home-india pb-50 + neeche .home-certified pt-40 se aa rahi thi) */
+        margin-top: -22px;
+        margin-bottom: -22px;
     }
 
     .home-global__map {
@@ -5773,5 +5777,12 @@
 
     .cpage--vision section.pt-50 {
         padding-top: 0 !important;
+    }
+}
+
+/* Mobile: Applications section ke upar ki extra space kam */
+@media (max-width: 991px) {
+    .home-applications {
+        padding: 28px 0px 38px;
     }
 }
