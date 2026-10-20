@@ -5533,6 +5533,33 @@
     }
 }
 
+/* Mobile: bigger logo inside the hamburger (offcanvas) sidebar */
+@media (max-width: 991px) {
+    .offcanvas__logo img {
+        max-width: 165px;
+    }
+}
+
+/* Mobile sidebar: hide chevron dropdown icon (meanmenu already adds a + icon) */
+@media (max-width: 991px) {
+    .mobile-menu .fa-chevron-down {
+        display: none !important;
+    }
+}
+
+/* Mobile sidebar: no color change on hover */
+@media (max-width: 991px) {
+    .mean-container .mean-nav ul li a:hover {
+        color: color-mix(in srgb, var(--clr-theme) 14%, #fff);
+    }
+
+    .mean-container .mean-nav ul li a.mean-expand:hover {
+        background: transparent;
+        color: #fff !important;
+        border: 1px solid #ebebeb !important;
+    }
+}
+
 .home-products,
 .home-impact-strip,
 .widget-excellence,

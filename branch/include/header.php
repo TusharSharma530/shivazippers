@@ -107,7 +107,7 @@ style="padding-top: 7px; color:#ffffff!important;" rel="nofollow" target="_blank
     <div class="bd-header__right right-2 d-flex align-items-center justify-content-end">
       <div class="bd-header__hamburger">
         <div class="bd-header__hamburger-icon">
-          <button class="side-toggle"> <img src="assets/img/icon/hamburger-icon.png"> </button>
+          <button class="side-toggle"> <img src="<?=$path;?>assets/img/icon/hamburger-icon.png" alt="menu"> </button>
         </div>
       </div>
     </div>
