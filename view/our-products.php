@@ -66,39 +66,39 @@
                         <div class="pdp__cta">
                             <a href="<?=$path;?>contact-us" class="detailsenquiry">Enquire Now</a>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Segmented tabs section -->
-            <div class="pdp__tabs">
-                <ul class="nav nav-tabs enquirytabbing" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                            data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                            aria-selected="true">Key Features</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile"
-                            aria-selected="false">Applications</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab2" data-bs-toggle="tab"
-                            data-bs-target="#profile2" type="button" role="tab" aria-controls="profile"
-                            aria-selected="false">Variants</button>
-                    </li>
-                </ul>
+                        <!-- Segmented tabs -->
+                        <div class="pdp__tabs">
+                            <ul class="nav nav-tabs enquirytabbing" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                        aria-selected="true">Key Features</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                        type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">Applications</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab2" data-bs-toggle="tab"
+                                        data-bs-target="#profile2" type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">Variants</button>
+                                </li>
+                            </ul>
 
-                <div class="tab-content enquirytabbingcontent">
-                    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <?=$productdetailsrow['keyfeatures'];?>
-                    </div>
-                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <?=$productdetailsrow['applications'];?>
-                    </div>
-                    <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
-                        <?=$productdetailsrow['variants'];?>
+                            <div class="tab-content enquirytabbingcontent">
+                                <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <?=$productdetailsrow['keyfeatures'];?>
+                                </div>
+                                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <?=$productdetailsrow['applications'];?>
+                                </div>
+                                <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
+                                    <?=$productdetailsrow['variants'];?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,21 +125,17 @@
                         $producturl = $productsrow['url'];
                         $childurl = __getChildCategoryName($con, $childid);
                   ?>
-                <div class="col-md-4 col-lg-3">
-                    <div class="productcont">
-                        <div class="procutimg">
-                            <a href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$childurl;?>"
-                                title="View Details">
-                                <img src="<?=$path.$productsrow['file'];?>" alt="<?=$productsrow['title'];?>" loading="lazy">
-                            </a>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="home-product__card" href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$childurl;?>"
+                        title="View Details">
+                        <div class="home-product__img">
+                            <img src="<?=$path.$productsrow['file'];?>" alt="<?=$productsrow['title'];?>" loading="lazy">
                         </div>
-                        <div class="proname">
-                            <h2><a href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$childurl;?>"
-                                    title="View Details"><?=$productsrow['title'];?></a></h2>
-                            <a class="btnn" href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$childurl;?>"
-                                title="View Details">View Details</a>
+                        <div class="home-product__body home-product__body--cta">
+                            <h4><?=$productsrow['title'];?></h4>
+                            <span class="home-product__cta">View Details</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <?php } ?>
             </div>
