@@ -105,6 +105,9 @@ $metakeywords = $rwlinks['meta_keywords'];
 $metadesc = $rwlinks['meta_desc'];
 $logo = $rwlinks['logo'];
 $experience = $rwlinks['experience'];
+$yearinindustry = $rwlinks['year_in_industry'];
+$globalclients = $rwlinks['global_clients'];
+$countriestoexport = $rwlinks['countries_to_export'];
 
 // for applications query start
     $footerapplicationsql = mysqli_query($con, "SELECT * FROM `childcategory` WHERE `status` = '1' AND `subcat_id` = '90'");

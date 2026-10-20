@@ -25,6 +25,21 @@
 		</div>
 
 		<div class="col-md-4 mb-3">
+			<label for="year_in_industry">Years In Industry</label>
+			<input type="text" id="year_in_industry" name="year_in_industry" class="form-control" value="<?=$rwshow['year_in_industry']; ?>">
+		</div>
+
+		<div class="col-md-4 mb-3">
+			<label for="global_clients">Global Clients</label>
+			<input type="text" id="global_clients" name="global_clients" class="form-control" value="<?=$rwshow['global_clients']; ?>">
+		</div>
+
+		<div class="col-md-4 mb-3">
+			<label for="countries_to_export">Countries To Export</label>
+			<input type="text" id="countries_to_export" name="countries_to_export" class="form-control" value="<?=$rwshow['countries_to_export']; ?>">
+		</div>
+
+		<div class="col-md-4 mb-3">
 			<label for="email" >Email ID</label>
 			<input type="email" id="email" name="email_id" class="form-control" value="<?=$rwshow['email_id']; ?>">
 		</div>

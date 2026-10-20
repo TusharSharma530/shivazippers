@@ -26,6 +26,9 @@ if(isset($_POST['editRecord'])){
 	$meta_keywords = mysqli_real_escape_string($con, $_POST['meta_keywords']);
 	$meta_desc = mysqli_real_escape_string($con, $_POST['meta_desc']);
 	$experience = mysqli_real_escape_string($con, $_POST['experience']);
+	$year_in_industry = mysqli_real_escape_string($con, $_POST['year_in_industry']);
+	$global_clients = mysqli_real_escape_string($con, $_POST['global_clients']);
+	$countries_to_export = mysqli_real_escape_string($con, $_POST['countries_to_export']);
 
 	if(empty($_FILES['logoImg']['name'])){
 		$imgpath = $rwshow['logo'];
@@ -60,7 +63,10 @@ if(isset($_POST['editRecord'])){
 		meta_keywords = '$meta_keywords',
 		meta_desc = '$meta_desc',
 		logo = '$imgpath',
-		experience = '$experience'
+		experience = '$experience',
+		year_in_industry = '$year_in_industry',
+		global_clients = '$global_clients',
+		countries_to_export = '$countries_to_export'
 		WHERE id = 1");
 	
 		

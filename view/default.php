@@ -135,21 +135,21 @@
             <div class="home-impact-item">
                 <div class="home-impact-icon"><i class="fa-solid fa-building"></i></div>
                 <div class="home-impact-txt">
-                    <strong><?=!empty($experience) ? $experience : '35+';?></strong>
+                    <strong><?=!empty($yearinindustry) ? $yearinindustry : '35+';?></strong>
                     <span>Years in Industry<br>Since 1989</span>
                 </div>
             </div>
             <div class="home-impact-item">
                 <div class="home-impact-icon"><i class="fa-solid fa-users"></i></div>
                 <div class="home-impact-txt">
-                    <strong>200+</strong>
+                    <strong><?=!empty($globalclients) ? $globalclients : '200+';?></strong>
                     <span>Global Clients</span>
                 </div>
             </div>
             <div class="home-impact-item">
                 <div class="home-impact-icon"><i class="fa-solid fa-ship"></i></div>
                 <div class="home-impact-txt">
-                    <strong>30+</strong>
+                    <strong><?=!empty($countriestoexport) ? $countriestoexport : '30+';?></strong>
                     <span>Countries<br>Exported To</span>
                 </div>
             </div>
