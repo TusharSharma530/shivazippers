@@ -2970,6 +2970,27 @@
 @media (min-width: 992px) {
     .certs__item {
         padding: 38px 42px;
+        overflow: visible;
+    }
+
+    /* overflow:visible karne se top gradient bar corner se bahar na nikle */
+    .certs__item::before {
+        border-radius: var(--sz-radius-lg) var(--sz-radius-lg) 0px 0px;
+    }
+
+    /* Certificate image chhoti + center */
+    .certs__media {
+        max-width: 470px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Read More expand karne par image scroll na ho - sticky */
+    .certs__item .col-lg-5 {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 24px;
+        align-self: start;
     }
 
     .certs__body {
@@ -3002,6 +3023,9 @@
         padding: 0;
         border-radius: 0;
         overflow: visible;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .certs__media .certificate-img {
@@ -5615,6 +5639,17 @@
 }
 
 @media (max-width: 767.98px) {
+    .pdp__title {
+        font-size: 17px;
+        margin: 3px 0px 5px;
+        padding-bottom: 7px;
+    }
+
+    .pdp__hero {
+        padding: 12px 16px 14px;
+        margin-bottom: 16px;
+    }
+
     .pdp__tabs {
         padding: 18px 16px 22px;
     }
