@@ -128,7 +128,7 @@ $sdesc = $rwsc['sdesc'];
 <link rel="stylesheet" href="<?=$path;?>assets/css/font-awesome-pro.css">
 <link rel="stylesheet" href="<?=$path;?>assets/css/spacing.css">
 <link rel="stylesheet" href="<?=$path;?>assets/css/main.css">
-<link rel="stylesheet" href="<?=$path;?>assets/css/style.css?v=20261021f">
+<link rel="stylesheet" href="<?=$path;?>assets/css/style.css?v=20261021j">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LdbW-0rAAAAAK86zfTym5iJwQ2P-B_QFXSX5O7G"></script>

@@ -566,14 +566,14 @@
 .widget-excellence__btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     margin-top: 6px;
-    padding: 13px 30px;
+    padding: 10px 24px;
     border-radius: var(--sz-radius-full);
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-family: carmen_sanssemibold, sans-serif;
-    font-size: 14.5px;
+    font-size: 13.5px;
     font-weight: 600;
     box-shadow: none;
     transition: var(--sz-transition);
@@ -598,9 +598,9 @@
    - sirf desktop (>=992px); mobile/tablet pe original size rehta hai */
 @media (min-width: 992px) {
     .widget-excellence__btn {
-        padding: 9px 22px;
+        padding: 8px 20px;
         font-size: 13px;
-        gap: 8px;
+        gap: 7px;
     }
 }
 
@@ -688,6 +688,17 @@
     color: var(--sz-navy);
 }
 
+@media (min-width: 768px) {
+    .widget-excellence__feature {
+        padding: 10px 0px;
+        line-height: 1.4;
+    }
+
+    .widget-excellence__feature-txt {
+        line-height: 1.4;
+    }
+}
+
 .widget-excellence__content {
     position: relative;
 }
@@ -722,7 +733,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    height: 90px;
+    height: 44px;
     pointer-events: none;
     background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 100%);
     transition: opacity 0.3s;
@@ -4508,6 +4519,15 @@
     color: rgb(255, 255, 255);
     /* box-shadow: 0 12px 28px color-mix(in srgb, var(--clr-theme) 35%, transparent); */
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Desktop: badge ko image ke edge par align karo (media padding ke wajah se
+   niche na latakay) - left padding 24px + bottom padding 40px + 12px */
+@media (min-width: 992px) {
+    .home-syndicate__badge {
+        left: 24px;
+        bottom: 52px;
+    }
 }
 
 .home-syndicate__badge-icon {
