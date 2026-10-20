@@ -84,30 +84,11 @@
     .swiper-slide-active .bd-hero__banner {
         transform: scale(1);
     }
-
-    .hero-content-box {
-        padding: 60px 0px 75px;
-    }
 }
 
 @media (max-width: 575px) {
     .bd-hero__banner {
         background-position: 60% center !important;
-    }
-
-    .hero-content-box {
-        padding: 50px 0px 65px;
-    }
-
-    .hero-pills-bar {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 14px;
-        gap: 10px;
-    }
-
-    .hero-pill-divider {
-        display: none;
     }
 }
 
@@ -117,164 +98,6 @@
     inset: 0px;
     background: linear-gradient(90deg, color-mix(in srgb, color-mix(in srgb, var(--clr-theme) 55%, #000) 94%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--clr-theme) 82%, #000) 85%, transparent) 45%, color-mix(in srgb, var(--clr-theme) 50%, transparent) 80%, color-mix(in srgb, var(--clr-theme) 25%, transparent) 100% );
     z-index: 1;
-}
-
-.hero-content-box {
-    position: relative;
-    z-index: 3;
-    padding: 90px 0px 110px;
-    max-width: 680px;
-}
-
-.hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 18px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(229, 240, 213, 0.35);
-    border-radius: var(--sz-radius-full);
-    background: rgba(229, 240, 213, 0.12);
-    backdrop-filter: blur(6px);
-    color: var(--sz-mint);
-    font-family: carmen_sansmedium, sans-serif;
-    font-size: 13.5px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.hero-kicker i {
-    color: var(--sz-mint);
-    font-size: 13px;
-}
-
-.hero-title {
-    font-family: carmen_sanssemibold, sans-serif;
-    font-weight: 700;
-    margin-bottom: 18px;
-    letter-spacing: -0.3px;
-    text-shadow: rgba(0, 0, 0, 0.3) 0px 4px 15px;
-    font-size: 34px !important;
-    line-height: 1.2 !important;
-    color: rgb(255, 255, 255) !important;
-}
-
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 44px !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero-title {
-        font-size: 52px !important;
-    }
-}
-
-.hero-desc {
-    font-size: 16.5px;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 30px;
-    max-width: 600px;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 35px;
-}
-
-.hero-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 32px;
-    border-radius: var(--sz-radius-full);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--clr-theme) 14%, #fff) 0%, color-mix(in srgb, var(--clr-theme) 22%, #fff) 100%);
-    color: var(--sz-primary-dark);
-    font-family: carmen_sanssemibold, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 25px;
-    transition: var(--sz-transition);
-}
-
-.hero-btn-primary i {
-    transition: transform 0.3s;
-}
-
-.hero-btn-primary:hover {
-    background: rgb(255, 255, 255);
-    color: var(--sz-primary);
-    transform: translateY(-3px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 14px 30px;
-}
-
-.hero-btn-primary:hover i {
-    transform: translateX(4px);
-}
-
-.hero-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 28px;
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: var(--sz-radius-full);
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(6px);
-    color: rgb(255, 255, 255);
-    font-family: carmen_sansmedium, sans-serif;
-    font-size: 14.5px;
-    letter-spacing: 0.5px;
-    transition: var(--sz-transition);
-}
-
-.hero-btn-secondary:hover {
-    border-color: rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.22);
-    color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-}
-
-.hero-pills-bar {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    padding: 12px 22px;
-    background: color-mix(in srgb, color-mix(in srgb, var(--clr-theme) 55%, #000) 65%, transparent);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--sz-radius-lg);
-}
-
-.hero-pill-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-pill-item i {
-    color: var(--sz-mint);
-    font-size: 14px;
-}
-
-.hero-pill-item strong {
-    color: rgb(255, 255, 255);
-    font-weight: 600;
-}
-
-.hero-pill-divider {
-    width: 1px;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.2);
-    align-self: center;
 }
 
 .hero-nav-arrow {
@@ -312,10 +135,9 @@
     right: 25px;
 }
 
-@media (max-width: 991px) {
-    .hero-nav-arrow {
-        display: none !important;
-    }
+/* Banner ke left/right arrows hata diye (production jaisa static banner) */
+.hero-nav-arrow {
+    display: none !important;
 }
 
 @media (max-width: 991px) {

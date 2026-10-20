@@ -15,41 +15,17 @@
                             </div>
                             <div class="container-fluid" style="position:relative; z-index:2;">
                                 <div class="row">
-                                    <div class="col-xl-7 col-lg-8 ps-lg-5">
-                                        <div class="hero-content-box">
-                                            <div class="hero-kicker animated fadeInUp">
-                                                <i class="fa-solid fa-award"></i> Since 1989 &bull; India's Premier Zipper Manufacturer
-                                            </div>
-                                            <h1 class="hero-title animated fadeInUp">
+                                    <div class="col-xl-6 ps-lg-5">
+                                        <div class="bd-hero__content-2">
+                                            <span class="animated fadeInUp"></span>
+                                            <h1 class="animated fadeInUpBig" style="font-size:18px; color:#fff;">
                                                 <?=$bannerrow['title'];?>
                                             </h1>
-                                            <div class="hero-desc animated fadeInUp">
+                                            <div class="animated fadeInUpBig">
                                                 <?=$bannerrow['sdesc'];?>
                                             </div>
-                                            <div class="hero-actions animated fadeInUp">
-                                                <a class="hero-btn-primary" href="<?=$path;?>contact-us">
-                                                    Get Instant Quote <i class="far fa-long-arrow-right"></i>
-                                                </a>
-                                                <a class="hero-btn-secondary" href="<?=$path;?>our-products">
-                                                    <i class="fa-solid fa-layer-group"></i> Explore Products
-                                                </a>
-                                            </div>
-                                            <!-- Floating Hero Metrics Strip -->
-                                            <div class="hero-pills-bar animated fadeInUp">
-                                                <div class="hero-pill-item">
-                                                    <i class="fa-solid fa-shield-check"></i>
-                                                    <span><strong>100%</strong> Tested Quality</span>
-                                                </div>
-                                                <div class="hero-pill-divider"></div>
-                                                <div class="hero-pill-item">
-                                                    <i class="fa-solid fa-earth-asia"></i>
-                                                    <span><strong>30+</strong> Export Nations</span>
-                                                </div>
-                                                <div class="hero-pill-divider"></div>
-                                                <div class="hero-pill-item">
-                                                    <i class="fa-solid fa-building-circle-check"></i>
-                                                    <span><strong>200+</strong> Global Clients</span>
-                                                </div>
+                                            <div class="bd-hero__btn-wrapper animated fadeInDown">
+                                                <a class="bd-hero__btn-1" href="<?=$path;?>contact-us" title="Get Your Quote">Get Your Quote</a>
                                             </div>
                                         </div>
                                     </div>
