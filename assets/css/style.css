@@ -401,21 +401,6 @@
     transition: var(--sz-transition);
 }
 
-.widget-excellence__btn i {
-    transition: transform 0.3s;
-}
-
-.widget-excellence__btn:hover {
-    background: var(--sz-orange);
-    color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-    box-shadow: none;
-}
-
-.widget-excellence__btn:hover i {
-    transform: translateX(4px);
-}
-
 /* Desktop: About Us button chhota (padding 13/30 -> 9/22, font 14.5 -> 13)
    - sirf desktop (>=992px); mobile/tablet pe original size rehta hai */
 @media (min-width: 992px) {
@@ -1711,20 +1696,7 @@
     transition: var(--sz-transition);
 }
 
-.home-philosophy__btn i {
-    transition: transform 0.3s;
-}
-
-.home-philosophy__btn:hover {
-    background: var(--sz-orange);
-    color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-    box-shadow: color-mix(in srgb, var(--clr-theme) 38%, transparent) 0px 14px 28px;
-}
-
-.home-philosophy__btn:hover i {
-    transform: translateX(4px);
-}
+/* Hover effect hata diya (user request) */
 
 .gtb-detail {
     border-top-width: medium;
@@ -4261,12 +4233,7 @@
     transition: var(--sz-transition);
 }
 
-.home-syndicate__btn:hover {
-    background: var(--sz-orange);
-    color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-    box-shadow: color-mix(in srgb, var(--clr-theme) 38%, transparent) 0px 14px 28px;
-}
+/* Hover effect hata diya (user request) */
 
 /* Mobile: button ke neeche space (warna next section chipak jaata tha) */
 @media (max-width: 991px) {
@@ -4540,12 +4507,7 @@
     transition: var(--sz-transition);
 }
 
-.home-india__btn:hover {
-    background: var(--sz-orange);
-    color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-    box-shadow: color-mix(in srgb, var(--clr-theme) 38%, transparent) 0px 14px 28px;
-}
+/* Hover effect hata diya (user request) */
 
 @media (min-width: 992px) {
     .home-philosophy__grid, .home-syndicate__grid, .home-india__grid {
@@ -5088,19 +5050,15 @@
     transition: var(--sz-transition);
 }
 
-.home-global__btn i {
-    transition: transform 0.3s;
-}
-
+/* Hover effect hata diya (user request)
+   NOTE: main.css me `a:hover { color: inherit; }` hai, isliye hover par
+   text parent colour (black) le leta tha. Ye rule white lock kar deta hai. */
+.widget-excellence__btn:hover,
+.home-philosophy__btn:hover,
+.home-syndicate__btn:hover,
+.home-india__btn:hover,
 .home-global__btn:hover {
-    background: var(--sz-orange);
     color: rgb(255, 255, 255);
-    transform: translateY(-3px);
-    box-shadow: color-mix(in srgb, var(--clr-theme) 42%, transparent) 0px 14px 30px;
-}
-
-.home-global__btn:hover i {
-    transform: translateX(4px);
 }
 
 .home-global__map {
