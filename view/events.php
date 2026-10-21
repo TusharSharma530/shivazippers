@@ -3,9 +3,9 @@
         <?php
             while($eventsrow = mysqli_fetch_array($eventssql)){
         ?>
-          <div class='row' style='margin-top:20px;'>
-              <div class='col-md-12 head'> 
-              <h4><?=$eventsrow['title'];?></h4>
+          <div class='row'>
+              <div class='col-md-12 head '> 
+              <h4 class="title-events"><?=$eventsrow['title'];?></h4>
               <p><?=$eventsrow['desc'];?></p>
               </div>
               <?php 

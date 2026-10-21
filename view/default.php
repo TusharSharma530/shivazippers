@@ -507,10 +507,10 @@
                     <span class="home-philosophy__eyebrow">Our Philosophy</span>
                     <h2 class="home-philosophy__title"><?=$philosophyrow['title'];?></h2>
                     <?php
-                    // Home page ke liye description ka short excerpt (limited words)
+                   
                     $philosophyText   = trim(strip_tags($philosophyrow['sdesc']));
                     $philosophyWords  = preg_split('/\s+/u', $philosophyText, -1, PREG_SPLIT_NO_EMPTY);
-                    $philosophyLimit  = 80; // itne words homepage par dikhayenge
+                    $philosophyLimit  = 80; 
                     $philosophyShort  = implode(' ', array_slice($philosophyWords, 0, $philosophyLimit));
                     if(count($philosophyWords) > $philosophyLimit){ $philosophyShort .= '...'; }
                     ?>
@@ -739,7 +739,7 @@ $homeCertSql = isset($con) ? mysqli_query($con, "SELECT * FROM `certificates` WH
            
         </div>
 
-        <!-- Pehle wali saari images: Industry Memberships + Trusted Worldwide -->
+       
         
     </div>
 </section>

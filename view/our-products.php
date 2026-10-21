@@ -8,9 +8,9 @@
 
             <!-- Full-width hero header -->
             <div class="pdp__hero">
-                <span class="home-philosophy__eyebrow">Our Products</span>
+                <!-- <span class="home-philosophy__eyebrow">Our Products</span> -->
                 <h1 class="pdp__title"><?=$productdetailsrow['title'];?></h1>
-                <p class="pdp__lead"><?=$productscatrow['title'] ?? 'Product Details';?></p>
+                <!-- <p class="pdp__lead"><?=$productscatrow['title'] ?? 'Product Details';?></p> -->
             </div>
 
             <div class="row pdp__grid">
