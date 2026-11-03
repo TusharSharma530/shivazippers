@@ -391,7 +391,7 @@
     gap: 8px;
     margin-top: 6px;
     padding: 10px 24px;
-    border-radius: var(--sz-radius-full);
+    border-radius: 15px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-family: carmen_sanssemibold, sans-serif;

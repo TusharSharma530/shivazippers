@@ -259,7 +259,7 @@
                     <?php } ?>
 
                     <a class="widget-excellence__btn" href="<?=$path;?>more-about-us/about-us" title="About Us">
-                        <span>About Us</span> <i class="far fa-long-arrow-right"></i>
+                        <span>Know More</span> <i class="far fa-long-arrow-right"></i>
                     </a>
                 </div>
             </div>
