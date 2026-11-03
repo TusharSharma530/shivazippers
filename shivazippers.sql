@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2026 at 01:43 AM
+-- Generation Time: Nov 03, 2026 at 01:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -107,7 +107,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `file`, `title`, `sdesc`, `order`, `status`) VALUES
-(28, 'branch/assets/banner/img1792039601.png', 'Shiva Fasteners Pvt Ltd', '<p>At Shiva Fasteners Pvt. Ltd., we take pride in being a premier manufacturer and exporter of high-quality coil zippers and sliders, catering to the global market. Our expertise lies in crafting customized zippers and sliders that blend functionality, durability, and aesthetics seamlessly. As the best zipper manufacturing company in India, we ensure that our products meet the highest standards to satisfy our customers worldwide.</p>', 1, 1);
+(28, 'branch/assets/banner/img1792558531.webp', 'Shiva Fasteners Pvt Ltd', '<p>At Shiva Fasteners Pvt. Ltd., we take pride in being a premier manufacturer and exporter of high-quality coil zippers and sliders, catering to the global market. Our expertise lies in crafting customized zippers and sliders that blend functionality, durability, and aesthetics seamlessly. As the best zipper manufacturing company in India, we ensure that our products meet the highest standards to satisfy our customers worldwide.</p>', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -205,6 +205,37 @@ INSERT INTO `category` (`id`, `title`, `type`, `url`, `desc`, `sdesc`, `file`, `
 (92, 'Customization Request', 87, 'customization-request', '', '', '', '', '', '', 1, 3, 0),
 (93, 'Substantially Vision 2030', 87, 'substantially-vision-2030', '<section class=\"pt-50 pb-20 mb-50\">\n<div class=\"container-fluid\">\n<div class=\"row\">\n<div class=\"col-lg-6 col-xl-6\">\n<div class=\"ourknowledge\">\n<h2 class=\"text-black\">Substantially Vision 2030</h2>\n<p>Zippers crafted from more than 50% recycled materials, such as repurposed PET bottles, represent a significant leap forward in sustainable manufacturing and product design. This innovative approach not only conserves valuable resources but also addresses environmental concerns by diverting plastic waste from landfills and oceans.</p>\n<p>The process of creating these eco- friendly zippers involves collecting, cleaning, and processing discarded PET bottles into a form suitable for zipper production. This initiative contributes to reducing the carbon footprint associated with the manufacturing of traditional zippers that rely solely on virgin materials.</p>\n<p>By incorporating recycled materials into zipper production, we not only demonstrate a commitment to environmental responsibility but also set an example for the industry. These zippers offer a tangible and eco-conscious choice for consumers who seek sustainable options in their everyday products, further promoting the concept of a circular economy where materials are reused, reducing the strain on natural resources and contributing to a greener, more sustainable future.</p>\n<p>Together with an increased use of sustainable materials, we are also addressing climate change, managing water resources, and chemicals as integral components of our Sustainable Vision 2030</p>\n</div>\n</div>\n<div class=\"col-lg-6 col-xl-6 text-center\">\n<div><img src=\"http://localhost/shivazippers/assets/img/2030-img.jpg\" alt=\"\" class=\"globeimg img-fluid\" /></div>\n</div>\n</div>\n</div>\n</section>', '', '', '', '', '', 1, 4, 0),
 (94, 'About Us', 87, 'about-us', '<p>Best Zipper and Slider Manufacturing Company in India Shiva Fasteners Pvt. Ltd. stands as a leading name in the zipper and slider manufacturing industry in India, known for outstanding quality, innovation, and precision engineering. Established in India, we are recognized as the best zipper and slider manufacturing company in India, offering a comprehensive range of high-performance zippers and sliders designed to meet diverse market needs. At Shiva Fasteners, we specialize in manufacturing a wide array of zippers and sliders that cater to industries including fashion, sportswear, luggage, upholstery, and industrial applications. Our zippers are crafted to ensure durability, smooth functionality, and aesthetic excellence. We also produce all types of high-quality sliders, including non-lock and auto-lock varieties, with customized solutions tailored to specific client requirements. Our slider range includes zinc and plastic pullers, and we take pride in using only pure Z5 zinc in our manufacturing&mdash;with no mixing&mdash;to ensure superior strength, finish, and longevity. Our reputation as an export-quality zipper and slider manufacturer in India is well-earned. We adhere to strict international quality standards, and all our products undergo rigorous testing to ensure they meet the demands of global markets. As a prominent zipper and slider exporter from India, our extensive global network reflects our ability to deliver exceptional products on time, every time. Whether you need zippers and sliders for high-fashion garments or heavy-duty industrial applications, our advanced manufacturing capabilities and commitment to quality ensure you receive the best solutions available. In summary, Shiva Fasteners Pvt. Ltd. is not only the best zipper and slider manufacturer in India but also a trusted global exporter. Our dedication to quality, innovation, and customer satisfaction makes us the preferred partner for clients around the world.</p>', '', 'branch/assets/category/img1792066693.webp', '', '', '', 1, 4, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `certificateormembership`
+--
+
+CREATE TABLE `certificateormembership` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `order` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `certificateormembership`
+--
+
+INSERT INTO `certificateormembership` (`id`, `type`, `file`, `order`, `status`) VALUES
+(12, 'Certificate', 'branch/assets/certificateormembership/img1792558699.png', 1, 1),
+(13, 'Certificate', 'branch/assets/certificateormembership/img1792558723.png', 2, 1),
+(14, 'Membership', 'branch/assets/certificateormembership/img1792558763.png', 1, 1),
+(15, 'Membership', 'branch/assets/certificateormembership/img1792558790.png', 2, 1),
+(16, 'Membership', 'branch/assets/certificateormembership/img1792558811.png', 3, 1),
+(17, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558840.png', 1, 1),
+(18, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558864.png', 2, 1),
+(19, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558886.png', 3, 1),
+(20, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558909.png', 4, 1),
+(21, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558931.png', 5, 1),
+(22, 'Trusted Worldwide', 'branch/assets/certificateormembership/img1792558954.png', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -898,15 +929,18 @@ CREATE TABLE `settings` (
   `footerdesc` text NOT NULL,
   `googletag` text NOT NULL,
   `headercenterline` varchar(255) NOT NULL,
-  `experience` varchar(255) NOT NULL
+  `experience` varchar(255) NOT NULL,
+  `year_in_industry` varchar(255) NOT NULL DEFAULT '',
+  `global_clients` varchar(255) NOT NULL DEFAULT '',
+  `countries_to_export` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `web_name`, `email_id`, `alternate_email_id`, `contact_no`, `alternate_no`, `whatsapp_no`, `address1`, `address2`, `youtubelink`, `map_iframe1`, `map_iframe2`, `facebook`, `youtube`, `instagram`, `twitter`, `linkedin`, `logo`, `meta_title`, `meta_keywords`, `meta_desc`, `footerdesc`, `googletag`, `headercenterline`, `experience`) VALUES
-(1, 'Shiva Fasteners Pvt. Ltd.', 'jaspreet@shivazippers.com', 'jaspreet@shivazippers.com', '8979277777', '9756205697', '', 'A-6, Delhi Road, The Meerut Mall, Near Rani Mill, Meerut, (U.P) -250002 INDIA  ', 'S-36, 38, Delhi Road, Industrial Estate, Partapur, Meerut, (UP) -250103 INDIA  ', '     ', '', '', 'https://www.facebook.com/info.shivafasteners/', '', 'https://www.instagram.com/info.shivafasteners/     ', '', 'https://www.linkedin.com/company/shiva-fasteners-pvt-ltd/posts/?feedView=all', 'branch/assets/logo/logoImg1755674148.png', 'Shiva Fasteners | Best Zipper Manufacturing Company in India', 'Shiva Fasteners Pvt. Ltd.', 'Shiva Fasteners Pvt. Ltd. is a leading zipper manufacturing company in India, offering high-quality zippers for fashion, sports, and industrial use.', '© 2024 | Shiva Fasteners Pvt. Ltd. | Website Conceptualised and Developed by', '', '', '');
+INSERT INTO `settings` (`id`, `web_name`, `email_id`, `alternate_email_id`, `contact_no`, `alternate_no`, `whatsapp_no`, `address1`, `address2`, `youtubelink`, `map_iframe1`, `map_iframe2`, `facebook`, `youtube`, `instagram`, `twitter`, `linkedin`, `logo`, `meta_title`, `meta_keywords`, `meta_desc`, `footerdesc`, `googletag`, `headercenterline`, `experience`, `year_in_industry`, `global_clients`, `countries_to_export`) VALUES
+(1, 'Shiva Fasteners Pvt. Ltd.', 'jaspreet@shivazippers.com', 'jaspreet@shivazippers.com', '8979277777', '9756205697', '', 'A-6, Delhi Road, The Meerut Mall, Near Rani Mill, Meerut, (U.P) -250002 INDIA   ', 'S-36, 38, Delhi Road, Industrial Estate, Partapur, Meerut, (UP) -250103 INDIA   ', '      ', '', '', 'https://www.facebook.com/info.shivafasteners/', '', 'https://www.instagram.com/info.shivafasteners/      ', '', 'https://www.linkedin.com/company/shiva-fasteners-pvt-ltd/posts/?feedView=all', 'branch/assets/logo/logoImg1755674148.png', 'Shiva Fasteners | Best Zipper Manufacturing Company in India', 'Shiva Fasteners Pvt. Ltd.', 'Shiva Fasteners Pvt. Ltd. is a leading zipper manufacturing company in India, offering high-quality zippers for fashion, sports, and industrial use.', '© 2024 | Shiva Fasteners Pvt. Ltd. | Website Conceptualised and Developed by', '', '', '35+', '30+', '200+', '');
 
 -- --------------------------------------------------------
 
@@ -1095,6 +1129,12 @@ ALTER TABLE `brands`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `certificateormembership`
+--
+ALTER TABLE `certificateormembership`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1304,6 +1344,12 @@ ALTER TABLE `brands`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
+--
+-- AUTO_INCREMENT for table `certificateormembership`
+--
+ALTER TABLE `certificateormembership`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `certificates`

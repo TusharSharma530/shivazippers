@@ -1803,7 +1803,7 @@ only screen and (min-width: 576px) and (max-width: 767px) {
     align-items: center;
     justify-content: space-evenly;
     background: color-mix(in srgb, var(--clr-theme) 14%, #fff);
-    color: color-mix(in srgb, var(--clr-theme) 22%, #fff);
+    color: white;
     font-size: 18px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -3435,8 +3435,8 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 }
 
 .mean-container .mean-nav ul li a.mean-expand.mean-clicked {
-  color: #000;
-  background-color: color-mix(in srgb, var(--clr-theme) 14%, #fff);
+  /* color: #000; */
+  background-color: color-mix(in srgb, var(--clr-theme) 14%);
   border: 1px solid color-mix(in srgb, var(--clr-theme) 14%, #fff)!important;
 }
 
@@ -3446,7 +3446,7 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  color: #000;
+  /* color: #000; */
 }
 
 /*----------------------------------------*/

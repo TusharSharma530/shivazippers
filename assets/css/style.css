@@ -2129,7 +2129,7 @@
 }
 
 .pdp {
-    padding: 10px 0px 50px;
+    padding: 10px 0px 10px;
 }
 
 .pdp__hero {
@@ -5660,5 +5660,41 @@
 @media (max-width: 767px) {
     .home-philosophy__eyebrow {
         margin-top: 10px;
+    }
+}
+@media (max-width: 767px) {
+    .globalmaps{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 767px) {
+    .mean-container .mean-nav ul li a.mean-expand {
+        margin-top: 7.2px;
+    }
+}
+
+@media (max-width: 767px) {
+    .coil-seo__intro p{
+        padding: 0px;
+    }
+}
+
+ @media (max-width: 767px) {
+    .product-listing{
+        margin-bottom: 0px !important;
+    }
+}
+/* .product-listing{
+    margin-bottom: 50px !important;
+} */
+ @media (min-width: 992px) {
+  .product-listing.mb-50 {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+    .home-certified{
+        margin-bottom: -50px !important;
     }
 }

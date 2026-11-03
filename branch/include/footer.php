@@ -71,8 +71,8 @@
             </div>
 
 
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-              <div class="bd-footer__widget footer-col-7 mb-40">
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3">
+              <div class="bd-footer__widget footer-col-7 ">
                 <div class="bd-footer__title">
                   <h4>Applications</h4>
                 </div>
