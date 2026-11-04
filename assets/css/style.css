@@ -5543,6 +5543,13 @@
     }
 }
 
+/* Mobile: footer me "Applications" column ke upar ki extra space kam */
+@media (max-width: 767px) {
+    .bd-footer__widget.mb-60 {
+        margin-bottom: 20px;
+    }
+}
+
 /* Mobile: bigger logo inside the hamburger (offcanvas) sidebar */
 @media (max-width: 991px) {
     .offcanvas__logo img {
