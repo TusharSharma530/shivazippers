@@ -94,7 +94,6 @@
 
 .hero__overlay::before {
     content: "";
-    /* position: absolute; */
     inset: 0px;
     background: linear-gradient(90deg, color-mix(in srgb, color-mix(in srgb, var(--clr-theme) 55%, #000) 94%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--clr-theme) 82%, #000) 85%, transparent) 45%, color-mix(in srgb, var(--clr-theme) 50%, transparent) 80%, color-mix(in srgb, var(--clr-theme) 25%, transparent) 100% );
     z-index: 1;
@@ -135,7 +134,6 @@
     right: 25px;
 }
 
-/* Banner ke left/right arrows hata diye (production jaisa static banner) */
 .hero-nav-arrow {
     display: none !important;
 }
@@ -287,7 +285,6 @@
 
 .widget-excellence {
     position: relative;
-    /* padding: 50px 0px; */
     background: rgb(255, 255, 255);
     overflow: hidden;
     margin: 30px;
@@ -301,6 +298,7 @@
 
 .widget-excellence__media {
     position: relative;
+    magin-top: 5px;
 }
 
 .widget-excellence__media::before {
@@ -321,7 +319,6 @@
     display: block;
     width: 100%;
     border-radius: var(--sz-radius-lg);
-    /* box-shadow: rgba(22, 41, 63, 0.14) 0px 18px 40px; */
     transition: var(--sz-transition);
 }
 
@@ -342,16 +339,14 @@
 
     .widget-excellence__grid {
         --bs-gutter-y: 24px;
+        background: white;
+        margin-top: 0px;
     }
 }
 
-/* Mobile/tablet: section margin 30px ki wajah se left/right kaafi space
-   aa raha tha (features box 45px se start ho raha tha, baaki sections
-   15px se). Margin hatakar baaki sections jaisa full-width.
-   Desktop (>=992px) pe margin: 30px waisa hi rahega. */
 @media (max-width: 991px) {
     .widget-excellence {
-        margin: 0;
+        margin: 0px;
     }
 }
 
@@ -388,10 +383,10 @@
 .widget-excellence__btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 11px;
     margin-top: 6px;
-    padding: 10px 24px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 10px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-family: carmen_sanssemibold, sans-serif;
@@ -401,8 +396,6 @@
     transition: var(--sz-transition);
 }
 
-/* Desktop: About Us button chhota (padding 13/30 -> 9/22, font 14.5 -> 13)
-   - sirf desktop (>=992px); mobile/tablet pe original size rehta hai */
 @media (min-width: 992px) {
     .widget-excellence__btn {
         padding: 8px 20px;
@@ -416,7 +409,6 @@
     background: rgb(255, 255, 255);
     border: 1px solid rgb(232, 237, 243);
     border-radius: var(--sz-radius-lg);
-    /* box-shadow: rgba(22, 41, 63, 0.06) 0px 12px 30px; */
     margin: 10px;
 }
 
@@ -440,7 +432,8 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 14px;
         padding: 6px 16px;
-        background: rgb(245, 247, 250);
+        /* background: rgb(245, 247, 250); */
+        margin-bottom: 30px;
     }
 
     .widget-excellence__feature {
@@ -824,7 +817,6 @@
     overflow: hidden;
 }
 
-/* Gallery gradient overlay - applications jaisa */
 .home-product__img::after {
     content: "";
     position: absolute;
@@ -844,7 +836,6 @@
     transform: scale(1.07);
 }
 
-/* Body ab image ke neeche overlay (absolute) - applications jaisa */
 .home-product__body {
     position: absolute;
     left: 0px;
@@ -993,8 +984,7 @@
 .home-impact-strip {
     position: relative;
     padding: 30px 0px;
-    border-bottom: 1px solid rgb(232, 237, 243);
-    /* margin-bottom: 30px; */
+    /* border-bottom: 1px solid rgb(232, 237, 243); */
 }
 
 .home-impact-grid {
@@ -1342,7 +1332,7 @@
 
 @media (max-width: 767px) {
     .home-applications__sliderwrap {
-        padding: 0 18px;
+        padding: 0px 18px;
         margin: -1px;
     }
 
@@ -1590,8 +1580,6 @@
     padding: 20px 20px 20px 30px;
 }
 
-/* Mobile: Global Presence (syndicate) ke upar ki space kam
-   - ye media query base rules ke BAAD hai, warna override kaam nahi karta */
 @media (max-width: 991px) {
     .home-philosophy {
         padding: 24px 0px 8px;
@@ -1705,17 +1693,14 @@
     align-items: center;
     gap: 9px;
     margin-top: 15px;
-    padding: 12px 30px;
-    border-radius: var(--sz-radius-full);
+    padding: 10px 20px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-size: 14.5px;
     font-weight: 600;
-    /* box-shadow: color-mix(in srgb, var(--clr-theme) 25%, transparent) 0px 10px 22px; */
     transition: var(--sz-transition);
+    border-radius: 10px !important;
 }
-
-/* Hover effect hata diya (user request) */
 
 .gtb-detail {
     border-top-width: medium;
@@ -1960,14 +1945,6 @@
 }
 
 .proname a.btnn:hover {
-    background-position-x: ;
-    background-position-y: ;
-    background-size: ;
-    background-repeat: ;
-    background-attachment: ;
-    background-origin: ;
-    background-clip: ;
-    background-color: ;
     background-image: none;
     transform: translateY(-2px);
     box-shadow: color-mix(in srgb, var(--clr-theme) 36%, transparent) 0px 12px 26px;
@@ -1977,7 +1954,6 @@
     padding: 10px 0px 40px;
 }
 
-/* Product listing cards: homepage style + View Details button (no slider) */
 .product-listing .home-product__card {
     border-radius: var(--sz-radius-md);
 }
@@ -1994,7 +1970,6 @@
     font-size: 12px;
 }
 
-/* Mobile: product title font size 10px */
 @media (max-width: 991px) {
     .product-listing .home-product__body--cta h4 {
         font-size: 10px;
@@ -2129,7 +2104,7 @@
 }
 
 .pdp {
-    padding: 10px 0px 10px;
+    padding: 10px 0px;
 }
 
 .pdp__hero {
@@ -2193,7 +2168,7 @@
     border-radius: 0px;
     overflow: visible;
     background: none;
-    border: 0;
+    border: 0px;
     box-shadow: none;
     padding: 0px;
 }
@@ -2330,9 +2305,9 @@
 }
 
 .enquirytabbing .nav-link {
-    border-width: medium;
-    border-style: none;
-    border-color: currentcolor;
+    border-width: medium medium 2px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor transparent;
     border-image: none;
     background: transparent;
     padding: 11px 24px;
@@ -2342,7 +2317,6 @@
     text-transform: uppercase;
     color: var(--sz-slate);
     border-radius: 0px;
-    border-bottom: 2px solid transparent;
     transition: var(--sz-transition);
     margin-bottom: 0px;
     white-space: nowrap;
@@ -2417,21 +2391,13 @@
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.3px;
-    border-radius: var(--sz-radius-full);
+    border-radius: 10px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     box-shadow: color-mix(in srgb, var(--clr-theme) 28%, transparent) 0px 10px 24px;
     transition: var(--sz-transition);
 }
 
 .detailsenquiry:hover {
-    background-position-x: ;
-    background-position-y: ;
-    background-size: ;
-    background-repeat: ;
-    background-attachment: ;
-    background-origin: ;
-    background-clip: ;
-    background-color: ;
     background-image: none;
     transform: translateY(-3px);
     box-shadow: color-mix(in srgb, var(--clr-theme) 40%, transparent) 0px 14px 30px;
@@ -2797,21 +2763,17 @@
         overflow: visible;
     }
 
-    /* overflow:visible karne se top gradient bar corner se bahar na nikle */
     .certs__item::before {
         border-radius: var(--sz-radius-lg) var(--sz-radius-lg) 0px 0px;
     }
 
-    /* Certificate image chhoti + center */
     .certs__media {
         max-width: 470px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Read More expand karne par image scroll na ho - sticky */
     .certs__item .col-lg-5 {
-        position: -webkit-sticky;
         position: sticky;
         top: 24px;
         align-self: start;
@@ -2830,7 +2792,6 @@
     }
 }
 
-/* Mobile: plain image only - no box, shadow, border or filter on the certificate */
 @media (max-width: 991px) {
     .certs__item {
         padding: 18px 16px;
@@ -2842,10 +2803,10 @@
 
     .certs__media {
         background: none;
-        border: 0;
+        border: 0px;
         box-shadow: none;
-        padding: 0;
-        border-radius: 0;
+        padding: 0px;
+        border-radius: 0px;
         overflow: visible;
         max-width: 320px;
         margin-left: auto;
@@ -2853,7 +2814,7 @@
     }
 
     .certs__media .certificate-img {
-        border-radius: 0;
+        border-radius: 0px;
         transition: none;
     }
 
@@ -2998,7 +2959,6 @@
     }
 }
 
-/* Mobile: bolder headings inside description */
 @media (max-width: 991px) {
     .apps__body h2, .apps__body h3, .apps__body h4, .apps__body h5, .apps__body h6 {
         font-weight: 700;
@@ -3162,7 +3122,6 @@
     margin-bottom: 12px;
 }
 
-/* Mobile: bolder headings inside news/events description */
 @media (max-width: 991px) {
     .cpage--news .eventouter h2, .cpage--news .eventouter h3, .cpage--news .eventouter h4, .cpage--news .eventouter h5, .cpage--news .eventouter h6 {
         font-weight: 700;
@@ -3510,7 +3469,6 @@
 }
 
 .contactpg__maptag {
-    /* position: absolute; */
     top: 16px;
     left: 16px;
     z-index: 2;
@@ -3945,7 +3903,6 @@
     height: 34px;
     border-radius: var(--sz-radius-full);
     background: rgba(255, 255, 255, 0.1);
-    /* color: var(--sz-orange); */
     font-size: 13px;
     font-weight: 700;
 }
@@ -4177,8 +4134,6 @@
     }
 }
 
-/* Syndicate heading colors - same as other sections
-   (eyebrow = orange, title = navy) - desktop & mobile dono ke liye */
 .home-syndicate__eyebrow {
     display: inline-block;
     font-family: carmen_sansmedium, sans-serif;
@@ -4197,7 +4152,6 @@
     padding-bottom: 16px;
 }
 
-/* Orange underline - same as other section titles (philosophy / india) */
 .home-syndicate__title::after {
     content: "";
     position: absolute;
@@ -4209,7 +4163,6 @@
     background: linear-gradient(90deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
 }
 
-/* Description - same as GTB India section (16px, black) */
 .home-syndicate__text p {
     font-size: 16px;
     line-height: 1.85;
@@ -4244,18 +4197,14 @@
     gap: 9px;
     margin-top: 15px;
     padding: 12px 30px;
-    border-radius: var(--sz-radius-full);
+    border-radius: 10px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-size: 14.5px;
     font-weight: 600;
-    /* box-shadow: color-mix(in srgb, var(--clr-theme) 25%, transparent) 0px 10px 22px; */
     transition: var(--sz-transition);
 }
 
-/* Hover effect hata diya (user request) */
-
-/* Mobile: button ke neeche space (warna next section chipak jaata tha) */
 @media (max-width: 991px) {
     .home-syndicate__btn {
         margin-bottom: 18px;
@@ -4267,15 +4216,13 @@
     padding: 24px 20px 40px 24px;
 }
 
-/* Mobile: Global Presence section ke upar ki space kam
-   (media top padding + grid gutter dono reduce) */
 @media (max-width: 991px) {
     .home-syndicate__grid {
         --bs-gutter-y: 16px;
     }
 
     .home-syndicate__media {
-        padding: 6px 10px 30px 10px;
+        padding: 6px 10px 30px;
     }
 }
 
@@ -4326,12 +4273,9 @@
     border-radius: var(--sz-radius-full);
     background: var(--sz-primary);
     color: rgb(255, 255, 255);
-    /* box-shadow: 0 12px 28px color-mix(in srgb, var(--clr-theme) 35%, transparent); */
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Desktop: badge ko image ke edge par align karo (media padding ke wajah se
-   niche na latakay) - left padding 24px + bottom padding 40px + 12px */
 @media (min-width: 992px) {
     .home-syndicate__badge {
         left: 24px;
@@ -4371,7 +4315,7 @@
 
 .home-india {
     position: relative;
-    padding: 50px 0px;
+    padding: 40px 0px;
     background: rgb(255, 255, 255);
     border-top: 1px solid color-mix(in srgb, var(--clr-theme) 4%, #fff);
 }
@@ -4425,7 +4369,6 @@
     border-radius: var(--sz-radius-full);
     background: var(--sz-primary);
     color: rgb(255, 255, 255);
-    /* box-shadow: 0 14px 30px color-mix(in srgb, var(--clr-theme) 35%, transparent); */
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -4518,16 +4461,13 @@
     gap: 9px;
     margin-top: 15px;
     padding: 12px 30px;
-    border-radius: var(--sz-radius-full);
+    border-radius: 10px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-size: 14.5px;
     font-weight: 600;
-    /* box-shadow: color-mix(in srgb, var(--clr-theme) 25%, transparent) 0px 10px 22px; */
     transition: var(--sz-transition);
 }
-
-/* Hover effect hata diya (user request) */
 
 @media (min-width: 992px) {
     .home-philosophy__grid, .home-syndicate__grid, .home-india__grid {
@@ -5059,40 +4999,28 @@
     align-items: center;
     gap: 10px;
     padding: 14px 32px;
-    border-radius: var(--sz-radius-full);
+    border-radius: 10px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-family: carmen_sanssemibold, sans-serif;
     font-size: 15px;
     font-weight: 600;
-    /* box-shadow: color-mix(in srgb, var(--clr-theme) 30%, transparent) 0px 10px 24px; */
     margin-bottom: 24px;
     transition: var(--sz-transition);
 }
 
-/* Hover effect hata diya (user request)
-   NOTE: main.css me `a:hover { color: inherit; }` hai, isliye hover par
-   text parent colour (black) le leta tha. Ye rule white lock kar deta hai. */
-.widget-excellence__btn:hover,
-.home-philosophy__btn:hover,
-.home-syndicate__btn:hover,
-.home-india__btn:hover,
-.home-global__btn:hover {
+.widget-excellence__btn:hover, .home-philosophy__btn:hover, .home-syndicate__btn:hover, .home-india__btn:hover, .home-global__btn:hover {
     color: rgb(255, 255, 255);
 }
 
 .home-global__map {
     padding: 0px 15px;
-    height:80%;
+    height: 80%;
 }
 
 .home-global__map img {
-    /* display: block; */
-    /* width: 100%; */
-    /* height: auto; */
-    /* filter: brightness(0) invert(0.87); */
     margin: 20px;
-    height:250px;
+    height: 250px;
 }
 
 .home-global__certs-text {
@@ -5175,9 +5103,6 @@
 
 @media (max-width: 991px) {
     .home-global {
-        /* padding: 45px 0px; */
-        /* Mobile: Global Presence ke upar/neeche ki space kam
-           (upar .home-india pb-50 + neeche .home-certified pt-40 se aa rahi thi) */
         margin-top: -22px;
         margin-bottom: -22px;
     }
@@ -5186,13 +5111,12 @@
         padding: 0px;
     }
 
-    /* Mobile: image ko responsive + center (equal left/right space) */
     .home-global__map img {
         display: block;
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0 auto;
+        margin: 0px auto;
     }
 
     .home-global__cert-grid {
@@ -5228,7 +5152,7 @@
     font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--sz-orange-light);
+    color: white;
     margin-bottom: 12px;
 }
 
@@ -5412,14 +5336,9 @@
     right: 0px;
 }
 
-/* @media (max-width: 767px) {
-    .home-brands__nav {
-        display: none;
-    }
-} */
 @media (max-width: 767px) {
     .home-brands__wrap {
-        padding: 0 22px;
+        padding: 0px 22px;
     }
 
     .home-brands__nav {
@@ -5440,6 +5359,7 @@
         right: -2px;
     }
 }
+
 .home-products__title, .home-applications__title, .widget-excellence__title, .home-values__title, .home-values__item h3, .home-philosophy__title, .home-syndicate__title, .home-india__title, .home-global__title, .home-cta__title, .home-brands__label {
     text-transform: none;
 }
@@ -5494,6 +5414,7 @@
     .pdp__hero {
         padding: 12px 16px 14px;
         margin-bottom: 16px;
+        border-radius: 10px;
     }
 
     .pdp__tabs {
@@ -5504,11 +5425,13 @@
         display: flex;
         flex-wrap: nowrap;
         width: 100%;
-        margin-top: 0px;
+        /* margin-top: 0px; */
         gap: 6px;
-        padding: 5px;
+        /* padding: 5px; */
         overflow: auto hidden;
         scrollbar-width: none;
+        border-radius: 11px;
+        background: white;
     }
 
     .pdp__tabs .enquirytabbing::-webkit-scrollbar {
@@ -5522,7 +5445,7 @@
 
     .pdp__tabs .enquirytabbing .nav-link {
         padding: 10px 6px;
-        font-size: 10.5px;
+        font-size: 11.5px;
         letter-spacing: 0.3px;
         text-align: center;
     }
@@ -5530,12 +5453,12 @@
 
 @media (max-width: 768px) {
     .footer-col-1 {
-        padding-left: 0;
+        padding-left: 0px;
     }
+
     .footercontact {
-        margin: 0 -15px;
         padding: 20px 15px;
-        border-radius: 0;
+        border-radius: 0px;
     }
 
     .bd-footer__contact-item p {
@@ -5543,34 +5466,28 @@
     }
 }
 
-/* Mobile: footer me "Applications" column ke upar ki extra space kam */
 @media (max-width: 767px) {
     .bd-footer__widget.mb-60 {
         margin-bottom: 20px;
     }
 }
 
-/* Offcanvas sidebar ka close (X) button: hover par bhi background same rahe */
-.offcanvas__close button:hover,
-.offcanvas__close button:focus-visible {
+.offcanvas__close button:hover, .offcanvas__close button:focus-visible {
     background: color-mix(in srgb, var(--clr-theme) 14%, #fff);
 }
 
-/* Mobile: bigger logo inside the hamburger (offcanvas) sidebar */
 @media (max-width: 991px) {
     .offcanvas__logo img {
         max-width: 165px;
     }
 }
 
-/* Mobile sidebar: hide chevron dropdown icon (meanmenu already adds a + icon) */
 @media (max-width: 991px) {
     .mobile-menu .fa-chevron-down {
         display: none !important;
     }
 }
 
-/* Mobile sidebar: no color change on hover */
 @media (max-width: 991px) {
     .mean-container .mean-nav ul li a:hover {
         color: color-mix(in srgb, var(--clr-theme) 14%, #fff);
@@ -5578,49 +5495,36 @@
 
     .mean-container .mean-nav ul li a.mean-expand:hover {
         background: transparent;
-        color: #fff !important;
-        border: 1px solid #ebebeb !important;
+        color: rgb(255, 255, 255) !important;
+        border: 1px solid rgb(235, 235, 235) !important;
     }
 }
 
-.home-products,
-.home-impact-strip,
-.widget-excellence,
-.home-applications,
-.home-philosophy,
-.home-syndicate,
-.home-india,
-.home-certified,
-.home-global,
-.home-enquiry,
-.home-brands {
+.home-products, .home-impact-strip, .widget-excellence, .home-applications, .home-philosophy, .home-syndicate, .home-india, .home-certified, .home-global, .home-enquiry, .home-brands {
     background: linear-gradient(180deg, color-mix(in srgb, var(--clr-theme) 5%, #fff) 0%, #ffffff 50%, color-mix(in srgb, var(--clr-theme) 3%, #fff) 100%);
 }
 
-/* Mobile: reduce gap between page heading and its description */
 @media (max-width: 991px) {
-    .cpage__head,
-    .factory-tour__head {
+    .cpage__head, .factory-tour__head {
         margin-bottom: 14px;
         padding-bottom: 8px;
     }
 
-    .cpage__head .home-philosophy__title,
-    .factory-tour__head .home-philosophy__title {
+    .cpage__head .home-philosophy__title, .factory-tour__head .home-philosophy__title {
         padding-bottom: 10px;
     }
 
     .cpage--vision section.pt-50 {
-        padding-top: 0 !important;
+        padding-top: 0px !important;
     }
 }
 
-/* Mobile: Applications section ke upar ki extra space kam */
 @media (max-width: 991px) {
     .home-applications {
         padding: 28px 0px 38px;
     }
 }
+
 @media (max-width: 767px) {
     .widget-excellence .widget-excellence__feature {
         flex-direction: column;
@@ -5629,90 +5533,128 @@
         gap: 8px;
     }
 }
+
 @media (max-width: 767px) {
     .home-syndicate__content {
         margin-top: 8px;
     }
 }
+
 @media (max-width: 767px) {
     .home-certified__title {
-        font size: 10px;
         font-size: 15px;
     }
-@media (max-width: 767px) {
-    .widget-excellence {
-       padding:10px;
-    }
-}
 
-@media (max-width: 767px) {
-    . home-certified{
-       padding-bottom:10px;
+    @media (max-width: 767px) {
+        .widget-excellence {
+            padding: 10px;
+        }
     }
-}
-/* @media (max-width: 767px) {
-    . title-events{
-       font-size:5px;
-    }
-} */
- @media (max-width: 767px) {
-    .widget-event .title-events {
-        font-size: 16px !important;
-    }
-}
-@media (max-width: 767px) {
-    .widget-event .eventbox {
-        margin-bottom: 15px;
-    }
-}
-@media (max-width: 767px) {
-    .breadcum {
-        float:left;
-    }
-}
-@media (max-width: 767px) {
-    .home-philosophy__eyebrow {
-        margin-top: 10px;
-    }
-}
-@media (max-width: 767px) {
-    .globalmaps{
-        margin-top: 10px;
-    }
-}
-@media (max-width: 767px) {
-    .mean-container .mean-nav ul li a.mean-expand {
-        margin-top: 7.2px;
-    }
-}
 
-@media (max-width: 767px) {
-    .coil-seo__intro p{
-        padding: 0px;
+    @media (max-width: 767px) {
     }
-}
 
- @media (max-width: 767px) {
-    .product-listing{
-        margin-bottom: 0px !important;
+    @media (max-width: 767px) {
+        .widget-event .title-events {
+            font-size: 16px !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .widget-event .eventbox {
+            margin-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .breadcum {
+            float: left;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .home-philosophy__eyebrow {
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .globalmaps {
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .mean-container .mean-nav ul li a.mean-expand {
+            margin-top: 7.2px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .widget-excellence__eyebrow {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .coil-seo__intro p {
+            padding: 0px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .product-listing {
+            margin-bottom: 0px !important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .product-listing.mb-50 {
+            margin-bottom: 50px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .home-certified {
+            margin-bottom: -50px !important;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .home-app__content h3 {
+            font-size: 9px !important;
+        }
     }
 }
-/* .product-listing{
-    margin-bottom: 50px !important;
-} */
- @media (min-width: 992px) {
-  .product-listing.mb-50 {
-    margin-bottom: 50px;
+@media (max-width: 767px) {
+        .home-cta__title {
+            font-size:22px;
+        }
+    }
+    @media (max-width: 767px) {
+        .enquirytabbingcontent {
+            background: #fff;
+        }
+    }
+     @media (max-width: 767px) {
+        .detailsenquiry {
+            box-shadow: none;
+        }
+    }
+    @media (max-width: 767px) {
+  .enquirytabbingcontent ul,
+  .enquirytabbingcontent ol {
+    padding-left: 0px;
   }
 }
-
-@media (max-width: 767px) {
-    .home-certified{
-        margin-bottom: -50px !important;
+    @media (max-width: 767px) {
+        .home-products__btn, .home-cta__btn {
+            border-radius: 10px;
+        }
     }
-}
-@media screen and (max-width: 768px) {
-  .home-app__content h3 {
-    font-size: 9px !important;
-  }
-}
+    
+     @media (max-width: 767px) {
+        .home-philosophy__btn {
+            margin-bottom:20px;
+        }
+    }

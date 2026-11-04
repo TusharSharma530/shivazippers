@@ -286,6 +286,12 @@
                         <span class="widget-excellence__feature-icon"><i class="fa-solid fa-leaf"></i></span>
                         <span class="widget-excellence__feature-txt">Sustainable Practices</span>
                     </div>
+                    <div class="widget-excellence__feature">
+                    <span class="widget-excellence__feature-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </span>
+                    <span class="widget-excellence__feature-txt">Eco-Friendly Solutions</span>
+                </div>
                 </div>
             </div>
         </div>

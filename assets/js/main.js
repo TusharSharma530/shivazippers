@@ -40,11 +40,82 @@
     });
 
 	// Mobile Menu Js
-	$('#mobile-menu').meanmenu({
-		meanMenuContainer: '.mobile-menu',
-		meanScreenWidth: "991",
-		meanExpand: ['<i class="fal fa-plus"></i>'],
-	});
+
+
+// Mobile Menu Js
+		$('#mobile-menu').meanmenu({
+			meanMenuContainer: '.mobile-menu',
+			meanScreenWidth: "991",
+			meanExpand: ['<i class="fal fa-plus"></i>'],
+		});
+
+		// Mobile menu accordion - only one dropdown open at a time
+
+		// Heading click
+		$(document).on('click', '.mean-container .mean-nav ul li > a:not(.mean-expand)', function (e) {
+
+			var submenu = $(this).siblings('ul');
+
+			if (submenu.length > 0) {
+				e.preventDefault();
+
+				var currentLi = $(this).parent('li');
+
+				// Close other dropdowns at the same level
+				currentLi.siblings('li').each(function () {
+					$(this).find('ul').stop(true, true).slideUp(300);
+					$(this).find('a.mean-expand').removeClass('mean-clicked');
+					$(this).find('a.mean-expand i')
+						.removeClass('fa-minus')
+						.addClass('fa-plus');
+					$(this).removeClass('active');
+				});
+
+				// Toggle current submenu
+				submenu.stop(true, true).slideToggle(300);
+				currentLi.toggleClass('active');
+
+				// Update plus/minus icon
+				var expandIcon = currentLi.children('a.mean-expand');
+
+				expandIcon.toggleClass('mean-clicked');
+				expandIcon.find('i').toggleClass('fa-plus fa-minus');
+			}
+		});
+
+		// Plus/minus icon click
+		$(document).on('click', '.mean-container .mean-nav a.mean-expand', function () {
+
+			var currentLi = $(this).parent('li');
+
+			// Wait for MeanMenu's own click handling
+			setTimeout(function () {
+
+				if (currentLi.children('ul').is(':visible')) {
+
+					// Close other dropdowns at the same level
+					currentLi.siblings('li').each(function () {
+						$(this).find('ul').stop(true, true).slideUp(300);
+						$(this).find('a.mean-expand')
+							.removeClass('mean-clicked');
+
+						$(this).find('a.mean-expand i')
+							.removeClass('fa-minus')
+							.addClass('fa-plus');
+
+						$(this).removeClass('active');
+					});
+
+					currentLi.addClass('active');
+
+				} else {
+					currentLi.removeClass('active');
+				}
+
+			}, 0);
+
+		});
+
 
 	// Sidebar Toggle
 	$(".offcanvas__close,.offcanvas-overlay").on("click", function () {
