@@ -5550,6 +5550,12 @@
     }
 }
 
+/* Offcanvas sidebar ka close (X) button: hover par bhi background same rahe */
+.offcanvas__close button:hover,
+.offcanvas__close button:focus-visible {
+    background: color-mix(in srgb, var(--clr-theme) 14%, #fff);
+}
+
 /* Mobile: bigger logo inside the hamburger (offcanvas) sidebar */
 @media (max-width: 991px) {
     .offcanvas__logo img {
