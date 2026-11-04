@@ -5698,3 +5698,8 @@
         margin-bottom: -50px !important;
     }
 }
+@media screen and (max-width: 768px) {
+  .home-app__content h3 {
+    font-size: 9px !important;
+  }
+}
