@@ -628,6 +628,13 @@
     background: rgb(255, 255, 255);
 }
 
+@media (max-width: 767px) {
+    .home-products {
+       
+        padding: 0px 10px;
+    }
+}
+
 .home-products__head {
     margin: 0px;
 }
@@ -1333,8 +1340,9 @@
 
 @media (max-width: 767px) {
     .home-applications__sliderwrap {
-        padding: 0px 18px;
-        margin: -1px;
+        /* cards ko upar wale section (title / button) ki left-right edge se align karta hai */
+        padding: 0px;
+        margin: 0px;
     }
 
     .home-applications__nav {
@@ -1592,6 +1600,19 @@
 
     .home-philosophy__media {
         padding: 6px 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-philosophy {
+        /* mobile pe left/right space bilkul widget-excellence /
+           home-applications section jaisa (10px) -> content 25px se start */
+        padding: 24px 10px 8px;
+    }
+
+    .home-syndicate {
+        /* same left/right space (10px) jaise upar wale sections me */
+        padding: 0px 10px;
     }
 }
 
@@ -4321,6 +4342,14 @@
     border-top: 1px solid color-mix(in srgb, var(--clr-theme) 4%, #fff);
 }
 
+@media (max-width: 767px) {
+    .home-india {
+        /* mobile pe left/right space bilkul widget-excellence /
+           home-applications jaisa (10px) -> content 25px se start */
+        padding: 40px 10px;
+    }
+}
+
 .home-india__grid {
     --bs-gutter-y: 40px;
     --bs-gutter-x: 50px;
@@ -4526,6 +4555,14 @@
     padding: 40px 0px 70px;
     background: linear-gradient(180deg, color-mix(in srgb, var(--clr-theme) 5%, #fff) 0%, #ffffff 50%, color-mix(in srgb, var(--clr-theme) 3%, #fff) 100%);
     overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .home-certified {
+        /* mobile pe left/right space bilkul widget-excellence /
+           home-applications jaisa (10px) -> content 25px se start */
+        padding: 40px 10px 70px;
+    }
 }
 
 .home-certified__head {
@@ -5126,6 +5163,14 @@
     }
 }
 
+@media (max-width: 767px) {
+    .home-global {
+        /* mobile pe left/right space bilkul widget-excellence /
+           home-applications jaisa (10px) -> content 25px se start */
+        padding: 0px 10px;
+    }
+}
+
 .home-cta {
     position: relative;
     padding: 55px 0px;
@@ -5526,10 +5571,26 @@
     }
 }
 
+
+@media (max-width: 767px) {
+    .home-applications {
+    
+        padding: 34px 10px 40px;
+    }
+
+    .home-applications .row {
+        --bs-gutter-y: 24px;
+    }
+
+    .home-applications__sliderwrap {
+        margin-top: 24px;
+    }
+}
+
 @media (max-width: 767px) {
     .widget-excellence .widget-excellence__feature {
         flex-direction: column;
-        /* icon + heading ko left me rakho, taaki "Know More" button ki line me aaye */
+    
         align-items: flex-start;
         text-align: left;
         gap: 8px;
