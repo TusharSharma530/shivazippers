@@ -539,7 +539,7 @@ input.e-check-input:checked {
 
 input.e-check-input:checked::after {
     box-sizing: border-box;
-    content: "ï€Œ";
+    content: "\f00c";
     position: absolute;
     font-family: var(--bd-ff-fontawesome);
     font-size: 10px;
@@ -2127,7 +2127,7 @@ input.e-check-input:checked::after {
 
 .bd-breadcrumb__menu ul li:not(:last-child)::after {
     display: inline-block;
-    content: "ï„…";
+    content: "\f105";
     position: absolute;
     right: -16px;
     top: 50%;
@@ -5274,7 +5274,7 @@ input.e-check-input:checked::after {
 
 .bd-services__sidebar-list ul li a::after {
     position: absolute;
-    content: "ï”";
+    content: "\f054";
     font-family: var(--bd-ff-fontawesome);
     left: 0px;
     color: var(--clr-text-10);
@@ -6227,7 +6227,7 @@ input.e-check-input:checked::after {
 
 .bd-sidebar__widget-link ul li a::after {
     position: absolute;
-    content: "ï”";
+    content: "\f054";
     font-family: var(--bd-ff-fontawesome);
     left: 0px;
     font-size: 14px;
@@ -7430,7 +7430,7 @@ input.e-check-input:checked::after {
 
 .product__details-comment .comment-agree input:checked::after {
     box-sizing: border-box;
-    content: "ï€Œ";
+    content: "\f00c";
     position: absolute;
     font-family: var(--bd-ff-fontawesome);
     font-size: 11px;
@@ -8095,7 +8095,7 @@ input.e-check-input:checked::after {
 }
 
 .coupon-accordion h3::before {
-    content: "ï»";
+    content: "\f07b";
     left: 15px;
     top: 13px;
     position: absolute;
@@ -8478,7 +8478,7 @@ p.checkout-coupon input[type="text"]:focus {
 
 .payment-method .accordion-button::after {
     position: absolute;
-    content: "ï§";
+    content: "\f067";
     right: 0px;
     top: 50%;
     transform: translateY(-50%);
@@ -8496,7 +8496,7 @@ p.checkout-coupon input[type="text"]:focus {
 }
 
 .payment-method .accordion-button:not(.collapsed)::after {
-    content: "ï¨";
+    content: "\f068";
 }
 
 .payment-method .accordion-body {
@@ -9530,7 +9530,7 @@ p.checkout-coupon input[type="text"]:focus {
 
 .bd-faq__accordion .accordion-button:not(.collapsed) {
     color: var(--clr-common-body-text);
-    content: "ï§";
+    content: "\f067";
     background: transparent;
     box-shadow: none;
     border: 0px;
@@ -9539,7 +9539,7 @@ p.checkout-coupon input[type="text"]:focus {
 .bd-faq__accordion .accordion-button:not(.collapsed)::after {
     background: none;
     transform: rotate(180deg);
-    content: "ï¨";
+    content: "\f068";
     position: absolute;
     right: 30px;
     top: 25px;
@@ -9555,7 +9555,7 @@ p.checkout-coupon input[type="text"]:focus {
 .bd-faq__accordion .accordion-button::after {
     background: none;
     color: var(--clr-theme-1);
-    content: "ï§";
+    content: "\f067";
     position: absolute;
     right: 20px;
     top: 50%;
@@ -10376,7 +10376,7 @@ p.checkout-coupon input[type="text"]:focus {
 
 .bd-footer__link-2 ul li a::before {
     position: absolute;
-    content: "ïƒš";
+    content: "\f0da";
     left: 0px;
     top: 4px;
     font-family: "Font Awesome 5 Pro";
@@ -11741,7 +11741,7 @@ footer {
 
 .enquirytabbingcontent ul li::before {
     position: absolute;
-    content: "ïƒš";
+    content: "\f0da";
     left: 0px;
     top: 0px;
     font-family: "Font Awesome 5 Pro";
