@@ -265,6 +265,14 @@
             </div>
 
             <div class="col-lg-3">
+                <div class="widget-excellence__features-head">
+                    <div class="widget-excellence__features-headline">
+                        <span class="widget-excellence__features-line"></span>
+                        <h3 class="widget-excellence__features-title">Our Excellence</h3>
+                        <span class="widget-excellence__features-line"></span>
+                    </div>
+                    <p class="widget-excellence__features-sub">Driving quality, innovation and sustainability.</p>
+                </div>
                 <div class="widget-excellence__features">
                     <div class="widget-excellence__feature">
                         <span class="widget-excellence__feature-icon"><i class="fa-solid fa-industry"></i></span>

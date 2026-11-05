@@ -404,6 +404,10 @@
     }
 }
 
+.widget-excellence__features-head {
+    display: none;
+}
+
 .widget-excellence__features {
     padding: 10px 26px;
     background: rgb(255, 255, 255);
@@ -427,37 +431,84 @@
 }
 
 @media (max-width: 767px) {
+    /* Mobile heading - image jaisa: center heading + dono taraf lines */
+    .widget-excellence__features-head {
+        display: block;
+        text-align: center;
+        margin: 4px 0px 20px;
+    }
+
+    .widget-excellence__features-headline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .widget-excellence__features-line {
+        flex: 1 1 auto;
+        max-width: 80px;
+        height: 2px;
+        border-radius: var(--sz-radius-full);
+        background: color-mix(in srgb, var(--clr-theme) 30%, #fff);
+    }
+
+    .widget-excellence .widget-excellence__features-title {
+        font-family: carmen_sanssemibold, sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--sz-navy);
+        margin: 0px;
+        white-space: nowrap;
+    }
+
+    .widget-excellence .widget-excellence__features-sub {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--sz-slate);
+        text-align: center;
+        margin: 8px 0px 0px;
+    }
+
+    /* Har feature apna alag rounded card (2 column grid) */
     .widget-excellence__features {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 14px;
-        padding: 6px 16px;
-        /* background: rgb(245, 247, 250); */
-        /* card edge ko "Know More" button ki left edge se align karta hai */
-        margin: 0px 0px 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 0px;
+        margin: 0px;
+        background: transparent;
+        border: none;
+        border-radius: 0px;
     }
 
-    .widget-excellence__feature {
-        gap: 10px;
-        padding: 13px 0px;
-        border-bottom-width: medium;
-        border-bottom-style: none;
-        border-bottom-color: currentcolor;
+    .widget-excellence .widget-excellence__feature {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 12px;
+        padding: 14px 12px;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(228, 235, 244);
+        border-radius: 14px;
+        box-shadow: 0px 8px 20px rgba(22, 41, 63, 0.06);
     }
 
-    .widget-excellence__feature:nth-child(2n+1) {
-        border-right: 1px dashed rgb(226, 232, 240);
-        padding-right: 12px;
+    .widget-excellence .widget-excellence__feature-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0px;
+        font-size: 19px;
+        border: none;
+        background: color-mix(in srgb, var(--clr-theme) 10%, #fff);
+        color: var(--sz-navy);
     }
 
-    .widget-excellence__feature-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 14px;
-    }
-
-    .widget-excellence__feature-txt {
-        font-size: 13.5px;
+    .widget-excellence .widget-excellence__feature-txt {
+        margin: 0px;
+        font-size: 11.5px;
+        line-height: 1.4;
     }
 }
 
@@ -862,7 +913,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     line-height: 1.4;
     color: rgb(255, 255, 255);
     margin: 0px;
@@ -1340,7 +1391,6 @@
 
 @media (max-width: 767px) {
     .home-applications__sliderwrap {
-        /* cards ko upar wale section (title / button) ki left-right edge se align karta hai */
         padding: 0px;
         margin: 0px;
     }
@@ -1428,7 +1478,7 @@
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     line-height: 1.4;
     color: rgb(255, 255, 255);
     margin: 0px;
@@ -4163,7 +4213,7 @@
     letter-spacing: 2.2px;
     text-transform: uppercase;
     color: var(--sz-orange);
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .home-syndicate__title {
@@ -5167,7 +5217,7 @@
     .home-global {
         /* mobile pe left/right space bilkul widget-excellence /
            home-applications jaisa (10px) -> content 25px se start */
-        padding: 0px 10px;
+        padding: 20px 10px;
     }
 }
 
@@ -5477,7 +5527,7 @@
         overflow: auto hidden;
         scrollbar-width: none;
         border-radius: 11px;
-        background: white;
+        background: #0000ff29;
     }
 
     .pdp__tabs .enquirytabbing::-webkit-scrollbar {
@@ -5588,18 +5638,17 @@
 }
 
 @media (max-width: 767px) {
+    /* feature card: icon left + text right (image jaisa) - upar wale rule se conflict nahi karna */
     .widget-excellence .widget-excellence__feature {
-        flex-direction: column;
-    
-        align-items: flex-start;
-        text-align: left;
-        gap: 8px;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
     }
 }
 
 @media (max-width: 767px) {
     .home-syndicate__content {
-        margin-top: 8px;
+        margin-top: 20px;
     }
 }
 
@@ -5684,8 +5733,13 @@
     }
 
     @media screen and (max-width: 768px) {
-        .home-app__content h3 {
+        .home-app__content h3,
+        .home-product__body h4  {
             font-size: 9px !important;
+            display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         }
     }
 }
@@ -5719,5 +5773,52 @@
      @media (max-width: 767px) {
         .home-philosophy__btn {
             margin-bottom:20px;
+        }
+    }
+
+@media (max-width: 767px) {
+    .pdp {
+        padding-bottom: 0px;
+    }
+
+    .pdp__grid {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 574px) {
+    .bd-header__right.right-2 {
+        top: 0px !important;
+        bottom: 0px !important;
+        margin-top: 2px !important;
+        align-items: center !important;
+    }
+}
+
+@media (min-width: 575px) and (max-width: 767px) {
+    .bd-header__right.right-2 {
+        margin-bottom: 23px;
+    }
+}
+ @media (max-width: 767px) {
+        .home-applications__btn {
+            border-radius: 10px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .pdp__cta {
+             margin-top:0px;
+        }
+    }
+     @media (max-width: 767px) {
+        .apps {
+            padding: 0px 0px 24px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .cpage , .certs {
+            padding: 0px ;
         }
     }
