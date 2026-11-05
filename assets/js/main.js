@@ -51,35 +51,27 @@
 
 		// Mobile menu accordion - only one dropdown open at a time
 
-		// Heading click
+		// Heading click -> exactly the same behaviour as clicking the plus/minus icon
 		$(document).on('click', '.mean-container .mean-nav ul li > a:not(.mean-expand)', function (e) {
 
-			var submenu = $(this).siblings('ul');
+			var currentLi = $(this).parent('li');
+			var submenu = currentLi.children('ul');
 
+			// Heading has a submenu -> open/close it instead of opening the page
 			if (submenu.length > 0) {
+
 				e.preventDefault();
 
-				var currentLi = $(this).parent('li');
+				var expandBtn = currentLi.children('a.mean-expand');
 
-				// Close other dropdowns at the same level
-				currentLi.siblings('li').each(function () {
-					$(this).find('ul').stop(true, true).slideUp(300);
-					$(this).find('a.mean-expand').removeClass('mean-clicked');
-					$(this).find('a.mean-expand i')
-						.removeClass('fa-minus')
-						.addClass('fa-plus');
-					$(this).removeClass('active');
-				});
-
-				// Toggle current submenu
-				submenu.stop(true, true).slideToggle(300);
-				currentLi.toggleClass('active');
-
-				// Update plus/minus icon
-				var expandIcon = currentLi.children('a.mean-expand');
-
-				expandIcon.toggleClass('mean-clicked');
-				expandIcon.find('i').toggleClass('fa-plus fa-minus');
+				if (expandBtn.length) {
+					// Reuse MeanMenu's own expand button, so icon + animation are identical
+					expandBtn.trigger('click');
+				} else {
+					// Fallback (no expand button available)
+					submenu.stop(true, true).slideToggle(300);
+					currentLi.toggleClass('dropdown-opened', submenu.is(':visible'));
+				}
 			}
 		});
 
@@ -88,29 +80,28 @@
 
 			var currentLi = $(this).parent('li');
 
-			// Wait for MeanMenu's own click handling
+			// Wait for MeanMenu's own click handling (it toggles .mean-clicked for us)
 			setTimeout(function () {
 
-				if (currentLi.children('ul').is(':visible')) {
+				// Real state of this dropdown (MeanMenu already updated it)
+				var isOpen = currentLi.children('a.mean-expand').hasClass('mean-clicked');
 
-					// Close other dropdowns at the same level
-					currentLi.siblings('li').each(function () {
-						$(this).find('ul').stop(true, true).slideUp(300);
-						$(this).find('a.mean-expand')
-							.removeClass('mean-clicked');
+				// Close other dropdowns at the same level
+				currentLi.siblings('li').each(function () {
+					$(this).find('ul').stop(true, true).slideUp(300);
+					$(this).find('a.mean-expand')
+						.removeClass('mean-clicked');
 
-						$(this).find('a.mean-expand i')
-							.removeClass('fa-minus')
-							.addClass('fa-plus');
+					$(this).find('a.mean-expand i')
+						.removeClass('fa-minus')
+						.addClass('fa-plus');
 
-						$(this).removeClass('active');
-					});
+					$(this).removeClass('active dropdown-opened');
+				});
 
-					currentLi.addClass('active');
-
-				} else {
-					currentLi.removeClass('active');
-				}
+				// Keep the current item in sync with its open/closed state
+				currentLi.toggleClass('active', isOpen);
+				currentLi.toggleClass('dropdown-opened', isOpen);
 
 			}, 0);
 
