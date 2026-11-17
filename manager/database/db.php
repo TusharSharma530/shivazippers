@@ -120,14 +120,18 @@ function __getStateName($con, $id){
 }
 
 function __getCategoryName($con, $id){
-    $sql = mysqli_query($con, "SELECT * FROM `category` WHERE `id` = $id");
+    if($id === '' || $id === null) return '';
+    $sql = mysqli_query($con, "SELECT * FROM `category` WHERE `id` = '".intval($id)."'");
+    if(!$sql) return '';
     $rw = mysqli_fetch_array($sql);
-    return $rw['url'];
+    return $rw ? $rw['url'] : '';
 }
 function __getChildCategoryName($con, $id){
-    $sql = mysqli_query($con, "SELECT * FROM `childcategory` WHERE `id` = $id");
+    if($id === '' || $id === null) return '';
+    $sql = mysqli_query($con, "SELECT * FROM `childcategory` WHERE `id` = '".intval($id)."'");
+    if(!$sql) return '';
     $rw = mysqli_fetch_array($sql);
-    return $rw['url'];
+    return $rw ? $rw['url'] : '';
 }
 
 // ===== encrypt data ========

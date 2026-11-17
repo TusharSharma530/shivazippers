@@ -19,7 +19,7 @@
                     <div class="pdp__gallery">
                         <div class="procutimg2 d-block">
                             <?php
-                                if(mysqli_num_rows($productimagessql)>0){
+                                if($productimagessql && mysqli_num_rows($productimagessql)>0){
                             ?>
                             <div id="carouselExampleIndicators" class="carousel slide detail-slider"
                                 data-bs-ride="carousel">
@@ -120,13 +120,11 @@
             </div>
             <div class="row factory-tour__grid">
                 <?php
-                    while($productsrow = mysqli_fetch_array($productsqlsc)){
-                        $childid = $productsrow['childcategory'];
+                    while($productsqlsc && ($productsrow = mysqli_fetch_array($productsqlsc))){
                         $producturl = $productsrow['url'];
-                        $childurl = __getChildCategoryName($con, $childid);
                   ?>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a class="home-product__card" href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$childurl;?>"
+                    <a class="home-product__card" href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$producturl;?>"
                         title="View Details">
                         <div class="home-product__img">
                             <img src="<?=$path.$productsrow['file'];?>" alt="<?=$productsrow['title'];?>" loading="lazy">

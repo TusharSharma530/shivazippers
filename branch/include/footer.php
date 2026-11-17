@@ -59,7 +59,7 @@
                     <li><a href="<?=$path;?>">Home</span></a></li>
                     <li><a href="<?=$path;?>/company-information/gtb-philosophy">Company Information</a></li>
                     <li><a href="<?=$path;?>certifications">Certifications </a></li>
-                    <li><a href="<?=$path;?>our-aplications">Our Applications</a></li>
+                    <li><a href="<?=$path;?>more-about-us/our-applications">Our Applications</a></li>
                     <li><a href="<?=$path;?>more-about-us/upcoming-events">Upcoming Events</a></li>
                     <li><a href="<?=$path;?>more-about-us/customization-request">Customization Request</span></a></li>
                     <li><a href="<?=$path;?>more-about-us/substantially-vision-2030">Substantially Vision 2030</span></a></li>

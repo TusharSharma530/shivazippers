@@ -1,6 +1,4 @@
 <?php
-// Product detail page (our-products/<cat>/<child>) par breadcrumb nahi chahiye,
-// kyunki title upar hero me hi dikh raha hai.
 if(!($geturl1 == 'our-products' && !empty($geturl3))){
     include('view/breadcrumb.php');
 }
@@ -20,7 +18,8 @@ include("view/$geturl1.php");
 		if(!empty($geturl3)){
 			include("view/$geturl2.php");
 		}else{
-			echo "Page Not Found.";
+			// "View All Applications" -> saari applications ka listing page
+			include("view/our-applications-list.php");
 		}
 	}elseif(in_array($geturl2, ['customization-request'])){
 		if(empty($geturl3)){

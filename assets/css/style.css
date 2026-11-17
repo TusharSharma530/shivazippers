@@ -3037,6 +3037,54 @@
     }
 }
 
+/* ==========================================================================
+   OUR APPLICATIONS - LISTING (View All Applications)
+   ========================================================================== */
+.apps--list {
+    padding-bottom: 60px;
+}
+
+.apps--list .apps__head {
+    max-width: 860px;
+}
+
+.apps__lede {
+    margin: 16px 0px 0px;
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--sz-text);
+}
+
+.apps--list .apps__grid {
+    --bs-gutter-x: 26px;
+    --bs-gutter-y: 26px;
+}
+
+.apps--list .home-app__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: rgb(10, 22, 38);
+}
+
+/* Image hover par zoom (scale) se image crop/cut ho rahi thi -
+   yahan sirf subtle tone change, image poori ki poori dikhti rahegi. */
+.apps--list .home-app__image img {
+    transition: filter 0.5s ease;
+}
+
+.apps--list .home-app__card:hover .home-app__image img {
+    transform: none;
+    filter: brightness(1.08) saturate(1.06);
+}
+
+.apps__empty {
+    margin: 0px;
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--sz-text);
+}
+
 .cpage {
     padding: 8px 0px 40px;
 }
@@ -3562,7 +3610,7 @@
 .chero {
     position: relative;
     overflow: hidden;
-    background: rgb(12, 73, 134);
+    background: var(--clr-theme);
     padding: 34px 0px 38px;
     margin-bottom: 34px;
 }
@@ -3690,7 +3738,7 @@
 
 .cinfo__top {
     position: relative;
-    background: rgb(12, 73, 134);
+    background: var(--clr-theme);
     padding: 28px 30px 30px;
 }
 

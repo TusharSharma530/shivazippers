@@ -21,7 +21,7 @@
     --bd-ff-heading: 'carmen_sansmedium', sans-serif;
     --bd-ff-p: font-family: 'carmen_sansmedium', sans-serif;
     --bd-ff-fontawesome: "Font Awesome 6 Pro";
-    --clr-theme: #0c4986;
+    --clr-theme: #005045;
     --clr-theme-dark: color-mix(in srgb, var(--clr-theme) 72%, #000);
     --clr-theme-light: color-mix(in srgb, var(--clr-theme) 87%, #fff);
     --clr-theme-lighter: color-mix(in srgb, var(--clr-theme) 65%, #fff);

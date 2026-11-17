@@ -81,7 +81,9 @@
                     <?php
                         while($homeproductsrow = mysqli_fetch_array($homeproductsql)){
                             $homeprochildurl = __getChildCategoryName($con, $homeproductsrow['childcategory']);
-                            $homeproducturl = ($homeproductsrow['caturl'] && $homeprochildurl) ? $path.'our-products/'.$homeproductsrow['caturl'].'/'.$homeprochildurl : $path.'our-products';
+                            $homeproducturl = !empty($homeproductsrow['caturl'])
+                                ? $path.'our-products/'.$homeproductsrow['caturl'].'/'.$homeproductsrow['url']
+                                : $path.'our-products';
                     ?>
                     <div class="swiper-slide home-products__slide">
                         <a class="home-product__card" href="<?=$homeproducturl;?>" title="<?=$homeproductsrow['title'];?>">
@@ -409,7 +411,7 @@
             <div class="col-lg-5">
                 <div class="home-applications__aside">
                     <p class="home-applications__lead">Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.</p>
-                    <a class="home-applications__btn" href="<?=$path;?>more-about-us/our-applications/bag-manufacturers" title="View All Applications">
+                    <a class="home-applications__btn" href="<?=$path;?>more-about-us/our-applications" title="View All Applications">
                         <span>View All Applications</span> <i class="far fa-long-arrow-right"></i>
                     </a>
                 </div>
