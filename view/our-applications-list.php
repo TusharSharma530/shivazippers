@@ -3,7 +3,7 @@ $ourappsql = mysqli_query($con, "SELECT * FROM `childcategory` WHERE `status` = 
 $ourappcount = ($ourappsql && mysqli_num_rows($ourappsql)) ? mysqli_num_rows($ourappsql) : 0;
 ?>
 <section class="apps apps--list">
-    <div class="container">
+    <div class="container-fluid">
 
         <!-- Page header -->
         <div class="factory-tour__head apps__head">
@@ -21,7 +21,7 @@ $ourappcount = ($ourappsql && mysqli_num_rows($ourappsql)) ? mysqli_num_rows($ou
                 $ourappimg = !empty($ourapprow['file']) ? $path.$ourapprow['file'] : $path.'assets/img/no-image.png';
                 $ourappurl = $path.'more-about-us/our-applications/'.$ourapprow['url'];
             ?>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <a class="home-app__card" href="<?=$ourappurl;?>" title="<?=$ourapprow['title'];?>">
                     <div class="home-app__image">
                         <img src="<?=$ourappimg;?>" alt="<?=$ourapprow['title'];?>" loading="lazy">

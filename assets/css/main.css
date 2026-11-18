@@ -3577,7 +3577,8 @@ input.e-check-input:checked::after {
 }
 
 .bd-hero__content-2 {
-    padding-top: 85px;
+    /* padding-top: 85px; */
+    px; */
 }
 
 @media (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px) {
