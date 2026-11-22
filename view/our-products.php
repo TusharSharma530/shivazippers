@@ -125,13 +125,13 @@
                   ?>
                 <div class="col-6 col-md-4 col-lg-3">
                     <a class="home-product__card" href="<?=$path;?>our-products/<?=$productscaturl;?>/<?=$producturl;?>"
-                        title="View Details">
+                        title="<?=$productsrow['title'];?>">
                         <div class="home-product__img">
                             <img src="<?=$path.$productsrow['file'];?>" alt="<?=$productsrow['title'];?>" loading="lazy">
                         </div>
-                        <div class="home-product__body home-product__body--cta">
+                        <div class="home-product__body">
                             <h4><?=$productsrow['title'];?></h4>
-                            <span class="home-product__cta">View Details</span>
+                            <span class="home-app__arrow" aria-hidden="true"><i class="far fa-long-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
