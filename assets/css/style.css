@@ -3108,12 +3108,9 @@
 /* ==========================================================================
    OUR APPLICATIONS - LISTING (View All Applications)
    ========================================================================== */
-.apps--list {
-    padding-bottom: 60px;
-}
-
 .apps--list .apps__head {
     max-width: 860px;
+    margin-bottom: 0px;
 }
 
 .apps__lede {
@@ -3121,11 +3118,6 @@
     font-size: 16.5px;
     line-height: 1.85;
     color: var(--sz-text);
-}
-
-.apps--list .apps__grid {
-    --bs-gutter-x: 26px;
-    --bs-gutter-y: 26px;
 }
 
 .apps--list .home-app__image {

@@ -2,20 +2,20 @@
 $ourappsql = mysqli_query($con, "SELECT * FROM `childcategory` WHERE `status` = '1' AND `subcat_id` = '90' ORDER BY `order` ASC, `id` ASC");
 $ourappcount = ($ourappsql && mysqli_num_rows($ourappsql)) ? mysqli_num_rows($ourappsql) : 0;
 ?>
-<section class="apps apps--list">
+<section class="home-applications apps--list">
     <div class="container-fluid">
 
         <!-- Page header -->
-        <div class="factory-tour__head apps__head">
-            <span class="home-philosophy__eyebrow">Our Applications</span>
-            <h1 class="home-philosophy__title"><?=$pagename;?></h1>
+        <div class="home-applications__head apps__head">
+            <span class="home-applications__eyebrow">Our Applications</span>
+            <h1 class="home-applications__title"><?=$pagename;?></h1>
             <?php if($ourappcount){ ?>
             <p class="apps__lede">Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.</p>
             <?php } ?>
         </div>
 
         <?php if($ourappcount){ ?>
-        <div class="row g-4 apps__grid">
+        <div class="row g-4 home-applications__grid">
             <?php
             while($ourapprow = mysqli_fetch_assoc($ourappsql)){
                 $ourappimg = !empty($ourapprow['file']) ? $path.$ourapprow['file'] : $path.'assets/img/no-image.png';
