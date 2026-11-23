@@ -399,21 +399,41 @@
 <!-- ==========================================================================
      SECTION 8: APPLICATIONS SHOWCASE (Where Our Zippers Perform)
      ========================================================================== -->
-<section class="home-applications">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="home-applications__head">
-                    <span class="home-applications__eyebrow">Applications</span>
-                    <h2 class="home-applications__title">Serving Diverse Industries</h2>
-                </div>
-            </div>
-            <div class="col-lg-5">
+     <!-- <section>
+<a class="home-applications__btn cutomizatinreqbtn" href="<?=$path;?>more-about-us/customization-request" title="Customization Request">
+                        <span>Customization Request</span> <i class="far fa-long-arrow-right"></i>
+                    </a> -->
+                    <section>
+            <section class="home-applications">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="home-applications__head">
+                                <span class="home-applications__eyebrow">Applications</span>
+                                <h2 class="home-applications__title">Serving Diverse Industries</h2>
+                            </div>
+                        </div>
+                <div class="col-lg-5">
                 <div class="home-applications__aside">
-                    <p class="home-applications__lead">Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.</p>
-                    <a class="home-applications__btn" href="<?=$path;?>more-about-us/our-applications" title="View All Applications">
-                        <span>View All Applications</span> <i class="far fa-long-arrow-right"></i>
+
+                    <a class="home-applications__btn cutomizatinreqbtn"
+                    href="<?=$path;?>more-about-us/customization-request"
+                    title="Customization Request">
+                        <span>Customization Request</span>
+                        <i class="far fa-long-arrow-right"></i>
                     </a>
+
+                    <p class="home-applications__lead">
+                        Our zippers and sliders are used across various industries, offering reliable fastening solutions for a wide range of applications.
+                    </p>
+                    <!-- <hr class="customization-divider"> -->
+                    <a class="home-applications__btn"
+                    href="<?=$path;?>more-about-us/our-applications"
+                    title="View All Applications">
+                        <span>View All Applications</span>
+                        <i class="far fa-long-arrow-right"></i>
+                    </a>
+
                 </div>
             </div>
         </div>
