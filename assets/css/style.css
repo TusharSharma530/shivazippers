@@ -5983,6 +5983,7 @@
     overflow: hidden;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
     transition: all 0.35s ease;
+    padding: 2px solid black;
 }
 
 .home-four-card:hover {
@@ -6005,6 +6006,7 @@
     justify-content: center;
     width: 100%;
     padding: 10px;
+    border: 2px solid #6c757d42;
 }
 
 .home-four-card__media img {
@@ -6047,7 +6049,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #b18a4a;
+    color: #115A50;
     margin-bottom: 12px;
 }
 
@@ -6075,7 +6077,7 @@
     padding-top: 12px;
     font-size: 14px;
     font-weight: 700;
-    color: #a47b3c;
+    color: #115A50;
     text-decoration: none;
     transition: all 0.3s ease;
 }
