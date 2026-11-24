@@ -255,7 +255,7 @@
                     <h2 class="widget-excellence__title"><?=$aboutrow['title'];?></h2>
                     <?php $excDesc = trim($aboutrow['desc']); ?>
                     <?php if($excDesc !== ''){ ?>
-                    <div class="excellence-desc is-open" id="excellenceDesc">
+                    <div class="excellence-desc" id="excellenceDesc">
                         <?=$excDesc;?>
                     </div>
                     <?php } ?>
@@ -307,49 +307,6 @@
         </div>
     </div>
 </section>
-
-<script>
-(function () {
-    var sec = document.querySelector('.widget-excellence');
-    if (!sec) return;
-    var img = sec.querySelector('.widget-excellence__img');
-    var box = sec.querySelector('.excellence-desc');
-    var content = sec.querySelector('.widget-excellence__content');
-    if (!img || !box || !content) return;
-
-    function clampToImage() {
-        /* Below the lg breakpoint the image sits above the text, so keep the
-           full description visible (matches the original mobile behaviour). */
-        if (window.innerWidth < 992) {
-            box.classList.add('is-open');
-            box.style.maxHeight = '';
-            return;
-        }
-
-        var imgH = img.getBoundingClientRect().height;
-        if (!imgH) return;
-
-        /* Everything in the content column except the description itself */
-        var otherH = content.getBoundingClientRect().height - box.getBoundingClientRect().height;
-        var avail = Math.round(imgH - otherH);
-
-        if (avail > 60) {
-            box.classList.remove('is-open');   /* re-enables overflow:hidden + fade scrim */
-            box.style.maxHeight = avail + 'px';
-        } else {
-            box.classList.add('is-open');
-            box.style.maxHeight = '';
-        }
-    }
-
-    function schedule() { window.requestAnimationFrame(clampToImage); }
-
-    if (img.complete) { schedule(); } else { img.addEventListener('load', schedule); }
-    img.addEventListener('error', schedule);
-    window.addEventListener('load', schedule);
-    window.addEventListener('resize', schedule);
-})();
-</script>
 
 <!-- ==========================================================================
      SECTION 4: WHAT WE MANUFACTURE / PRODUCT SHOWCASE
