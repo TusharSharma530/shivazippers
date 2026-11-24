@@ -4013,7 +4013,7 @@
 .forminfo {
     position: sticky;
     top: 110px;
-    background: rgb(12, 73, 134);
+    background: #005045;
     border-radius: var(--sz-radius-lg);
     padding: 34px 32px;
     box-shadow: rgba(22, 41, 63, 0.2) 0px 18px 40px;
