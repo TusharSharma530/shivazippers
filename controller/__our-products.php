@@ -18,6 +18,13 @@
             $productdetailssql = mysqli_query($con, "SELECT * FROM `products` WHERE status=1 AND url='$g3' LIMIT 1");
         }
 
+        // Some child-category routes (such as /coil-zippers/5) identify a product by its label.
+        if((!$productdetailssql || !mysqli_num_rows($productdetailssql)) && $childcategoryrow){
+            $childcategorytitle = mysqli_real_escape_string($con, $childcategoryrow['title']);
+            $childcategoryparentid = (int)$childcategoryrow['subcat_id'];
+            $productdetailssql = mysqli_query($con, "SELECT * FROM `products` WHERE status=1 AND category='$childcategoryparentid' AND LEFT(title, CHAR_LENGTH('$childcategorytitle'))='$childcategorytitle' LIMIT 1");
+        }
+
         $productdetailsrow = ($productdetailssql && mysqli_num_rows($productdetailssql)) ? mysqli_fetch_assoc($productdetailssql) : null;
         $productimagessql = false;
 
