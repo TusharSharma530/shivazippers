@@ -386,19 +386,20 @@
     gap: 11px;
     margin-top: 6px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: linear-gradient(135deg, var(--sz-orange-light) 0%, var(--sz-orange) 100%);
     color: rgb(255, 255, 255);
     font-family: carmen_sanssemibold, sans-serif;
     font-size: 13.5px;
-    font-weight: 600;
+    font-weight: 500;
     box-shadow: none;
     transition: var(--sz-transition);
+    padding: 10px;
 }
 
 @media (min-width: 992px) {
     .widget-excellence__btn {
-        padding: 8px 20px;
+        padding: 15px 20px;
         font-size: 13px;
         gap: 7px;
     }
@@ -569,30 +570,15 @@
 
 .excellence-desc {
     position: relative;
-    max-height: 210px;
+    max-height: calc(4 * 1.85em);
     overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.excellence-desc.is-open {
-    max-height: none;
-    overflow: visible;
-}
-
-.excellence-desc::after {
-    content: "";
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    height: 44px;
-    pointer-events: none;
-    background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 100%);
-    transition: opacity 0.3s;
-}
-
-.excellence-desc.is-open::after {
-    opacity: 0;
+.excellence-desc p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
 .excellence-desc__toggle {
@@ -935,7 +921,7 @@
     letter-spacing: 0.5px;
     text-transform: capitalize;
     line-height: 1.4;
-    color: rgb(255, 255, 255);
+    color: white;
     margin: 0px;
 }
 
@@ -4027,7 +4013,7 @@
 .forminfo {
     position: sticky;
     top: 110px;
-    background: rgb(12, 73, 134);
+    background: #005045;
     border-radius: var(--sz-radius-lg);
     padding: 34px 32px;
     box-shadow: rgba(22, 41, 63, 0.2) 0px 18px 40px;
@@ -5946,3 +5932,150 @@
     margin: 15px 0;
     border: none;
 }
+
+/* ==========================================
+   HOME FOUR SECTIONS - MAIN SECTION
+========================================== */
+
+.home-four-sections {
+    width: 100%;
+    padding: 70px 0;
+    background: #f8f8f6;
+}
+
+.home-four-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    row-gap: 30px;
+}
+
+.home-four-col {
+    display: flex;
+}
+
+/* ==========================================
+   CARD DESIGN
+========================================== */
+
+.home-four-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e7eaef;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    transition: all 0.35s ease;
+}
+
+.home-four-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================
+   IMAGE - TOP SIDE
+========================================== */
+
+.home-four-card__media {
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 20px 0;
+}
+
+.home-four-card__media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+}
+/* TABLET */
+@media (max-width: 991px) {
+    .home-four-card__media {
+        height: 250px;
+        min-height: 250px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .home-four-card__media {
+        height: 230px;
+        min-height: 230px;
+    }
+}
+
+
+/* ==========================================
+   CONTENT - BELOW IMAGE
+========================================== */
+
+.home-four-card__content {
+    width: 100%;
+    padding: 26px 24px 30px;
+    background: #eef1f5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.home-four-card__eyebrow {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #005045;
+    margin-bottom: 12px;
+}
+
+.home-four-card__content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #222222;
+    margin: 0 0 15px;
+}
+
+.home-four-card__content p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #666666;
+    margin: 0 0 20px;
+}
+
+.home-four-card__content a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #005045;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.home-four-card__content a:hover {
+    color: #222222;
+}
+
+.home-four-card__content a i {
+    transition: transform 0.3s ease;
+}
+
+.home-four-card__content a:hover i {
+    transform: translateX(5px);
+}
+
